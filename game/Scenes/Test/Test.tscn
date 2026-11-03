@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://qeqgcruvjq6j"]
+
+[ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="1_2825q"]
+[ext_resource type="PackedScene" uid="uid://bcleukcqgmo4n" path="res://Common/Player/Scenes/player.tscn" id="2_j2oh8"]
+[ext_resource type="Script" uid="uid://cp1htpn7ywhrp" path="res://Common/Camera/Scripts/camera.gd" id="3_nfwow"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
+size = Vector3(64.75586, 1.1855469, 1)
+
+[node name="Main" type="Node3D" unique_id=848268648]
+
+[node name="BackgroundLayer" type="Node3D" parent="." unique_id=66736751]
+
+[node name="Floor" type="Node3D" parent="." unique_id=2127064873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6561649, 0)
+
+[node name="Floor" type="StaticBody3D" parent="Floor" unique_id=2032125679]
+
+[node name="Sprite" type="Sprite3D" parent="Floor/Floor" unique_id=1641760648]
+transform = Transform3D(50.045, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+texture = ExtResource("1_2825q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor" unique_id=1090373279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037078857, 0.026367188, 0)
+shape = SubResource("BoxShape3D_7t2l5")
+
+[node name="Player" parent="." unique_id=2079493257 instance=ExtResource("2_j2oh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6331413, 0)
+
+[node name="ForegroundLayer" type="Node3D" parent="." unique_id=201959878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6561644, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer" unique_id=896772218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.490394, 0, 0)
+texture = ExtResource("1_2825q")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1020457053 node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 0.9998477, 0.017452406, 0, -0.017452406, 0.9998477, 0, 1.5, 7)
+script = ExtResource("3_nfwow")
+player = NodePath("../Player")
+offset = Vector3(0, 3, 7)
