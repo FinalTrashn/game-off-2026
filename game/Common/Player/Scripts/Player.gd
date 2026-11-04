@@ -5,8 +5,16 @@ extends CharacterBody3D
 @export var sprint_speed = 6.5
 @export var acceleration: float = 20
 @export var friction: float = 35
-@export var jump_velocity = 4.5
+@export var jump_velocity = 5.5
 var current_speed: float = walk_speed
+
+# air control and weight
+@export var air_resistance: float = 1.5
+@export var air_resistance_scale: float = 2.5
+@export var max_jump_windup_time: float = 0.16
+@export var min_jump_windup_time: float = 0.04
+var jump_prep_timer: float = 0.0
+var is_preparing_jump: bool = false
 
 # stamina values
 @export var max_stamina = 100
@@ -46,7 +54,7 @@ func handle_sprinting(delta):
 		current_speed = sprint_speed
 		
 		# drain stamina if not already 0
-		if current_stamina > 0:
+		if current_stamina > 0 and is_on_floor():
 			current_stamina -= stamina_drain * delta
 	
 	# handle walking or standing
@@ -55,7 +63,7 @@ func handle_sprinting(delta):
 		current_speed = walk_speed
 		
 		# regenerate stamina if not already on 100
-		if current_stamina < 100:
+		if current_stamina < 100 and is_on_floor():
 			current_stamina += stamina_regen * delta
 		# stamina is fully recovered, remove penalty
 		elif currently_penalty_recharging:
@@ -73,9 +81,29 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	if Input.is_action_just_pressed("jump") and is_on_floor() and not currently_penalty_recharging:
-		velocity.y = jump_velocity
-		current_stamina -= 30
+	
+	# jump windup, prepare for jump
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not currently_penalty_recharging and not is_preparing_jump:
+		is_preparing_jump = true
+		
+		if abs(velocity.x) < 0.1:
+			# if player stands still, they should jump almost instantly
+			jump_prep_timer = 0.01
+		else:
+			# dynamically calculate the prep time based on current speed
+			var speed_ratio = clamp(abs(velocity.x) / sprint_speed, 0.0, 1.0)
+			jump_prep_timer = lerp(max_jump_windup_time, min_jump_windup_time, speed_ratio)
+	
+	# while preparing for jump
+	if is_preparing_jump:
+		velocity.x = move_toward(velocity.x, velocity.x * 0.8, friction * 0.5 * delta)
+		
+		jump_prep_timer -= delta
+		# if preparation finished - jump
+		if jump_prep_timer <= 0:
+			velocity.y = jump_velocity
+			current_stamina -= 30
+			is_preparing_jump = false
 	
 	var direction = get_input_direction()
 	if is_on_floor():
@@ -83,5 +111,11 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, direction.x * current_speed, acceleration * delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
+	# resistance in air
+	else:
+		# ratio - scale air resistance with speed
+		var speed_ratio = abs(velocity.x) / sprint_speed
+		var dynamic_resistance = air_resistance + (speed_ratio * speed_ratio * air_resistance_scale)		
+		velocity.x = move_toward(velocity.x, 0, dynamic_resistance * delta)
 	
 	move_and_slide()
