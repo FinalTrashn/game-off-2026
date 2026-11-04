@@ -26,4 +26,10 @@ grow_vertical = 2
 stream = ExtResource("2_ciwnb")
 autoplay = true
 
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=376982278]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "this is a bledn test"
+
 [connection signal="finished" from="CanvasLayer/Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

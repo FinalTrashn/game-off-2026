@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://blp433f2v0cbp"]
 
+[ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="1_syten"]
+
 [node name="Main" type="Node2D" unique_id=2121472434]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=228310562]
+position = Vector2(585.5, 245)
+scale = Vector2(5.3359375, 1)
+texture = ExtResource("1_syten")
+
+[node name="Label" type="Label" parent="." unique_id=3508244]
+offset_left = 279.0
+offset_top = 355.0
+offset_right = 811.0
+offset_bottom = 486.0
+text = "Knull is coming"
