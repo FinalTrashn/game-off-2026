@@ -4,9 +4,11 @@ extends Node
 @export var background_z_offset = 3
 
 var currently_on_background_layer = false
+signal layer_changed(is_background: bool)
 
 func switch_layer():
 	currently_on_background_layer = !currently_on_background_layer
+	emit_signal("layer_changed", currently_on_background_layer)
 	if currently_on_background_layer:
 		player.global_position.z -= background_z_offset
 	else:
