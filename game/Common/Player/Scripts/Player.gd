@@ -26,10 +26,24 @@ var currently_penalty_recharging = false
 # ui elements
 @export var stamina_bar: TextureProgressBar
 @export var blink_player: AnimationPlayer
+@onready var sprite: AnimatedSprite3D = get_node("Sprite")
+
+# layer switching ui
+@onready var layer_controller = get_tree().root.get_node("/root/Main/Controller/LayerController")
 
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _ready() -> void:
+	if layer_controller:
+		layer_controller.layer_changed.connect(_on_layer_changed)
+		_on_layer_changed(layer_controller.currently_on_background_layer)
+
+func _on_layer_changed(on_background: bool):
+	if on_background:
+		sprite.render_priority = -2
+	else:
+		sprite.render_priority = 0
 
 func get_input_direction() -> Vector3:
 	var direction = Vector3()
