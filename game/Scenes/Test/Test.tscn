@@ -10,10 +10,20 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
 size = Vector3(64.75586, 1.1855469, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_fl6ly"]
+size = Vector3(63.698, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77vx0"]
+albedo_texture = ExtResource("1_2825q")
+uv1_triplanar = true
+
 [node name="Main" type="Node3D" unique_id=848268648]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1746417180]
+transform = Transform3D(1, 0, 0, 0, 0.17694741, 0.9842203, 0, -0.9842203, 0.17694743, 0, 15.280503, 1.1548485)
+
 [node name="BackgroundLayer" type="Node3D" parent="." unique_id=681735042]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Background" type="Node3D" parent="BackgroundLayer" unique_id=550256398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
@@ -24,20 +34,20 @@ alpha_cut = 2
 texture = ExtResource("1_43i24")
 
 [node name="Floor" type="Node3D" parent="BackgroundLayer" unique_id=763499834]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6561649, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Floor" type="StaticBody3D" parent="BackgroundLayer/Floor" unique_id=1895948215]
-
-[node name="Sprite" type="Sprite3D" parent="BackgroundLayer/Floor/Floor" unique_id=392342561]
-transform = Transform3D(50.045, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-texture = ExtResource("1_2825q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundLayer/Floor/Floor" unique_id=2013088521]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037078857, 0.026367188, 0)
 shape = SubResource("BoxShape3D_7t2l5")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackgroundLayer/Floor/Floor" unique_id=1214645673]
+mesh = SubResource("BoxMesh_fl6ly")
+surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
+
 [node name="Foreground" type="Node3D" parent="BackgroundLayer" unique_id=1827129657]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="BackgroundLayer/Foreground" unique_id=714154330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.490394, 0, 0)
@@ -48,10 +58,10 @@ texture = ExtResource("1_2825q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6331413, 0)
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1020457053 node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 0.9998477, 0.017452406, 0, -0.017452406, 0.9998477, 0, 1.5, 7)
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 5, 7)
 script = ExtResource("3_nfwow")
 player = NodePath("../Player")
-offset = Vector3(0, 3, 7)
+y_offset = 2.0
 
 [node name="ForegroundLayer" type="Node3D" parent="." unique_id=313849714]
 
@@ -69,20 +79,20 @@ alpha_cut = 2
 texture = ExtResource("5_77vx0")
 
 [node name="Floor" type="Node3D" parent="ForegroundLayer" unique_id=2127064873]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6561649, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Floor" type="StaticBody3D" parent="ForegroundLayer/Floor" unique_id=2032125679]
 
-[node name="Sprite" type="Sprite3D" parent="ForegroundLayer/Floor/Floor" unique_id=1641760648]
-transform = Transform3D(50.045, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-texture = ExtResource("1_2825q")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ForegroundLayer/Floor/Floor" unique_id=2102826387]
+mesh = SubResource("BoxMesh_fl6ly")
+surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Floor/Floor" unique_id=1090373279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037078857, 0.026367188, 0)
 shape = SubResource("BoxShape3D_7t2l5")
 
 [node name="Foreground" type="Node3D" parent="ForegroundLayer" unique_id=201959878]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer/Foreground" unique_id=896772218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.490394, 0, 0)
@@ -93,3 +103,4 @@ texture = ExtResource("1_2825q")
 [node name="LayerController" type="Node" parent="Controller" unique_id=1922672156 node_paths=PackedStringArray("player")]
 script = ExtResource("6_77vx0")
 player = NodePath("../../Player")
+background_z_offset = 2
