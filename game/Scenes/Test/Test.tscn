@@ -19,7 +19,7 @@ uv1_triplanar = true
 
 [node name="Main" type="Node3D" unique_id=848268648]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1746417180]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1746417180]
 transform = Transform3D(1, 0, 0, 0, 0.17694741, 0.9842203, 0, -0.9842203, 0.17694743, 0, 15.280503, 1.1548485)
 
 [node name="BackgroundLayer" type="Node3D" parent="." unique_id=681735042]
@@ -61,7 +61,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6331413, 0)
 transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 5, 7)
 script = ExtResource("3_nfwow")
 player = NodePath("../Player")
-y_offset = 2.0
 
 [node name="ForegroundLayer" type="Node3D" parent="." unique_id=313849714]
 
