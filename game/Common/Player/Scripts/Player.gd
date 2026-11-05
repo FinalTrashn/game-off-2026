@@ -75,7 +75,7 @@ func handle_sprinting(delta):
 	if stamina_bar:
 		stamina_bar.value = current_stamina
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	# print(current_stamina)
 	handle_sprinting(delta)
 	
