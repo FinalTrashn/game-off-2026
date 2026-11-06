@@ -18,6 +18,9 @@ size = Vector3(63.698, 1, 2)
 albedo_texture = ExtResource("1_2825q")
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtflm"]
+size = Vector3(26.971252, 9.495514, 1)
+
 [node name="Main" type="Node3D" unique_id=848268648]
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1746417180]
@@ -66,9 +69,17 @@ player = NodePath("../Player")
 [node name="Background" type="Node3D" parent="ForegroundLayer" unique_id=66736751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="Background" type="Sprite3D" parent="ForegroundLayer/Background" unique_id=387794692 groups=["wall"]]
+[node name="BackgroundWall" type="StaticBody3D" parent="ForegroundLayer/Background" unique_id=583479048]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite" type="Sprite3D" parent="ForegroundLayer/Background/BackgroundWall" unique_id=387794692 groups=["wall"]]
 transform = Transform3D(5.76, 0, 0, 0, 2.38, 0, 0, 0, 1, -11.061947, 4.7784314, 0)
 texture = ExtResource("5_77vx0")
+
+[node name="Collision" type="CollisionShape3D" parent="ForegroundLayer/Background/BackgroundWall" unique_id=1058824782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.977203, 4.7862396, 0)
+shape = SubResource("BoxShape3D_wtflm")
 
 [node name="Background2" type="Sprite3D" parent="ForegroundLayer/Background" unique_id=2007833229 groups=["wall"]]
 transform = Transform3D(5.76, 0, 0, 0, 2.38, 0, 0, 0, 1, 28.178768, 4.7784314, 0)

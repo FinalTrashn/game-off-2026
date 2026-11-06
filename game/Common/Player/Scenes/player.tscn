@@ -79,7 +79,7 @@ script = ExtResource("1_wtflm")
 stamina_bar = NodePath("CanvasLayer/Staminabar")
 blink_player = NodePath("CanvasLayer/Staminabar/BlinkPlayer")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1339402680]
+[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1339402680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04272461, 0)
 shape = SubResource("CapsuleShape3D_fl6ly")
 
@@ -106,3 +106,13 @@ tint_progress = Color(11.551139, 0.2932716, 13.531297, 1)
 
 [node name="BlinkPlayer" type="AnimationPlayer" parent="CanvasLayer/Staminabar" unique_id=1791363153]
 libraries/ = SubResource("AnimationLibrary_jxdms")
+
+[node name="WallCollider" type="RayCast3D" parent="." unique_id=2089830306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 1)
+target_position = Vector3(0, 0, -3)
+collision_mask = 2
+
+[node name="WallCollider" type="RayCast3D" parent="WallCollider" unique_id=1460393718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, 0)
+target_position = Vector3(0, 0, -3)
+collision_mask = 2
