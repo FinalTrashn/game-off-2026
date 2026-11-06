@@ -26,6 +26,7 @@ func _change_opacity_of_walls(alpha: float = 0.5):
 	var walls = get_tree().get_nodes_in_group("wall")
 	for w in walls:
 		if w is Sprite3D:
-			w.modulate.a = alpha
+			var tween = create_tween()
+			tween.tween_property(w, "modulate:a", alpha, 0.5)
 		else:
-			push_warning("%s has no modulate (not a CanvasItem)" % w.name)
+			push_warning("%s has no modulate (not a Sprite3D)" % w.name)
