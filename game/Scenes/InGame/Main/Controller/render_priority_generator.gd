@@ -5,7 +5,7 @@ func _ready() -> void:
 	var sprites = get_all_sprite3ds(get_tree().root)
 	
 	for s in sprites:
-		s.render_priority = s.global_position.z
+		s.render_priority = s.global_position.z*10
 
 
 func get_all_sprite3ds(node: Node) -> Array[Node3D]:

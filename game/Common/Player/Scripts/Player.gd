@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 # speed
-@export var walk_speed = 2.6
-@export var sprint_speed = 6.5
+@export var walk_speed: float = 2.6
+@export var sprint_speed: float = 6.5
 @export var acceleration: float = 20
 @export var friction: float = 35
 @export var jump_velocity = 5.5
@@ -27,8 +27,11 @@ var currently_penalty_recharging = false
 @export var stamina_bar: TextureProgressBar
 @export var blink_player: AnimationPlayer
 
-# layer switching ui
+# layer switching 
 @onready var layer_controller = get_tree().root.get_node("/root/Main/Controller/LayerController")
+var is_colliding_with_wall: bool = false
+var last_collider: Node = null
+signal colliding_with_wall(colliding: bool, last_collider: Node, new_collider: Node)
 
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -38,11 +41,10 @@ func _ready() -> void:
 		layer_controller.layer_changed.connect(_on_layer_changed)
 		_on_layer_changed(layer_controller.currently_on_background_layer)
 
+
 func _on_layer_changed(on_background: bool):
-	if on_background:
-		$Sprite.render_priority = -2
-	else:
-		$Sprite.render_priority = 0
+	$Sprite.render_priority = $Sprite.global_position.z*10
+
 
 func get_input_direction() -> Vector3:
 	var direction = Vector3()
@@ -53,6 +55,7 @@ func get_input_direction() -> Vector3:
 		direction.x += 1
 	
 	return direction
+
 
 func handle_sprinting(delta):
 	# stop from using stamina if no stamina left
@@ -87,6 +90,7 @@ func handle_sprinting(delta):
 	# visualize on ui progress bar
 	if stamina_bar:
 		stamina_bar.value = current_stamina
+
 
 func _process(delta: float) -> void:
 	# print(current_stamina)
@@ -132,3 +136,16 @@ func _process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, dynamic_resistance * delta)
 	
 	move_and_slide()
+
+
+func _physics_process(delta: float) -> void:
+	# check collision with wall
+	var currently_colliding = $WallCollider.is_colliding()
+	if is_colliding_with_wall != currently_colliding:
+		var new_collider = null
+		if currently_colliding:
+			new_collider = $WallCollider.get_collider(0)
+		
+		emit_signal("colliding_with_wall", currently_colliding, last_collider, new_collider)
+		is_colliding_with_wall = currently_colliding
+		last_collider = new_collider

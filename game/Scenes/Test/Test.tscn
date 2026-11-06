@@ -33,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="Background" type="Sprite3D" parent="BackgroundLayer/Background" unique_id=328620139]
-transform = Transform3D(1, 0, 0, 0, 0.265, 0, 0, 0, 1, 8.466802, 4.7784314, 0)
+transform = Transform3D(1, 0, 0, 0, 0.265, 0, 0, 0, 1, 8.51892, 4.674195, 0)
 texture = ExtResource("1_43i24")
 
 [node name="Floor" type="Node3D" parent="BackgroundLayer" unique_id=763499834]
@@ -49,11 +49,11 @@ shape = SubResource("BoxShape3D_7t2l5")
 mesh = SubResource("BoxMesh_fl6ly")
 surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
 
-[node name="Foreground" type="Node3D" parent="BackgroundLayer" unique_id=1827129657]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)
+[node name="Foreground" type="Node3D" parent="BackgroundLayer" unique_id=255377330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.591199, 0.656, 0.5)
 
-[node name="Sprite3D" type="Sprite3D" parent="BackgroundLayer/Foreground" unique_id=714154330]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1009946, 0, 0)
+[node name="Sprite3D" type="Sprite3D" parent="BackgroundLayer/Foreground" unique_id=1552138464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.490394, 0, 0)
 texture = ExtResource("1_2825q")
 
 [node name="Player" parent="." unique_id=2079493257 instance=ExtResource("2_j2oh8")]
@@ -81,10 +81,18 @@ texture = ExtResource("5_77vx0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.977203, 4.7862396, 0)
 shape = SubResource("BoxShape3D_wtflm")
 
-[node name="Background2" type="Sprite3D" parent="ForegroundLayer/Background" unique_id=2007833229 groups=["wall"]]
-transform = Transform3D(5.76, 0, 0, 0, 2.38, 0, 0, 0, 1, 28.178768, 4.7784314, 0)
-render_priority = 1
+[node name="BackgroundWall2" type="StaticBody3D" parent="ForegroundLayer/Background" unique_id=1507769825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.490173, 0, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite" type="Sprite3D" parent="ForegroundLayer/Background/BackgroundWall2" unique_id=149081036 groups=["wall"]]
+transform = Transform3D(5.76, 0, 0, 0, 2.38, 0, 0, 0, 1, -11.061947, 4.7784314, 0)
 texture = ExtResource("5_77vx0")
+
+[node name="Collision" type="CollisionShape3D" parent="ForegroundLayer/Background/BackgroundWall2" unique_id=1909224686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.977203, 4.7862396, 0)
+shape = SubResource("BoxShape3D_wtflm")
 
 [node name="Floor" type="Node3D" parent="ForegroundLayer" unique_id=2127064873]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -104,7 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer/Foreground" unique_id=896772218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.490394, 0, 0)
-render_priority = 3
 texture = ExtResource("1_2825q")
 
 [node name="Controller" type="Node" parent="." unique_id=1408514781]
