@@ -3,9 +3,9 @@ extends Camera3D
 
 @export var player: Node3D
 @export var follow_speed = 5
-@export var foreground_y_offset: float = 3
-@export var background_y_offset: float = 1.5
-@export var foreground_z_offset: float = 7
+@export var foreground_y_offset: float = 3.25
+@export var background_y_offset: float = 1.75
+@export var foreground_z_offset: float = 5.5
 @export var background_z_offset: float = 4.5
 
 @onready var layer_controller = get_tree().root.get_node("/root/Main/Controller/LayerController")

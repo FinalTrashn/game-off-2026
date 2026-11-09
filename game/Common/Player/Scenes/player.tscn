@@ -1,20 +1,92 @@
 [gd_scene format=3 uid="uid://bcleukcqgmo4n"]
 
 [ext_resource type="Script" uid="uid://bpwsmvjlg2g76" path="res://Common/Player/Scripts/Player.gd" id="1_wtflm"]
-[ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="2_65f8f"]
+[ext_resource type="Texture2D" uid="uid://cpxc8lggu3t85" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-5.png" id="2_7r375"]
+[ext_resource type="Texture2D" uid="uid://ca8r0krhprlq3" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-9.png" id="3_q8hir"]
+[ext_resource type="Texture2D" uid="uid://dagmg8oemnoeb" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-1.png" id="4_d1b2g"]
+[ext_resource type="Texture2D" uid="uid://cfsojdkxvngnl" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-2.png" id="5_yof5a"]
+[ext_resource type="Texture2D" uid="uid://rc10dd87vv6k" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-3.png" id="6_opyvn"]
+[ext_resource type="Texture2D" uid="uid://dwarjm2uo1mrw" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-4.png" id="7_op83p"]
+[ext_resource type="Texture2D" uid="uid://dpilecoy6mi6n" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-6.png" id="8_kk34g"]
+[ext_resource type="Texture2D" uid="uid://dbfogspmimt02" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-7.png" id="9_161b3"]
+[ext_resource type="Texture2D" uid="uid://cfpu75qq4y64s" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-8.png" id="10_eg4yc"]
+[ext_resource type="Texture2D" uid="uid://7jwm2ibxmo74" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-10.png" id="11_663xi"]
+[ext_resource type="Texture2D" uid="uid://cpvqbldluqml0" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-11.png" id="12_ojccj"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fl6ly"]
-radius = 0.6484375
-height = 1.296875
+[sub_resource type="BoxShape3D" id="BoxShape3D_q8hir"]
+size = Vector3(2.6734009, 3.9063416, 0.7302246)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fl6ly"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_65f8f")
+"texture": ExtResource("10_eg4yc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_opyvn")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_op83p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q8hir")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d1b2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yof5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_opyvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_op83p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7r375")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kk34g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_161b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eg4yc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q8hir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_663xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ojccj")
+}],
+"loop": 1,
+"name": &"sprint",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_q8hir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kk34g")
+}],
+"loop": 1,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -82,12 +154,17 @@ stamina_bar = NodePath("CanvasLayer/Staminabar")
 blink_player = NodePath("CanvasLayer/Staminabar/BlinkPlayer")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1339402680]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04272461, 0)
-shape = SubResource("CapsuleShape3D_fl6ly")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059051514, 0.063064575, 0)
+shape = SubResource("BoxShape3D_q8hir")
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." unique_id=1683576381]
+layers = 3
+shaded = true
 render_priority = 2
 sprite_frames = SubResource("SpriteFrames_fl6ly")
+animation = &"walk"
+frame_progress = 0.5254037
+speed_scale = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=559149421]
 
@@ -110,7 +187,7 @@ tint_progress = Color(11.551139, 0.2932716, 13.531297, 1)
 libraries/ = SubResource("AnimationLibrary_jxdms")
 
 [node name="WallCollider" type="ShapeCast3D" parent="." unique_id=837483549]
-transform = Transform3D(1, 0, 0, 0, 0.165, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(3.67, 0, 0, 0, 0.165, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("BoxShape3D_fl6ly")
 target_position = Vector3(0, 0, 0)
 collision_mask = 2
