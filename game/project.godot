@@ -75,6 +75,8 @@ switch_to_foreground_layer={
 
 [layer_names]
 
+3d_render/layer_1="ForegroundObjects"
+3d_render/layer_2="BackgroundObjects"
 3d_physics/layer_2="Wall"
 
 [physics]

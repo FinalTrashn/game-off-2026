@@ -8,6 +8,9 @@ extends CharacterBody3D
 @export var jump_velocity = 5.5
 var current_speed: float = walk_speed
 
+# @export var max_animation_speed: float = 15
+# @export var min_animation_speed: float = 6
+
 # air control and weight
 @export var air_resistance: float = 1.5
 @export var air_resistance_scale: float = 2.5
@@ -40,6 +43,8 @@ func _ready() -> void:
 	if layer_controller:
 		layer_controller.layer_changed.connect(_on_layer_changed)
 		_on_layer_changed(layer_controller.currently_on_background_layer)
+		
+	$Sprite.play("idle")
 
 
 func _on_layer_changed(on_background: bool):
@@ -65,7 +70,7 @@ func handle_sprinting(delta):
 		blink_player.play("Blink")
 
 	# handle sprinting if not on penalty
-	if Input.is_action_pressed("sprint") and not currently_penalty_recharging:
+	if Input.is_action_pressed("sprint") and not currently_penalty_recharging and abs(velocity.x) > 0:
 		# set max speed
 		current_speed = sprint_speed
 		
@@ -90,6 +95,21 @@ func handle_sprinting(delta):
 	# visualize on ui progress bar
 	if stamina_bar:
 		stamina_bar.value = current_stamina
+		
+
+func handle_animation():
+	var speed_ratio = clamp(abs(velocity.x) / current_speed, 0.0, 1.0)
+	$Sprite.speed_scale = lerp(0.5, 1.5, speed_ratio)
+	
+	if (is_preparing_jump or not is_on_floor()):
+		$Sprite.play("jump")
+	elif abs(velocity.x) == 0:
+		$Sprite.play("idle")
+	elif is_on_floor() and current_speed == walk_speed:
+		$Sprite.play("walk")
+	elif is_on_floor() and current_speed == sprint_speed:
+		$Sprite.play("sprint")
+	
 
 
 func _process(delta: float) -> void:
@@ -125,6 +145,7 @@ func _process(delta: float) -> void:
 	var direction = get_input_direction()
 	if is_on_floor():
 		if direction != Vector3.ZERO:
+			$Sprite.flip_h = velocity.x < 0
 			velocity.x = move_toward(velocity.x, direction.x * current_speed, acceleration * delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
@@ -134,6 +155,9 @@ func _process(delta: float) -> void:
 		var speed_ratio = abs(velocity.x) / sprint_speed
 		var dynamic_resistance = air_resistance + (speed_ratio * speed_ratio * air_resistance_scale)		
 		velocity.x = move_toward(velocity.x, 0, dynamic_resistance * delta)
+	
+	# play animation
+	handle_animation()
 	
 	move_and_slide()
 
