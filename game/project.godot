@@ -26,6 +26,10 @@ SceneLoader="*uid://ctg2ev3q50par"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[dotnet]
+
+project/assembly_name="Shift Game"
+
 [file_customization]
 
 folder_colors={
