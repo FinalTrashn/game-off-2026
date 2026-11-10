@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cwvoiwj6qr8lu" path="res://Scenes/InGame/Main/room_manager.gd" id="3_fx46b"]
 [ext_resource type="Script" uid="uid://cp1htpn7ywhrp" path="res://Common/Camera/Scripts/camera.gd" id="3_qvh5f"]
 [ext_resource type="Script" uid="uid://ds4yr2r0331tc" path="res://Scenes/InGame/Main/Controller/layer_controller.gd" id="4_70f0n"]
+[ext_resource type="PackedScene" uid="uid://b6vn7mxc471p" path="res://Scenes/Test/TestRoom1.tscn" id="4_stfqe"]
 [ext_resource type="Script" uid="uid://b347ktpwjhg27" path="res://Scenes/InGame/Main/Controller/render_priority_generator.gd" id="5_stfqe"]
 
 [node name="Main" type="Node3D" unique_id=848268648]
@@ -18,6 +19,8 @@ player = NodePath("../Player")
 
 [node name="Rooms" type="Node3D" parent="." unique_id=754864513]
 script = ExtResource("3_fx46b")
+
+[node name="TestRoom" parent="Rooms" unique_id=660810287 instance=ExtResource("4_stfqe")]
 
 [node name="Controller" type="Node" parent="." unique_id=1408514781]
 
