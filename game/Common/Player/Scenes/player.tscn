@@ -1,17 +1,28 @@
 [gd_scene format=3 uid="uid://bcleukcqgmo4n"]
 
 [ext_resource type="Script" uid="uid://bpwsmvjlg2g76" path="res://Common/Player/Scripts/Player.gd" id="1_wtflm"]
-[ext_resource type="Texture2D" uid="uid://cpxc8lggu3t85" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-5.png" id="2_7r375"]
-[ext_resource type="Texture2D" uid="uid://ca8r0krhprlq3" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-9.png" id="3_q8hir"]
-[ext_resource type="Texture2D" uid="uid://dagmg8oemnoeb" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-1.png" id="4_d1b2g"]
-[ext_resource type="Texture2D" uid="uid://cfsojdkxvngnl" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-2.png" id="5_yof5a"]
-[ext_resource type="Texture2D" uid="uid://rc10dd87vv6k" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-3.png" id="6_opyvn"]
-[ext_resource type="Texture2D" uid="uid://dwarjm2uo1mrw" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-4.png" id="7_op83p"]
-[ext_resource type="Texture2D" uid="uid://dpilecoy6mi6n" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-6.png" id="8_kk34g"]
-[ext_resource type="Texture2D" uid="uid://dbfogspmimt02" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-7.png" id="9_161b3"]
-[ext_resource type="Texture2D" uid="uid://cfpu75qq4y64s" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-8.png" id="10_eg4yc"]
-[ext_resource type="Texture2D" uid="uid://7jwm2ibxmo74" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-10.png" id="11_663xi"]
-[ext_resource type="Texture2D" uid="uid://cpvqbldluqml0" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-11.png" id="12_ojccj"]
+[ext_resource type="Texture2D" uid="uid://ca7o01usdaoi7" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-5.png" id="2_7r375"]
+[ext_resource type="Texture2D" uid="uid://ctcjr0ela7h0x" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-9.png" id="3_q8hir"]
+[ext_resource type="Texture2D" uid="uid://bnir5ctikdk2s" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-1.png" id="4_d1b2g"]
+[ext_resource type="Texture2D" uid="uid://bd6pl6bhrbc6l" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-2.png" id="5_yof5a"]
+[ext_resource type="Texture2D" uid="uid://ceu6y228txdep" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-3.png" id="6_opyvn"]
+[ext_resource type="Texture2D" uid="uid://bne5ohlsgjev2" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-4.png" id="7_op83p"]
+[ext_resource type="Texture2D" uid="uid://bhsnmwqlev3ue" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-6.png" id="8_kk34g"]
+[ext_resource type="Texture2D" uid="uid://du6bmt6ntlnbi" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-7.png" id="9_161b3"]
+[ext_resource type="Texture2D" uid="uid://b2paquixu6pbd" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-8.png" id="10_eg4yc"]
+[ext_resource type="Texture2D" uid="uid://crseoovkxh2ud" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-10.png" id="11_663xi"]
+[ext_resource type="Texture2D" uid="uid://cp41h24vklk4k" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-11.png" id="12_ojccj"]
+[ext_resource type="Texture2D" uid="uid://dqs7x4k4fngpk" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-12.png" id="13_i1y88"]
+[ext_resource type="Texture2D" uid="uid://btaiab0iuc5nr" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-13.png" id="14_0eqiv"]
+[ext_resource type="Texture2D" uid="uid://dgslccmjbks23" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-14.png" id="15_vb7bj"]
+[ext_resource type="Texture2D" uid="uid://bue3f7j7ijerp" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-15.png" id="16_0y55j"]
+[ext_resource type="Texture2D" uid="uid://dwt6hplvyiqxp" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-16.png" id="17_1w47i"]
+[ext_resource type="Texture2D" uid="uid://cutfm3nkm2560" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-17.png" id="18_tlgx8"]
+[ext_resource type="Texture2D" uid="uid://cxcl14dfp0q85" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-18.png" id="19_elvmr"]
+[ext_resource type="Texture2D" uid="uid://dkkgx35c05t4j" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-19.png" id="20_k4kus"]
+[ext_resource type="Texture2D" uid="uid://dh6jbn6ij3a6a" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-20.png" id="21_6642e"]
+[ext_resource type="Texture2D" uid="uid://c6rs56b1ho01m" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-21.png" id="22_rd6in"]
+[ext_resource type="Texture2D" uid="uid://dgd43kk2ngyw6" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-22.png" id="23_c3a1r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8hir"]
 size = Vector3(2.6734009, 3.9063416, 0.7302246)
@@ -20,10 +31,10 @@ size = Vector3(2.6734009, 3.9063416, 0.7302246)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_eg4yc")
+"texture": ExtResource("22_rd6in")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_opyvn")
+"texture": ExtResource("17_1w47i")
 }],
 "loop": 1,
 "name": &"idle",
@@ -31,10 +42,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_op83p")
+"texture": ExtResource("16_0y55j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_q8hir")
+"texture": ExtResource("21_6642e")
 }],
 "loop": 1,
 "name": &"jump",
@@ -73,6 +84,39 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("12_ojccj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_i1y88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0eqiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vb7bj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0y55j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1w47i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tlgx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_elvmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_k4kus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_6642e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_rd6in")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_c3a1r")
 }],
 "loop": 1,
 "name": &"sprint",
@@ -80,10 +124,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_q8hir")
+"texture": ExtResource("16_0y55j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_kk34g")
+"texture": ExtResource("19_elvmr")
 }],
 "loop": 1,
 "name": &"walk",
@@ -162,8 +206,7 @@ layers = 3
 shaded = true
 render_priority = 2
 sprite_frames = SubResource("SpriteFrames_fl6ly")
-animation = &"walk"
-frame_progress = 0.5254037
+animation = &"idle"
 speed_scale = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=559149421]
