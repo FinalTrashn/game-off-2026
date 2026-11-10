@@ -7,7 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://b6vn7mxc471p" path="res://Scenes/Test/TestRoom1.tscn" id="4_stfqe"]
 [ext_resource type="Script" uid="uid://b347ktpwjhg27" path="res://Scenes/InGame/Main/Controller/render_priority_generator.gd" id="5_stfqe"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
+sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
+sky_horizon_color = Color(0.014286831, 0.01615068, 0.03246209, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.014286831, 0.01615068, 0.03246209, 1)
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_qkd4f"]
+sky_material = SubResource("ProceduralSkyMaterial_70f0n")
+
+[sub_resource type="Environment" id="Environment_stfqe"]
+background_mode = 2
+sky = SubResource("Sky_qkd4f")
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
 [node name="Main" type="Node3D" unique_id=848268648]
+
+[node name="BlackHole" type="WorldEnvironment" parent="." unique_id=1405360915]
+environment = SubResource("Environment_stfqe")
 
 [node name="Player" parent="." unique_id=2079493257 instance=ExtResource("1_td30v")]
 transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, 0, 0.89528155, 0)
@@ -19,6 +40,9 @@ player = NodePath("../Player")
 
 [node name="Rooms" type="Node3D" parent="." unique_id=754864513]
 script = ExtResource("3_fx46b")
+
+[node name="TestRoom2" parent="Rooms" unique_id=1142119485 instance=ExtResource("4_stfqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51063, 0, 0)
 
 [node name="TestRoom" parent="Rooms" unique_id=660810287 instance=ExtResource("4_stfqe")]
 

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c46a66umbr48p"]
+
+[ext_resource type="Texture2D" uid="uid://q1ywalepmcqr" path="res://Common/Entrance/Sprites/door.webp" id="1_1i6ro"]
+[ext_resource type="Script" uid="uid://b0stbfvjspyjy" path="res://Common/Entrance/Scripts/entrance.gd" id="1_vdlsj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fl6ly"]
+size = Vector3(2.15802, 2.7619324, 0.45544434)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_glrit"]
+
+[node name="Entrance" type="StaticBody3D" unique_id=1231968614]
+script = ExtResource("1_vdlsj")
+
+[node name="Sprite" type="Sprite3D" parent="." unique_id=1895692033]
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, 0, 0, 0)
+shaded = true
+texture = ExtResource("1_1i6ro")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=822151802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022369385, 0.16850281, 0.00018310547)
+shape = SubResource("BoxShape3D_fl6ly")
+
+[node name="PlayerCollider" type="ShapeCast3D" parent="." unique_id=400597463]
+transform = Transform3D(2.25, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_glrit")
+target_position = Vector3(0, 0, 0.5)
+collision_mask = 4

@@ -13,10 +13,14 @@ func _ready() -> void:
 func switch_layer():
 	if not currently_colliding_with_wall:
 		currently_on_background_layer = !currently_on_background_layer
+		var tween = get_tree().create_tween()
+		var to = Vector3(player.global_position.x, player.global_position.y, player.global_position.z)
 		if currently_on_background_layer:
-			player.global_position.z -= background_z_offset
+			to.z -= background_z_offset
 		else:
-			player.global_position.z += background_z_offset
+			to.z += background_z_offset
+		tween.tween_property(player, "global_position", to, 0.3)		
+		tween.finished.connect(func(): emit_signal("layer_changed", currently_on_background_layer))
 		emit_signal("layer_changed", currently_on_background_layer)
 
 
