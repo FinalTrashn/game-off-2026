@@ -15,7 +15,7 @@ config/tags=PackedStringArray("eyerash", "gamejam")
 run/main_scene="uid://dxxmyk512ycid"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://icon.svg"
+config/icon="uid://bd6pl6bhrbc6l"
 
 [autoload]
 
