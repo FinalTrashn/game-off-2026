@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://b6vn7mxc471p"]
+
+[ext_resource type="Texture2D" uid="uid://cyfqmu1k2gy6k" path="res://Common/Background/Sprites/jokerofthomas.png" id="1_hc4fl"]
+[ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="2_f25oe"]
+[ext_resource type="Texture2D" uid="uid://b13em1yyks2wc" path="res://Common/Background/Sprites/stomped.png" id="5_ycgo4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
+size = Vector3(64.75586, 1.1855469, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fl6ly"]
+size = Vector3(63.698, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77vx0"]
+albedo_texture = ExtResource("2_f25oe")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtflm"]
+size = Vector3(26.971252, 9.495514, 1)
+
+[node name="TestRoom" type="Node3D" unique_id=848268648]
+
+[node name="BackgroundLayer" type="Node3D" parent="." unique_id=681735042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Background" type="Node3D" parent="BackgroundLayer" unique_id=550256398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Background" type="Sprite3D" parent="BackgroundLayer/Background" unique_id=328620139]
+transform = Transform3D(1, 0, 0, 0, 0.265, 0, 0, 0, 1, 8.51892, 4.674195, 0)
+layers = 2
+shaded = true
+texture = ExtResource("1_hc4fl")
+
+[node name="Floor" type="Node3D" parent="BackgroundLayer" unique_id=763499834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Floor" type="StaticBody3D" parent="BackgroundLayer/Floor" unique_id=1895948215]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundLayer/Floor/Floor" unique_id=2013088521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037078857, 0.026367188, 0)
+shape = SubResource("BoxShape3D_7t2l5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackgroundLayer/Floor/Floor" unique_id=1214645673]
+layers = 2
+mesh = SubResource("BoxMesh_fl6ly")
+surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
+
+[node name="Foreground" type="Node3D" parent="BackgroundLayer" unique_id=255377330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.591199, 0.656, 0.5)
+
+[node name="Sprite3D" type="Sprite3D" parent="BackgroundLayer/Foreground" unique_id=1552138464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.490394, 0, 0)
+layers = 2
+shaded = true
+texture = ExtResource("2_f25oe")
+
+[node name="ForegroundLayer" type="Node3D" parent="." unique_id=313849714]
+
+[node name="LightForeground" type="DirectionalLight3D" parent="ForegroundLayer" unique_id=541335587]
+transform = Transform3D(1, 0, 0, 0, 0.97425336, 0.2254559, 0, -0.2254559, 0.97425336, 0, 4.6619587, 7.387166)
+visible = false
+light_color = Color(0.17722046, 0.20073125, 0.28708592, 1)
+light_energy = 1.792
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_caster_mask = 4294966273
+
+[node name="Background" type="Node3D" parent="ForegroundLayer" unique_id=66736751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="BackgroundWall" type="StaticBody3D" parent="ForegroundLayer/Background" unique_id=583479048]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite" type="Sprite3D" parent="ForegroundLayer/Background/BackgroundWall" unique_id=387794692 groups=["wall"]]
+transform = Transform3D(5.76, 0, 0, 0, 2.38, 0, 0, 0, 1, -11.061947, 4.7784314, 0)
+shaded = true
+texture = ExtResource("5_ycgo4")
+
+[node name="Collision" type="CollisionShape3D" parent="ForegroundLayer/Background/BackgroundWall" unique_id=1058824782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.977203, 4.7862396, 0)
+shape = SubResource("BoxShape3D_wtflm")
+
+[node name="BackgroundWall2" type="StaticBody3D" parent="ForegroundLayer/Background" unique_id=1507769825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.490173, 0, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite" type="Sprite3D" parent="ForegroundLayer/Background/BackgroundWall2" unique_id=149081036 groups=["wall"]]
+transform = Transform3D(5.76, 0, 0, 0, 2.38, 0, 0, 0, 1, -11.061947, 4.7784314, 0)
+shaded = true
+texture = ExtResource("5_ycgo4")
+
+[node name="Collision" type="CollisionShape3D" parent="ForegroundLayer/Background/BackgroundWall2" unique_id=1909224686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.977203, 4.7862396, 0)
+shape = SubResource("BoxShape3D_wtflm")
+
+[node name="Floor" type="Node3D" parent="ForegroundLayer" unique_id=2127064873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Floor" type="StaticBody3D" parent="ForegroundLayer/Floor" unique_id=2032125679]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ForegroundLayer/Floor/Floor" unique_id=2102826387]
+mesh = SubResource("BoxMesh_fl6ly")
+surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Floor/Floor" unique_id=1090373279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037078857, 0.026367188, 0)
+shape = SubResource("BoxShape3D_7t2l5")
+
+[node name="Foreground" type="Node3D" parent="ForegroundLayer" unique_id=201959878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)
+
+[node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer/Foreground" unique_id=896772218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.490394, 0, 0)
+shaded = true
+texture = ExtResource("2_f25oe")
