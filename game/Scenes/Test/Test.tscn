@@ -13,6 +13,7 @@ sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
 sky_horizon_color = Color(0.014286831, 0.01615068, 0.03246209, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.014286831, 0.01615068, 0.03246209, 1)
+energy_multiplier = 0.0
 
 [sub_resource type="Sky" id="Sky_qkd4f"]
 sky_material = SubResource("ProceduralSkyMaterial_17mwx")
@@ -20,7 +21,6 @@ sky_material = SubResource("ProceduralSkyMaterial_17mwx")
 [sub_resource type="Environment" id="Environment_1eohx"]
 background_mode = 2
 sky = SubResource("Sky_qkd4f")
-ambient_light_energy = 0.0
 tonemap_mode = 2
 ssao_enabled = true
 sdfgi_enabled = true
@@ -41,8 +41,16 @@ size = Vector3(26.971252, 9.495514, 1)
 
 [node name="Main" type="Node3D" unique_id=848268648]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1380343955]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1960221630]
 environment = SubResource("Environment_1eohx")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=2040018066]
+transform = Transform3D(1, 0, 0, 0, 0.2637348, 0.96459526, 0, -0.96459526, 0.2637348, 4.7997904, 1.2943969, 1.7628775)
+layers = 3
+light_cull_mask = 4294966275
+shadow_enabled = true
+shadow_caster_mask = 4294966275
+area_size = Vector2(50.348717, 0.43663782)
 
 [node name="BackgroundLayer" type="Node3D" parent="." unique_id=681735042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
@@ -89,9 +97,20 @@ layers = 2
 shaded = true
 texture = ExtResource("1_2825q")
 
-[node name="AreaLight3D" type="AreaLight3D" parent="BackgroundLayer" unique_id=2040018066]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1306167, 0, 1.5532644)
-layers = 3
+[node name="OmniLight3D" type="OmniLight3D" parent="BackgroundLayer" unique_id=1594680997]
+transform = Transform3D(0.99954456, 0.019206092, -0.023277603, -0.019369973, 0.999789, -0.0068353335, 0.023141412, 0.0072831064, 0.9997057, 0.16331649, 1.8801887, 3.3030667)
+light_color = Color(0.6505582, 0.37949887, 0.17061579, 1)
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_caster_mask = 4294966273
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="BackgroundLayer" unique_id=283094793]
+transform = Transform3D(0.99954456, 0.019206092, -0.023277603, -0.019369973, 0.999789, -0.0068353335, 0.023141412, 0.0072831064, 0.9997057, 16.46091, 0.91432405, 0.30243444)
+layers = 2
+light_color = Color(0.6505582, 0.37949887, 0.17061579, 1)
+light_cull_mask = 4294966275
+shadow_enabled = true
+shadow_caster_mask = 4294966274
 
 [node name="Player" parent="." unique_id=2079493257 instance=ExtResource("2_j2oh8")]
 transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, 0, 0.89528155, 0)
