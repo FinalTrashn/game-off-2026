@@ -193,6 +193,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_fl6ly"]
 
 [node name="Player" type="CharacterBody3D" unique_id=2079493257 node_paths=PackedStringArray("stamina_bar", "blink_player")]
+collision_layer = 4
 script = ExtResource("1_wtflm")
 stamina_bar = NodePath("CanvasLayer/Staminabar")
 blink_player = NodePath("CanvasLayer/Staminabar/BlinkPlayer")

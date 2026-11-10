@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cyfqmu1k2gy6k" path="res://Common/Background/Sprites/jokerofthomas.png" id="1_hc4fl"]
 [ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="2_f25oe"]
+[ext_resource type="PackedScene" uid="uid://c46a66umbr48p" path="res://Common/Entrance/Scenes/entrance.tscn" id="3_o6qm7"]
 [ext_resource type="Texture2D" uid="uid://b13em1yyks2wc" path="res://Common/Background/Sprites/stomped.png" id="5_ycgo4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
@@ -19,11 +20,29 @@ size = Vector3(26.971252, 9.495514, 1)
 
 [node name="TestRoom" type="Node3D" unique_id=848268648]
 
+[node name="AmbientLightTop" type="AreaLight3D" parent="." unique_id=319551526]
+transform = Transform3D(1, 0, 0, 0, -0.30458832, 0.95248413, 0, -0.95248413, -0.30458832, 4.7997904, 4.842346, 1.860204)
+layers = 3
+light_energy = 1.6
+light_cull_mask = 4294966275
+shadow_enabled = true
+shadow_caster_mask = 4294966275
+area_size = Vector2(50.348717, 0.43663782)
+
+[node name="AmbientLightBottom" type="AreaLight3D" parent="." unique_id=1725829482]
+transform = Transform3D(1, 0, 0, 0, 0.2637348, 0.96459526, 0, -0.96459526, 0.2637348, 4.7997904, 1.2943969, 1.7628775)
+layers = 3
+light_energy = 1.6
+light_cull_mask = 4294966275
+shadow_enabled = true
+shadow_caster_mask = 4294966275
+area_size = Vector2(50.348717, 0.43663782)
+
 [node name="BackgroundLayer" type="Node3D" parent="." unique_id=681735042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Background" type="Node3D" parent="BackgroundLayer" unique_id=550256398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4840813, 0, -1)
 
 [node name="Background" type="Sprite3D" parent="BackgroundLayer/Background" unique_id=328620139]
 transform = Transform3D(1, 0, 0, 0, 0.265, 0, 0, 0, 1, 8.51892, 4.674195, 0)
@@ -56,19 +75,22 @@ texture = ExtResource("2_f25oe")
 
 [node name="ForegroundLayer" type="Node3D" parent="." unique_id=313849714]
 
-[node name="LightForeground" type="DirectionalLight3D" parent="ForegroundLayer" unique_id=541335587]
-transform = Transform3D(1, 0, 0, 0, 0.97425336, 0.2254559, 0, -0.2254559, 0.97425336, 0, 4.6619587, 7.387166)
-visible = false
-light_color = Color(0.17722046, 0.20073125, 0.28708592, 1)
-light_energy = 1.792
-light_cull_mask = 4294966273
-shadow_enabled = true
-shadow_caster_mask = 4294966273
-
 [node name="Background" type="Node3D" parent="ForegroundLayer" unique_id=66736751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
+[node name="Entrances" type="Node3D" parent="ForegroundLayer/Background" unique_id=742483697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+
+[node name="Entrance" parent="ForegroundLayer/Background/Entrances" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("3_o6qm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7395687, 1.1367954, 0.100000024)
+exit = NodePath("../Entrance2")
+
+[node name="Entrance2" parent="ForegroundLayer/Background/Entrances" unique_id=1860781356 node_paths=PackedStringArray("exit") instance=ExtResource("3_o6qm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.785253, 1.1457312, 0)
+exit = NodePath("../Entrance")
+
 [node name="BackgroundWall" type="StaticBody3D" parent="ForegroundLayer/Background" unique_id=583479048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1860237, 0, 0)
 collision_layer = 2
 collision_mask = 0
 
@@ -82,12 +104,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.977203, 4.7862396, 0)
 shape = SubResource("BoxShape3D_wtflm")
 
 [node name="BackgroundWall2" type="StaticBody3D" parent="ForegroundLayer/Background" unique_id=1507769825]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.490173, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.452438, 0, 0)
 collision_layer = 2
 collision_mask = 0
 
 [node name="Sprite" type="Sprite3D" parent="ForegroundLayer/Background/BackgroundWall2" unique_id=149081036 groups=["wall"]]
-transform = Transform3D(5.76, 0, 0, 0, 2.38, 0, 0, 0, 1, -11.061947, 4.7784314, 0)
+transform = Transform3D(5.723928, 0, 0, 0, 2.3650954, 0, 0, 0, 0.99373746, -11.061947, 4.7784314, 0)
 shaded = true
 texture = ExtResource("5_ycgo4")
 
