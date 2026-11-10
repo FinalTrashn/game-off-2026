@@ -95,7 +95,7 @@ func handle_sprinting(delta):
 	# visualize on ui progress bar
 	if stamina_bar:
 		stamina_bar.value = current_stamina
-		
+
 
 func handle_animation():
 	var speed_ratio = clamp(abs(velocity.x) / current_speed, 0.0, 1.0)
@@ -109,7 +109,7 @@ func handle_animation():
 		$Sprite.play("walk")
 	elif is_on_floor() and current_speed == sprint_speed:
 		$Sprite.play("sprint")
-	
+
 
 
 func _process(delta: float) -> void:
