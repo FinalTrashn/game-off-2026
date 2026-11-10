@@ -1,41 +1,30 @@
 [gd_scene format=3 uid="uid://bjdtyobw63xur"]
 
-[ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="1_cqpua"]
 [ext_resource type="PackedScene" uid="uid://bcleukcqgmo4n" path="res://Common/Player/Scenes/player.tscn" id="1_td30v"]
+[ext_resource type="Script" uid="uid://cwvoiwj6qr8lu" path="res://Scenes/InGame/Main/room_manager.gd" id="3_fx46b"]
 [ext_resource type="Script" uid="uid://cp1htpn7ywhrp" path="res://Common/Camera/Scripts/camera.gd" id="3_qvh5f"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
-size = Vector3(14.272186, 1.1855469, 1)
+[ext_resource type="Script" uid="uid://ds4yr2r0331tc" path="res://Scenes/InGame/Main/Controller/layer_controller.gd" id="4_70f0n"]
+[ext_resource type="Script" uid="uid://b347ktpwjhg27" path="res://Scenes/InGame/Main/Controller/render_priority_generator.gd" id="5_stfqe"]
 
 [node name="Main" type="Node3D" unique_id=848268648]
 
-[node name="BackgroundLayer" type="Node3D" parent="." unique_id=66736751]
-
-[node name="Floor" type="Node3D" parent="." unique_id=2127064873]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6561649, 0)
-
-[node name="Floor" type="StaticBody3D" parent="Floor" unique_id=2032125679]
-
-[node name="Sprite" type="Sprite3D" parent="Floor/Floor" unique_id=1641760648]
-transform = Transform3D(11.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-texture = ExtResource("1_cqpua")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor" unique_id=1090373279]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037078857, 0.026367188, 0)
-shape = SubResource("BoxShape3D_7t2l5")
-
 [node name="Player" parent="." unique_id=2079493257 instance=ExtResource("1_td30v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6331413, 0)
-
-[node name="ForegroundLayer" type="Node3D" parent="." unique_id=201959878]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6561644, 0)
-
-[node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer" unique_id=896772218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.490394, 0, 0)
-texture = ExtResource("1_cqpua")
+transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, 0, 0.89528155, 0)
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1020457053 node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 0.9998477, 0.017452406, 0, -0.017452406, 0.9998477, 0, 1.5, 7)
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 5, 7)
 script = ExtResource("3_qvh5f")
 player = NodePath("../Player")
-offset = Vector3(0, 3, 7)
+
+[node name="Rooms" type="Node3D" parent="." unique_id=754864513]
+script = ExtResource("3_fx46b")
+
+[node name="Controller" type="Node" parent="." unique_id=1408514781]
+
+[node name="LayerController" type="Node" parent="Controller" unique_id=1922672156 node_paths=PackedStringArray("player")]
+script = ExtResource("4_70f0n")
+player = NodePath("../../Player")
+background_z_offset = 2
+
+[node name="RenderPriorityGenerator" type="Node" parent="Controller" unique_id=1917705024]
+script = ExtResource("5_stfqe")
