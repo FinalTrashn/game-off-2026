@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="1_cqpua"]
 [ext_resource type="PackedScene" uid="uid://bcleukcqgmo4n" path="res://Common/Player/Scenes/player.tscn" id="1_td30v"]
 [ext_resource type="Script" uid="uid://cp1htpn7ywhrp" path="res://Common/Camera/Scripts/camera.gd" id="3_qvh5f"]
+[ext_resource type="Script" uid="uid://dnjv3ty083vlx" path="res://Scenes/InGame/Main/scenes.gd" id="4_3wbvu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
 size = Vector3(14.272186, 1.1855469, 1)
@@ -38,4 +39,6 @@ texture = ExtResource("1_cqpua")
 transform = Transform3D(1, 0, 0, 0, 0.9998477, 0.017452406, 0, -0.017452406, 0.9998477, 0, 1.5, 7)
 script = ExtResource("3_qvh5f")
 player = NodePath("../Player")
-offset = Vector3(0, 3, 7)
+
+[node name="Scenes" type="Node3D" parent="." unique_id=1982764828]
+script = ExtResource("4_3wbvu")

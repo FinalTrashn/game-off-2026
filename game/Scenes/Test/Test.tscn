@@ -8,6 +8,24 @@
 [ext_resource type="Script" uid="uid://ds4yr2r0331tc" path="res://Scenes/InGame/Main/Controller/layer_controller.gd" id="6_77vx0"]
 [ext_resource type="Script" uid="uid://b347ktpwjhg27" path="res://Scenes/InGame/Main/Controller/render_priority_generator.gd" id="7_17mwx"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_17mwx"]
+sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
+sky_horizon_color = Color(0.014286831, 0.01615068, 0.03246209, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.014286831, 0.01615068, 0.03246209, 1)
+
+[sub_resource type="Sky" id="Sky_qkd4f"]
+sky_material = SubResource("ProceduralSkyMaterial_17mwx")
+
+[sub_resource type="Environment" id="Environment_1eohx"]
+background_mode = 2
+sky = SubResource("Sky_qkd4f")
+ambient_light_energy = 0.0
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
 size = Vector3(64.75586, 1.1855469, 1)
 
@@ -23,13 +41,18 @@ size = Vector3(26.971252, 9.495514, 1)
 
 [node name="Main" type="Node3D" unique_id=848268648]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1380343955]
+environment = SubResource("Environment_1eohx")
+
 [node name="BackgroundLayer" type="Node3D" parent="." unique_id=681735042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="LightBackground" type="DirectionalLight3D" parent="BackgroundLayer" unique_id=1768028019]
 transform = Transform3D(1, 0, 0, 0, 0.96780425, 0.25170392, 0, -0.25170392, 0.96780425, 5.043019, 4.511849, 4.194397)
+visible = false
 layers = 2
-light_energy = 0.2
+light_color = Color(0.75942814, 0.6348622, 0.49012387, 1)
+light_energy = 0.238
 light_cull_mask = 4294966274
 shadow_enabled = true
 shadow_caster_mask = 4294966274
@@ -66,6 +89,10 @@ layers = 2
 shaded = true
 texture = ExtResource("1_2825q")
 
+[node name="AreaLight3D" type="AreaLight3D" parent="BackgroundLayer" unique_id=2040018066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1306167, 0, 1.5532644)
+layers = 3
+
 [node name="Player" parent="." unique_id=2079493257 instance=ExtResource("2_j2oh8")]
 transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, 0, 0.89528155, 0)
 
@@ -78,6 +105,9 @@ player = NodePath("../Player")
 
 [node name="LightForeground" type="DirectionalLight3D" parent="ForegroundLayer" unique_id=541335587]
 transform = Transform3D(1, 0, 0, 0, 0.97425336, 0.2254559, 0, -0.2254559, 0.97425336, 0, 4.6619587, 7.387166)
+visible = false
+light_color = Color(0.17722046, 0.20073125, 0.28708592, 1)
+light_energy = 1.792
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_caster_mask = 4294966273
