@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://1m115rptj03g"]
+
+[ext_resource type="Script" uid="uid://dgbqykxjj7vfd" path="res://Common/TrailEffect/trail_effect.gd" id="1_op8cp"]
+
+[node name="TrailEffect" type="Line2D" unique_id=2131174352]
+script = ExtResource("1_op8cp")

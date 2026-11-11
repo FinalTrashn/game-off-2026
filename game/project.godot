@@ -34,6 +34,10 @@ project/assembly_name="Shift Game"
 
 folder_colors={
 "res://Common/": "orange",
+"res://Common/Fonts/": "purple",
+"res://Common/Scripts/": "red",
+"res://Common/Shaders/": "pink",
+"res://Common/Sounds/": "teal",
 "res://Common/Tools/": "yellow",
 "res://Globals/": "red",
 "res://Scenes/": "blue",
