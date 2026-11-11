@@ -1,17 +1,533 @@
 [gd_scene format=3 uid="uid://blp433f2v0cbp"]
 
-[ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="1_syten"]
+[ext_resource type="Theme" uid="uid://cfatnju5ngdlw" path="res://Common/main_theme.tres" id="1_3cho5"]
+[ext_resource type="AudioStream" uid="uid://dsta4g32y5mqg" path="res://Scenes/Menus/Main/Main Menu.ogg" id="2_1dcyd"]
+[ext_resource type="AudioStream" uid="uid://hofob4pslt7c" path="res://Common/Sounds/pgame-hover 2026-11-11 1348.ogg" id="2_6l1dv"]
+[ext_resource type="Script" uid="uid://ba774g2216ey1" path="res://Scenes/Menus/Main/music.gd" id="3_tei4h"]
+[ext_resource type="Script" uid="uid://de805yp0ufluo" path="res://Common/Scripts/move_thing_slightly_with_mouse_pos.gd" id="4_tei4h"]
+[ext_resource type="AudioStream" uid="uid://yo32l18a7gk1" path="res://Common/Sounds/pgame-click 2026-11-11 1353.ogg" id="5_6l1dv"]
+[ext_resource type="Script" uid="uid://bbge1dbtae3yo" path="res://Scenes/Menus/Main/random_pictures.gd" id="6_1ayyv"]
+[ext_resource type="Script" uid="uid://ea8ijfouyild" path="res://Scenes/Menus/Main/cursor_follow.gd" id="6_jjy8q"]
+[ext_resource type="Shader" uid="uid://b28f8270bsc3r" path="res://Common/Shaders/mask.gdshader" id="6_qq142"]
+[ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="7_qq142"]
+[ext_resource type="Script" uid="uid://boug2h0hdln4p" path="res://Scenes/Menus/Main/buttons.gd" id="8_nhe1w"]
+[ext_resource type="AudioStream" uid="uid://fiyt4b75ofs0" path="res://Common/Sounds/thunder_short.ogg" id="9_kqlp2"]
+[ext_resource type="Script" uid="uid://cctc7hevv8uky" path="res://Scenes/Menus/Main/settings.gd" id="10_gxvha"]
+[ext_resource type="FontFile" uid="uid://18kmbnsvfio8" path="res://Common/Fonts/18thCentury Regular.ttf" id="11_xb8hu"]
+[ext_resource type="Texture2D" uid="uid://bkfqajg18n1uk" path="res://Common/refresh_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" id="15_72w1o"]
+[ext_resource type="Texture2D" uid="uid://4xmnb7ita1bq" path="res://Common/refresh_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24 Kopie.png" id="16_c3dn2"]
 
-[node name="Main" type="Node2D" unique_id=2121472434]
+[sub_resource type="Gradient" id="Gradient_qq142"]
+offsets = PackedFloat32Array(0.17110799, 0.5189341, 0.772791)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1)
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=228310562]
-position = Vector2(585.5, 245)
-scale = Vector2(5.3359375, 1)
-texture = ExtResource("1_syten")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ayyv"]
+gradient = SubResource("Gradient_qq142")
+width = 200
+height = 200
 
-[node name="Label" type="Label" parent="." unique_id=3508244]
-offset_left = 279.0
-offset_top = 355.0
-offset_right = 811.0
-offset_bottom = 486.0
-text = "Knull is coming"
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nvy6"]
+shader = ExtResource("6_qq142")
+shader_parameter/fill_amount = 0.0
+shader_parameter/mask_rotation = 44.60000602902551
+shader_parameter/mask_offset = Vector2(0, 0)
+shader_parameter/mask_size = Vector2(1.45, 1.38)
+shader_parameter/mask_rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/mask_scale_pivot = Vector2(0.5, 0.5)
+shader_parameter/invert_mask = false
+shader_parameter/use_different_texture = true
+shader_parameter/mask_texture = SubResource("GradientTexture2D_1ayyv")
+
+[sub_resource type="Animation" id="Animation_1ayyv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nhe1w"]
+resource_name = "fade"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 1.7, 8.233333, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqlp2"]
+_data = {
+&"RESET": SubResource("Animation_1ayyv"),
+&"fade": SubResource("Animation_nhe1w")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vg7ce"]
+
+[sub_resource type="Gradient" id="Gradient_1ayyv"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.8181818)
+colors = PackedColorArray(0.5160235, 0.5160235, 0.5160235, 0.5160235, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nhe1w"]
+gradient = SubResource("Gradient_1ayyv")
+width = 400
+height = 400
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kqlp2"]
+shader = ExtResource("6_qq142")
+shader_parameter/fill_amount = 0.0
+shader_parameter/mask_rotation = 0.0
+shader_parameter/mask_offset = Vector2(0, 0)
+shader_parameter/mask_size = Vector2(1, 1)
+shader_parameter/mask_rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/mask_scale_pivot = Vector2(0.5, 0.5)
+shader_parameter/invert_mask = false
+shader_parameter/use_different_texture = true
+shader_parameter/mask_texture = SubResource("GradientTexture2D_nhe1w")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ayyv"]
+bg_color = Color(0.4255715, 0.42557132, 0.42557105, 1)
+
+[sub_resource type="Gradient" id="Gradient_3mwrj"]
+offsets = PackedFloat32Array(0, 0.54311454)
+colors = PackedColorArray(1, 1, 1, 0.0627451, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jjy8q"]
+gradient = SubResource("Gradient_3mwrj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w3lt0"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 10.8)
+emission_ring_height = 153.31
+emission_ring_radius = 34.16
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_kqlp2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xb8hu"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gxvha"]
+_data = {
+&"RESET": SubResource("Animation_kqlp2"),
+&"fade_out": SubResource("Animation_xb8hu")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3lt0"]
+bg_color = Color(0, 0, 0, 0.6117647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o2o0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3lt0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxvha"]
+
+[node name="Main" type="Control" unique_id=921898272]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3cho5")
+
+[node name="Sounds" type="Node" parent="." unique_id=646247689]
+
+[node name="PgameClick202611111353" type="AudioStreamPlayer" parent="Sounds" unique_id=656820170]
+stream = ExtResource("5_6l1dv")
+
+[node name="PgameHover202611111348" type="AudioStreamPlayer" parent="Sounds" unique_id=1679995602]
+stream = ExtResource("2_6l1dv")
+
+[node name="MainMenu" type="AudioStreamPlayer" parent="Sounds" unique_id=37315844]
+stream = ExtResource("2_1dcyd")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+script = ExtResource("3_tei4h")
+
+[node name="Thunder" type="AudioStreamPlayer" parent="Sounds" unique_id=978361055]
+stream = ExtResource("9_kqlp2")
+bus = &"Sounds"
+
+[node name="RandomPictures" type="Control" parent="." unique_id=80955947]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_tei4h")
+
+[node name="Sprite" type="Sprite2D" parent="RandomPictures" unique_id=1037049349]
+material = SubResource("ShaderMaterial_1nvy6")
+scale = Vector2(3.421875, 3.421875)
+texture = ExtResource("7_qq142")
+script = ExtResource("6_1ayyv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RandomPictures" unique_id=1125552651]
+libraries/ = SubResource("AnimationLibrary_kqlp2")
+autoplay = &"fade"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1110494814]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="Control" parent="MarginContainer" unique_id=2008348249]
+layout_mode = 2
+
+[node name="Titles" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=855331489]
+layout_mode = 0
+offset_right = 274.0
+offset_bottom = 92.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vg7ce")
+script = ExtResource("4_tei4h")
+max_shift = 20.0
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Titles" unique_id=1614374809]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "Pluteus"
+
+[node name="SubTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Titles/Title" unique_id=2001989666]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 33
+text = "Leaking Thought"
+
+[node name="Buttons" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=484893188]
+material = SubResource("ShaderMaterial_kqlp2")
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -183.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ayyv")
+script = ExtResource("8_nhe1w")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons" unique_id=1732645320]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons/MarginContainer" unique_id=1084874598]
+layout_mode = 2
+theme_override_constants/separation = 21
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=770459124]
+layout_mode = 2
+mouse_default_cursor_shape = 3
+text = "Start"
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=603523711]
+layout_mode = 2
+mouse_default_cursor_shape = 3
+text = "Settings"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=1529805552]
+layout_mode = 2
+mouse_default_cursor_shape = 3
+text = "Exit"
+
+[node name="CursorFollow" type="Control" parent="." unique_id=1813736849]
+anchors_preset = 0
+script = ExtResource("6_jjy8q")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CursorFollow" unique_id=1224798153]
+amount = 60
+texture = SubResource("GradientTexture2D_jjy8q")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_w3lt0")
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=1506181679]
+follow_viewport_enabled = true
+
+[node name="Control" type="Control" parent="Overlay" unique_id=1885802469]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_3cho5")
+
+[node name="ColorRect" type="ColorRect" parent="Overlay/Control" unique_id=2022690760]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Control/ColorRect" unique_id=96730405]
+libraries/ = SubResource("AnimationLibrary_gxvha")
+
+[node name="Label" type="Label" parent="Overlay/Control/ColorRect" unique_id=630346236]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_xb8hu")
+theme_override_font_sizes/font_size = 80
+text = "Bye!"
+
+[node name="SettingsClose" type="Button" parent="Overlay/Control" unique_id=728832424]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_w3lt0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0o2o0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0o2o0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0o2o0")
+
+[node name="Settings" type="PanelContainer" parent="Overlay/Control/SettingsClose" unique_id=1871600287]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -313.5
+offset_top = -250.0
+offset_right = 331.5
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_gxvha")
+
+[node name="MarginContainer" type="MarginContainer" parent="Overlay/Control/SettingsClose/Settings" unique_id=1981112353]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer" unique_id=1051765718]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer" unique_id=444818151]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="Volume" type="VBoxContainer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer" unique_id=554935039]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume" unique_id=1281191188]
+layout_mode = 2
+
+[node name="Lable" type="RichTextLabel" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/HBoxContainer" unique_id=1588761354]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "Volume"
+fit_content = true
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/HBoxContainer" unique_id=591601627]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w3lt0")
+
+[node name="Reset" type="TextureButton" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/HBoxContainer" unique_id=607218574]
+layout_mode = 2
+texture_normal = ExtResource("15_72w1o")
+texture_pressed = ExtResource("16_c3dn2")
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume" unique_id=1270897878]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="Everything" type="HBoxContainer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume" unique_id=2005224634]
+layout_mode = 2
+theme_override_constants/separation = 105
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Everything" unique_id=354041788]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+text = "EVERYTHING"
+
+[node name="HSlider" type="HSlider" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Everything" unique_id=2052944047]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 10
+max_value = 1.0
+step = 0.01
+
+[node name="TestSound" type="AudioStreamPlayer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Everything" unique_id=1960440532]
+stream = ExtResource("9_kqlp2")
+bus = &"Sounds"
+
+[node name="Sound" type="HBoxContainer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume" unique_id=1471731784]
+layout_mode = 2
+theme_override_constants/separation = 105
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Sound" unique_id=72699632]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+text = "SOUND"
+
+[node name="HSlider" type="HSlider" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Sound" unique_id=2071241422]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 10
+max_value = 1.0
+step = 0.01
+
+[node name="TestSound" type="AudioStreamPlayer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Sound" unique_id=522714114]
+stream = ExtResource("9_kqlp2")
+bus = &"Sounds"
+
+[node name="Music" type="HBoxContainer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume" unique_id=2016781427]
+layout_mode = 2
+theme_override_constants/separation = 105
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Music" unique_id=2037101752]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+text = "MUSIC"
+
+[node name="HSlider" type="HSlider" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Music" unique_id=600947502]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 10
+max_value = 1.0
+step = 0.01
+
+[node name="HSeparator4" type="HSeparator" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer" unique_id=922234695]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 19
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gxvha")
+
+[node name="BottomButtons" type="HBoxContainer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer" unique_id=1923158188]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Close" type="Button" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/BottomButtons" unique_id=1143344886]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 3
+theme_override_font_sizes/font_size = 19
+text = "Close"
+
+[node name="HSeparator3" type="HSeparator" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer" unique_id=235763742]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[connection signal="finished" from="Sounds/Thunder" to="MarginContainer/VBoxContainer/Buttons" method="_on_thunder_finished"]
+[connection signal="animation_finished" from="RandomPictures/AnimationPlayer" to="RandomPictures/Sprite" method="_on_animation_player_animation_finished"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Start" to="MarginContainer/VBoxContainer/Buttons" method="_on_start_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Start" to="MarginContainer/VBoxContainer/Buttons" method="_on_start_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Settings" to="MarginContainer/VBoxContainer/Buttons" method="_on_start_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Settings" to="MarginContainer/VBoxContainer/Buttons" method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Exit" to="MarginContainer/VBoxContainer/Buttons" method="_on_start_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Exit" to="MarginContainer/VBoxContainer/Buttons" method="_on_exit_pressed"]
+[connection signal="pressed" from="Overlay/Control/SettingsClose" to="MarginContainer/VBoxContainer/Buttons" method="_on_settings_close_pressed"]
+[connection signal="pressed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/HBoxContainer/Reset" to="Overlay/Control/SettingsClose/Settings" method="_on_volume_reset_pressed"]
+[connection signal="value_changed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Everything/HSlider" to="Overlay/Control/SettingsClose/Settings" method="_on_every_slider_value_changed"]
+[connection signal="value_changed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Sound/HSlider" to="Overlay/Control/SettingsClose/Settings" method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Music/HSlider" to="Overlay/Control/SettingsClose/Settings" method="_on_mmusic_slider_value_changed"]
+[connection signal="pressed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/BottomButtons/Close" to="MarginContainer/VBoxContainer/Buttons" method="_on_settings_close_pressed"]

@@ -30,8 +30,8 @@ var currently_penalty_recharging = false
 @export var stamina_bar: TextureProgressBar
 @export var blink_player: AnimationPlayer
 
-# layer switching 
-@onready var layer_controller = get_tree().root.get_node("/root/Main/Controller/LayerController")
+@onready var layer_controller = %LayerController
+
 var is_colliding_with_wall: bool = false
 var last_collider: Node = null
 signal colliding_with_wall(colliding: bool, last_collider: Node, new_collider: Node)
@@ -109,7 +109,6 @@ func handle_animation():
 		$Sprite.play("walk")
 	elif is_on_floor() and current_speed == sprint_speed:
 		$Sprite.play("sprint")
-
 
 
 func _process(delta: float) -> void:

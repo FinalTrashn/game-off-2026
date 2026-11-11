@@ -34,6 +34,7 @@ environment = SubResource("Environment_stfqe")
 transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, 0, 0.89528155, 0)
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1020457053 node_paths=PackedStringArray("player")]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 5, 7)
 script = ExtResource("3_qvh5f")
 player = NodePath("../Player")
@@ -49,6 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51063, 0, 0)
 [node name="Controller" type="Node" parent="." unique_id=1408514781]
 
 [node name="LayerController" type="Node" parent="Controller" unique_id=1922672156 node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
 script = ExtResource("4_70f0n")
 player = NodePath("../../Player")
 background_z_offset = 2

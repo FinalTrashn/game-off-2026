@@ -2,9 +2,19 @@
 
 [ext_resource type="Script" uid="uid://c4w22xg4n0byl" path="res://Scenes/Menus/Intro/intro.gd" id="1_ciwnb"]
 [ext_resource type="VideoStream" uid="uid://cvn3h4cqdomi2" path="res://Scenes/Menus/Intro/intro_vid.ogv" id="2_ciwnb"]
+[ext_resource type="AudioStream" uid="uid://bxqu5kysgtctr" path="res://Scenes/Menus/Intro/547964__klangkobold__panic-stricken-screaming-2.wav" id="2_sh1cg"]
 
 [node name="Node2D" type="Node2D" unique_id=1344725109]
 script = ExtResource("1_ciwnb")
+
+[node name="547964KlangkoboldPanicStrickenScreaming2" type="AudioStreamPlayer" parent="." unique_id=813640408]
+stream = ExtResource("2_sh1cg")
+bus = &"Sounds"
+
+[node name="Timer" type="Timer" parent="547964KlangkoboldPanicStrickenScreaming2" unique_id=1596547383]
+wait_time = 2.5
+one_shot = true
+autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=524395912]
 
@@ -26,10 +36,5 @@ grow_vertical = 2
 stream = ExtResource("2_ciwnb")
 autoplay = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=376982278]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "this is a bledn test"
-
+[connection signal="timeout" from="547964KlangkoboldPanicStrickenScreaming2/Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="CanvasLayer/Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

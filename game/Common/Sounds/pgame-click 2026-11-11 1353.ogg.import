@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://yo32l18a7gk1"
+path="res://.godot/imported/pgame-click 2026-11-11 1353.ogg-d88d3be13e36aaa1b7d23b624794e945.oggvorbisstr"
+
+[deps]
+
+source_file="res://Common/Sounds/pgame-click 2026-11-11 1353.ogg"
+dest_files=["res://.godot/imported/pgame-click 2026-11-11 1353.ogg-d88d3be13e36aaa1b7d23b624794e945.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

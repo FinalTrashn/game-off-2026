@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcleukcqgmo4n"]
 
 [ext_resource type="Script" uid="uid://bpwsmvjlg2g76" path="res://Common/Player/Scripts/Player.gd" id="1_wtflm"]
+[ext_resource type="AudioStream" path="res://Common/Sounds/421153__giocosound__footstep_wood_toe_1.wav" id="2_0y55j"]
 [ext_resource type="Texture2D" uid="uid://ca7o01usdaoi7" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-5.png" id="2_7r375"]
 [ext_resource type="Texture2D" uid="uid://ctcjr0ela7h0x" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-9.png" id="3_q8hir"]
 [ext_resource type="Texture2D" uid="uid://bnir5ctikdk2s" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-1.png" id="4_d1b2g"]
@@ -23,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://dh6jbn6ij3a6a" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-20.png" id="21_6642e"]
 [ext_resource type="Texture2D" uid="uid://c6rs56b1ho01m" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-21.png" id="22_rd6in"]
 [ext_resource type="Texture2D" uid="uid://dgd43kk2ngyw6" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-22.png" id="23_c3a1r"]
+[ext_resource type="Theme" uid="uid://cfatnju5ngdlw" path="res://Common/main_theme.tres" id="24_0eqiv"]
+[ext_resource type="Script" uid="uid://b1kx7yi1xs7rc" path="res://Common/Player/Scenes/pause.gd" id="25_vb7bj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8hir"]
 size = Vector3(2.6734009, 3.9063416, 0.7302246)
@@ -190,6 +193,43 @@ _data = {
 &"RESET": SubResource("Animation_65f8f")
 }
 
+[sub_resource type="Animation" id="Animation_i1y88"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0eqiv"]
+resource_name = "fade_out_in"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vb7bj"]
+_data = {
+&"RESET": SubResource("Animation_i1y88"),
+&"fade_out_in": SubResource("Animation_0eqiv")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_fl6ly"]
 
 [node name="Player" type="CharacterBody3D" unique_id=2079493257 node_paths=PackedStringArray("stamina_bar", "blink_player")]
@@ -197,6 +237,11 @@ collision_layer = 4
 script = ExtResource("1_wtflm")
 stamina_bar = NodePath("CanvasLayer/Staminabar")
 blink_player = NodePath("CanvasLayer/Staminabar/BlinkPlayer")
+
+[node name="Sounds" type="Node" parent="." unique_id=1899632598]
+
+[node name="footsteps" type="AudioStreamPlayer" parent="Sounds" unique_id=43817015]
+stream = ExtResource("2_0y55j")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1339402680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059051514, 0.063064575, 0)
@@ -221,6 +266,7 @@ offset_top = -34.0
 offset_right = 161.0
 offset_bottom = -12.0
 grow_vertical = 0
+theme = ExtResource("24_0eqiv")
 value = 5.0
 texture_under = SubResource("GradientTexture2D_65f8f")
 texture_progress = SubResource("GradientTexture2D_jxdms")
@@ -229,6 +275,46 @@ tint_progress = Color(11.551139, 0.2932716, 13.531297, 1)
 
 [node name="BlinkPlayer" type="AnimationPlayer" parent="CanvasLayer/Staminabar" unique_id=1791363153]
 libraries/ = SubResource("AnimationLibrary_jxdms")
+
+[node name="Ui" type="Control" parent="CanvasLayer" unique_id=423834152]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlays" type="Control" parent="CanvasLayer" unique_id=520609969]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Black" type="ColorRect" parent="CanvasLayer/Overlays" unique_id=1109680476]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Overlays/Black" unique_id=961647676]
+libraries/ = SubResource("AnimationLibrary_vb7bj")
+
+[node name="Pause" type="PanelContainer" parent="CanvasLayer/Overlays" unique_id=1396383119]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("25_vb7bj")
 
 [node name="WallCollider" type="ShapeCast3D" parent="." unique_id=837483549]
 transform = Transform3D(3.67, 0, 0, 0, 0.165, 0, 0, 0, 3, 0, 0, 0)
