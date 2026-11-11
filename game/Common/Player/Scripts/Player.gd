@@ -110,8 +110,6 @@ func handle_animation():
 	elif is_on_floor() and current_speed == sprint_speed:
 		$Sprite.play("sprint")
 
-
-
 func _process(delta: float) -> void:
 	# print(current_stamina)
 	handle_sprinting(delta)
