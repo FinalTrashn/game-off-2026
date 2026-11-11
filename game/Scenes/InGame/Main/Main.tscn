@@ -49,6 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51063, 0, 0)
 [node name="Controller" type="Node" parent="." unique_id=1408514781]
 
 [node name="LayerController" type="Node" parent="Controller" unique_id=1922672156 node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
 script = ExtResource("4_70f0n")
 player = NodePath("../../Player")
 background_z_offset = 2

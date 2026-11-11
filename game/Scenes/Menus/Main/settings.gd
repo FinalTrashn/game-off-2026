@@ -48,3 +48,10 @@ func _on_mmusic_slider_value_changed(value: float) -> void:
 func _on_every_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(master_bus_id, linear_to_db(master_slider.value)+10)
 	SaveManager.set_value("master-volume", str(master_slider.value))
+
+
+func _on_volume_reset_pressed() -> void:
+	first = true
+	sound_slider.value = 0.5
+	music_slider.value = 0.5
+	master_slider.value = 0.5

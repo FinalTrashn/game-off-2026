@@ -5,7 +5,7 @@ var player: Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_tree().root.get_node("/root/Main/Player")
+	player = $"../../../../../../Player"
 	print(player)
 	
 	

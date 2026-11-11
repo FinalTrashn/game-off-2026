@@ -28,3 +28,4 @@ func _on_start_mouse_entered() -> void:
 
 func _on_start_pressed() -> void:
 	$"../../../Sounds/PgameClick202611111353".play()
+	SceneLoader.go_to("res://Scenes/InGame/Main/Main.tscn")

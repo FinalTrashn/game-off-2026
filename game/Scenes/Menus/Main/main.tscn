@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://fiyt4b75ofs0" path="res://Common/Sounds/thunder_short.ogg" id="9_kqlp2"]
 [ext_resource type="Script" uid="uid://cctc7hevv8uky" path="res://Scenes/Menus/Main/settings.gd" id="10_gxvha"]
 [ext_resource type="FontFile" uid="uid://18kmbnsvfio8" path="res://Common/Fonts/18thCentury Regular.ttf" id="11_xb8hu"]
+[ext_resource type="Texture2D" uid="uid://bkfqajg18n1uk" path="res://Common/refresh_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" id="15_72w1o"]
+[ext_resource type="Texture2D" uid="uid://4xmnb7ita1bq" path="res://Common/refresh_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24 Kopie.png" id="16_c3dn2"]
 
 [sub_resource type="Gradient" id="Gradient_qq142"]
 offsets = PackedFloat32Array(0.17110799, 0.5189341, 0.772791)
@@ -173,6 +175,8 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3lt0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxvha"]
 
@@ -408,11 +412,25 @@ theme_override_constants/separation = 19
 [node name="Volume" type="VBoxContainer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer" unique_id=554935039]
 layout_mode = 2
 
-[node name="Lable" type="RichTextLabel" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume" unique_id=1588761354]
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume" unique_id=1281191188]
+layout_mode = 2
+
+[node name="Lable" type="RichTextLabel" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/HBoxContainer" unique_id=1588761354]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
 text = "Volume"
 fit_content = true
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/HBoxContainer" unique_id=591601627]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w3lt0")
+
+[node name="Reset" type="TextureButton" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/HBoxContainer" unique_id=607218574]
+layout_mode = 2
+texture_normal = ExtResource("15_72w1o")
+texture_pressed = ExtResource("16_c3dn2")
 
 [node name="HSeparator" type="HSeparator" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume" unique_id=1270897878]
 layout_mode = 2
@@ -508,6 +526,7 @@ theme_override_constants/separation = 19
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Exit" to="MarginContainer/VBoxContainer/Buttons" method="_on_start_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Exit" to="MarginContainer/VBoxContainer/Buttons" method="_on_exit_pressed"]
 [connection signal="pressed" from="Overlay/Control/SettingsClose" to="MarginContainer/VBoxContainer/Buttons" method="_on_settings_close_pressed"]
+[connection signal="pressed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/HBoxContainer/Reset" to="Overlay/Control/SettingsClose/Settings" method="_on_volume_reset_pressed"]
 [connection signal="value_changed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Everything/HSlider" to="Overlay/Control/SettingsClose/Settings" method="_on_every_slider_value_changed"]
 [connection signal="value_changed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Sound/HSlider" to="Overlay/Control/SettingsClose/Settings" method="_on_sound_slider_value_changed"]
 [connection signal="value_changed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Music/HSlider" to="Overlay/Control/SettingsClose/Settings" method="_on_mmusic_slider_value_changed"]

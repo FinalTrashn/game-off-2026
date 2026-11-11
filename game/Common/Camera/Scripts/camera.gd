@@ -8,7 +8,7 @@ extends Camera3D
 @export var foreground_z_offset: float = 5.5
 @export var background_z_offset: float = 4.5
 
-@onready var layer_controller = get_tree().root.get_node("/root/Main/Controller/LayerController")
+@onready var layer_controller = %LayerController
 
 var target_z_offset: float = foreground_z_offset
 var target_y_offset: float = foreground_y_offset
