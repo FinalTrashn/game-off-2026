@@ -10,16 +10,19 @@ config_version=5
 
 [application]
 
-config/name="Shift Game"
+config/name="Pluteus"
 config/tags=PackedStringArray("eyerash", "gamejam")
 run/main_scene="uid://dxxmyk512ycid"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/image="uid://bd6pl6bhrbc6l"
 config/icon="uid://bd6pl6bhrbc6l"
 
 [autoload]
 
 SceneLoader="*uid://ctg2ev3q50par"
+SaveManager="*uid://d2b4oqciwc5hm"
 
 [display]
 

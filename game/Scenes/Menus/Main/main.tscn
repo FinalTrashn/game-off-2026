@@ -2,8 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://cfatnju5ngdlw" path="res://Common/main_theme.tres" id="1_3cho5"]
 [ext_resource type="AudioStream" uid="uid://dsta4g32y5mqg" path="res://Scenes/Menus/Main/Main Menu.ogg" id="2_1dcyd"]
+[ext_resource type="AudioStream" uid="uid://hofob4pslt7c" path="res://Common/Sounds/pgame-hover 2026-11-11 1348.ogg" id="2_6l1dv"]
 [ext_resource type="Script" uid="uid://ba774g2216ey1" path="res://Scenes/Menus/Main/music.gd" id="3_tei4h"]
 [ext_resource type="Script" uid="uid://de805yp0ufluo" path="res://Common/Scripts/move_thing_slightly_with_mouse_pos.gd" id="4_tei4h"]
+[ext_resource type="AudioStream" uid="uid://yo32l18a7gk1" path="res://Common/Sounds/pgame-click 2026-11-11 1353.ogg" id="5_6l1dv"]
 [ext_resource type="Script" uid="uid://bbge1dbtae3yo" path="res://Scenes/Menus/Main/random_pictures.gd" id="6_1ayyv"]
 [ext_resource type="Script" uid="uid://ea8ijfouyild" path="res://Scenes/Menus/Main/cursor_follow.gd" id="6_jjy8q"]
 [ext_resource type="Shader" uid="uid://b28f8270bsc3r" path="res://Common/Shaders/mask.gdshader" id="6_qq142"]
@@ -183,12 +185,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_3cho5")
 
-[node name="MainMenu" type="AudioStreamPlayer" parent="." unique_id=37315844]
+[node name="Sounds" type="Node" parent="." unique_id=646247689]
+
+[node name="PgameClick202611111353" type="AudioStreamPlayer" parent="Sounds" unique_id=656820170]
+stream = ExtResource("5_6l1dv")
+
+[node name="PgameHover202611111348" type="AudioStreamPlayer" parent="Sounds" unique_id=1679995602]
+stream = ExtResource("2_6l1dv")
+
+[node name="MainMenu" type="AudioStreamPlayer" parent="Sounds" unique_id=37315844]
 stream = ExtResource("2_1dcyd")
 volume_db = -80.0
 autoplay = true
 bus = &"Music"
 script = ExtResource("3_tei4h")
+
+[node name="Thunder" type="AudioStreamPlayer" parent="Sounds" unique_id=978361055]
+stream = ExtResource("9_kqlp2")
+bus = &"Sounds"
 
 [node name="RandomPictures" type="Control" parent="." unique_id=80955947]
 layout_mode = 1
@@ -297,10 +311,6 @@ text = "Settings"
 layout_mode = 2
 mouse_default_cursor_shape = 3
 text = "Exit"
-
-[node name="Thunder" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Exit" unique_id=978361055]
-stream = ExtResource("9_kqlp2")
-bus = &"Sounds"
 
 [node name="CursorFollow" type="Control" parent="." unique_id=1813736849]
 anchors_preset = 0
@@ -421,6 +431,7 @@ text = "EVERYTHING"
 [node name="HSlider" type="HSlider" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Everything" unique_id=2052944047]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+mouse_default_cursor_shape = 10
 max_value = 1.0
 step = 0.01
 
@@ -441,6 +452,7 @@ text = "SOUND"
 [node name="HSlider" type="HSlider" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Sound" unique_id=2071241422]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+mouse_default_cursor_shape = 10
 max_value = 1.0
 step = 0.01
 
@@ -461,6 +473,7 @@ text = "MUSIC"
 [node name="HSlider" type="HSlider" parent="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Music" unique_id=600947502]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+mouse_default_cursor_shape = 10
 max_value = 1.0
 step = 0.01
 
@@ -486,10 +499,14 @@ text = "Close"
 layout_mode = 2
 theme_override_constants/separation = 19
 
+[connection signal="finished" from="Sounds/Thunder" to="MarginContainer/VBoxContainer/Buttons" method="_on_thunder_finished"]
 [connection signal="animation_finished" from="RandomPictures/AnimationPlayer" to="RandomPictures/Sprite" method="_on_animation_player_animation_finished"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Start" to="MarginContainer/VBoxContainer/Buttons" method="_on_start_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Start" to="MarginContainer/VBoxContainer/Buttons" method="_on_start_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Settings" to="MarginContainer/VBoxContainer/Buttons" method="_on_start_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Settings" to="MarginContainer/VBoxContainer/Buttons" method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Exit" to="MarginContainer/VBoxContainer/Buttons" method="_on_start_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Exit" to="MarginContainer/VBoxContainer/Buttons" method="_on_exit_pressed"]
-[connection signal="finished" from="MarginContainer/VBoxContainer/Buttons/MarginContainer/VBoxContainer/Exit/Thunder" to="MarginContainer/VBoxContainer/Buttons" method="_on_thunder_finished"]
 [connection signal="pressed" from="Overlay/Control/SettingsClose" to="MarginContainer/VBoxContainer/Buttons" method="_on_settings_close_pressed"]
 [connection signal="value_changed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Everything/HSlider" to="Overlay/Control/SettingsClose/Settings" method="_on_every_slider_value_changed"]
 [connection signal="value_changed" from="Overlay/Control/SettingsClose/Settings/MarginContainer/VBoxContainer/Volume/Sound/HSlider" to="Overlay/Control/SettingsClose/Settings" method="_on_sound_slider_value_changed"]

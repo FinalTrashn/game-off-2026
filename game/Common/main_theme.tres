@@ -3,6 +3,8 @@
 [ext_resource type="FontFile" uid="uid://c3efcwqpsefl4" path="res://Common/Fonts/1927 Epoque Regular.otf" id="1_cf6t6"]
 [ext_resource type="FontFile" uid="uid://18kmbnsvfio8" path="res://Common/Fonts/18thCentury Regular.ttf" id="1_vg7ce"]
 [ext_resource type="FontFile" uid="uid://csdmcvjq366c7" path="res://Common/Fonts/1492_Quadrata_lim Bold.ttf" id="2_cf6t6"]
+[ext_resource type="Texture2D" uid="uid://dd76hmruandwu" path="res://Common/swil.png" id="2_fqiy7"]
+[ext_resource type="Texture2D" uid="uid://bxphn0nfb7btf" path="res://Common/swirl_use.png" id="3_3f8e2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vg7ce"]
 content_margin_left = 4.0
@@ -74,6 +76,18 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_72w1o"]
+color = Color(0.2393471, 0.23934716, 0.23934704, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3f8e2"]
+color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hi68w"]
+color = Color(0, 0, 0, 0.29803923)
+thickness = 6
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vg7ce"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syten"]
@@ -103,6 +117,11 @@ Button/styles/focus = SubResource("StyleBoxFlat_cf6t6")
 Button/styles/hover = SubResource("StyleBoxFlat_fqiy7")
 Button/styles/normal = SubResource("StyleBoxFlat_3f8e2")
 Button/styles/pressed = SubResource("StyleBoxFlat_0o2o0")
+HSlider/icons/grabber = ExtResource("2_fqiy7")
+HSlider/icons/grabber_highlight = ExtResource("3_3f8e2")
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_72w1o")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_3f8e2")
+HSlider/styles/slider = SubResource("StyleBoxLine_hi68w")
 Label/fonts/font = ExtResource("2_cf6t6")
 Label/styles/focus = SubResource("StyleBoxEmpty_vg7ce")
 Label/styles/normal = SubResource("StyleBoxEmpty_syten")
