@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctcjr0ela7h0x"
 path.s3tc="res://.godot/imported/Unbenanntes_Projekt-9.png-008a43b2f2c91149d3312e267f726c51.s3tc.ctex"
+path.etc2="res://.godot/imported/Unbenanntes_Projekt-9.png-008a43b2f2c91149d3312e267f726c51.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-9.png"
-dest_files=["res://.godot/imported/Unbenanntes_Projekt-9.png-008a43b2f2c91149d3312e267f726c51.s3tc.ctex"]
+dest_files=["res://.godot/imported/Unbenanntes_Projekt-9.png-008a43b2f2c91149d3312e267f726c51.s3tc.ctex", "res://.godot/imported/Unbenanntes_Projekt-9.png-008a43b2f2c91149d3312e267f726c51.etc2.ctex"]
 
 [params]
 
