@@ -15,12 +15,12 @@ ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.014286831, 0.01615068, 0.03246209, 1)
 energy_multiplier = 0.0
 
-[sub_resource type="Sky" id="Sky_qkd4f"]
+[sub_resource type="Sky" id="Sky_17mwx"]
 sky_material = SubResource("ProceduralSkyMaterial_17mwx")
 
 [sub_resource type="Environment" id="Environment_1eohx"]
 background_mode = 2
-sky = SubResource("Sky_qkd4f")
+sky = SubResource("Sky_17mwx")
 tonemap_mode = 2
 ssao_enabled = true
 sdfgi_enabled = true
@@ -44,9 +44,19 @@ size = Vector3(26.971252, 9.495514, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1960221630]
 environment = SubResource("Environment_1eohx")
 
-[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=2040018066]
+[node name="AmbientLightTop" type="AreaLight3D" parent="." unique_id=2106463079]
+transform = Transform3D(1, 0, 0, 0, -0.30458832, 0.95248413, 0, -0.95248413, -0.30458832, 4.7997904, 4.842346, 1.860204)
+layers = 3
+light_energy = 1.6
+light_cull_mask = 4294966275
+shadow_enabled = true
+shadow_caster_mask = 4294966275
+area_size = Vector2(50.348717, 0.43663782)
+
+[node name="AmbientLightBottom" type="AreaLight3D" parent="." unique_id=2040018066]
 transform = Transform3D(1, 0, 0, 0, 0.2637348, 0.96459526, 0, -0.96459526, 0.2637348, 4.7997904, 1.2943969, 1.7628775)
 layers = 3
+light_energy = 1.6
 light_cull_mask = 4294966275
 shadow_enabled = true
 shadow_caster_mask = 4294966275
