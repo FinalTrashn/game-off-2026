@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://c46a66umbr48p"]
 
-[ext_resource type="Texture2D" uid="uid://q1ywalepmcqr" path="res://Common/Entrance/Sprites/door.webp" id="1_1i6ro"]
+[ext_resource type="Texture2D" uid="uid://bw0pgi18ekowk" path="res://Common/Entrance/Sprites/door.webp" id="1_1i6ro"]
 [ext_resource type="Script" uid="uid://b0stbfvjspyjy" path="res://Common/Entrance/Scripts/entrance.gd" id="1_vdlsj"]
 [ext_resource type="AudioStream" uid="uid://dt8k8pf5ja7tb" path="res://Common/Sounds/door_normal.ogg" id="2_opb37"]
+[ext_resource type="Texture2D" uid="uid://b7lyam12bpk1m" path="res://Common/Entrance/Sprites/buttonPromptKeyboard.png" id="4_dyyeq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fl6ly"]
 size = Vector3(2.15802, 2.7619324, 0.45544434)
@@ -18,7 +19,6 @@ process_mode = 3
 [node name="DoorNormal" type="AudioStreamPlayer" parent="Sounds" unique_id=1153196875]
 stream = ExtResource("2_opb37")
 volume_db = -11.143
-bus = &"Sounds"
 
 [node name="Sprite" type="Sprite3D" parent="." unique_id=1895692033]
 transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, 0, 0, 0)
@@ -34,3 +34,7 @@ transform = Transform3D(2.25, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_glrit")
 target_position = Vector3(0, 0, 0.5)
 collision_mask = 4
+
+[node name="ButtonPrompt" type="Sprite3D" parent="." unique_id=1779111219]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 1.5022492, 0.23678398)
+texture = ExtResource("4_dyyeq")

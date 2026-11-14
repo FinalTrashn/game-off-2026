@@ -28,3 +28,10 @@ func handle_use_door():
 func move_player():
 	var new_pos = exit.global_position
 	player.global_position = Vector3(new_pos.x, new_pos.y, player.global_position.z)
+
+#weil timing egal physics und ned normal process
+func _physics_process(delta: float) -> void:
+	if $PlayerCollider.is_colliding():
+		$ButtonPrompt.modulate = lerp($ButtonPrompt.modulate, Color.WHITE, 0.2)
+	else:
+		$ButtonPrompt.modulate = lerp($ButtonPrompt.modulate, Color.TRANSPARENT, 0.2)
