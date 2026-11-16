@@ -36,7 +36,8 @@ var is_colliding_with_wall: bool = false
 var last_collider: Node = null
 signal colliding_with_wall(colliding: bool, last_collider: Node, new_collider: Node)
 
-
+var IDLE_ANIMS = ["idle_blink", "idle_stand", "idle_wind"]
+var stand_loops_left: int = 0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready() -> void:
@@ -44,7 +45,42 @@ func _ready() -> void:
 		layer_controller.layer_changed.connect(_on_layer_changed)
 		_on_layer_changed(layer_controller.currently_on_background_layer)
 		
-	$Sprite.play("idle")
+	_pick_random_idle()
+	$Sprite.animation_finished.connect(_on_sprite_animation_finished)
+
+func _pick_random_idle() -> void:
+	$Sprite.play(IDLE_ANIMS.pick_random())
+
+func _start_stand_loops():
+	stand_loops_left = randi_range(3, 5)
+	$Sprite.play("idle_stand")
+
+func _on_sprite_animation_finished() -> void:
+	var current_anim = $Sprite.animation
+	
+	if current_anim == "idle_blink" or current_anim == "idle_wind":
+		_start_stand_loops()
+		
+	if current_anim == "idle_stand":
+		stand_loops_left -= 1
+		if stand_loops_left > 0:
+			$Sprite.play("idle_stand")
+		else:
+			_pick_random_idle()
+			
+func handle_animation():
+	var speed_ratio = clamp(abs(velocity.x) / current_speed, 0.0, 1.0)
+	$Sprite.speed_scale = lerp(0.5, 1.5, speed_ratio)
+	
+	if (is_preparing_jump or not is_on_floor()):
+		$Sprite.play("jump")
+	elif abs(velocity.x) == 0:
+		if not ($Sprite.animation in IDLE_ANIMS and $Sprite.is_playing()):
+			_start_stand_loops()
+	elif is_on_floor() and current_speed == walk_speed:
+		$Sprite.play("walk")
+	elif is_on_floor() and current_speed == sprint_speed:
+		$Sprite.play("sprint")
 
 
 func _on_layer_changed(on_background: bool):
@@ -95,20 +131,6 @@ func handle_sprinting(delta):
 	# visualize on ui progress bar
 	if stamina_bar:
 		stamina_bar.value = current_stamina
-
-
-func handle_animation():
-	var speed_ratio = clamp(abs(velocity.x) / current_speed, 0.0, 1.0)
-	$Sprite.speed_scale = lerp(0.5, 1.5, speed_ratio)
-	
-	if (is_preparing_jump or not is_on_floor()):
-		$Sprite.play("jump")
-	elif abs(velocity.x) == 0:
-		$Sprite.play("idle")
-	elif is_on_floor() and current_speed == walk_speed:
-		$Sprite.play("walk")
-	elif is_on_floor() and current_speed == sprint_speed:
-		$Sprite.play("sprint")
 
 
 func _process(delta: float) -> void:

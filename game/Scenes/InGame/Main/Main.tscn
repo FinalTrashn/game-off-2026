@@ -47,6 +47,18 @@ environment = SubResource("Environment_stfqe")
 [node name="Player" parent="." unique_id=2079493257 instance=ExtResource("1_td30v")]
 unique_name_in_owner = true
 transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, -36.35672, 0.89528155, 0)
+walk_speed = 2.6
+sprint_speed = 6.5
+acceleration = 20.0
+friction = 35.0
+jump_velocity = 5.5
+air_resistance = 1.5
+air_resistance_scale = 2.5
+max_jump_windup_time = 0.16
+min_jump_windup_time = 0.04
+max_stamina = 100
+stamina_drain = 35
+stamina_regen = 20
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1020457053 node_paths=PackedStringArray("player")]
 process_mode = 3

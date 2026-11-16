@@ -2,29 +2,55 @@
 
 [ext_resource type="Script" uid="uid://bpwsmvjlg2g76" path="res://Common/Player/Scripts/Player.gd" id="1_wtflm"]
 [ext_resource type="Texture2D" uid="uid://ca7o01usdaoi7" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-5.png" id="2_7r375"]
+[ext_resource type="Texture2D" uid="uid://b7gsrmudffubp" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-1.png" id="2_e2acc"]
+[ext_resource type="Texture2D" uid="uid://te8rgcgt06ij" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-2.png" id="3_py4yh"]
 [ext_resource type="Texture2D" uid="uid://b6jdd2v1ki7h2" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-9.png" id="3_q8hir"]
 [ext_resource type="Texture2D" uid="uid://jdv5cb4kq7lo" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-1.png" id="4_d1b2g"]
+[ext_resource type="Texture2D" uid="uid://8jvih37h3xnv" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-3.png" id="4_nbdtt"]
+[ext_resource type="Texture2D" uid="uid://b0b8c8lphrh6w" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-4.png" id="5_5l8e6"]
 [ext_resource type="Texture2D" uid="uid://bd6pl6bhrbc6l" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-2.png" id="5_yof5a"]
 [ext_resource type="Texture2D" uid="uid://ceu6y228txdep" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-3.png" id="6_opyvn"]
+[ext_resource type="Texture2D" uid="uid://c3vugkwv5rjfl" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-5.png" id="6_xdexp"]
+[ext_resource type="Texture2D" uid="uid://chf2qeu3empwk" path="res://Common/Player/Sprites/Idle/idle_stand/idle_stand-1.png" id="7_1p4tr"]
 [ext_resource type="Texture2D" uid="uid://bne5ohlsgjev2" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-4.png" id="7_op83p"]
+[ext_resource type="Texture2D" uid="uid://cjs0vh5l6bui1" path="res://Common/Player/Sprites/Idle/idle_stand/idle_stand-2.png" id="8_erxw7"]
 [ext_resource type="Texture2D" uid="uid://bhsnmwqlev3ue" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-6.png" id="8_kk34g"]
 [ext_resource type="Texture2D" uid="uid://du6bmt6ntlnbi" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-7.png" id="9_161b3"]
+[ext_resource type="Texture2D" uid="uid://d2d67i7n4807u" path="res://Common/Player/Sprites/Idle/idle_stand/idle_stand-3.png" id="9_tt7f6"]
 [ext_resource type="Texture2D" uid="uid://b2paquixu6pbd" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-8.png" id="10_eg4yc"]
+[ext_resource type="Texture2D" uid="uid://6jdowgnxk4oq" path="res://Common/Player/Sprites/Idle/idle_stand/idle_stand-4.png" id="10_gh0rm"]
 [ext_resource type="Texture2D" uid="uid://crseoovkxh2ud" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-10.png" id="11_663xi"]
+[ext_resource type="Texture2D" uid="uid://dwlohvvl5k56m" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-1.png" id="11_fss41"]
 [ext_resource type="Texture2D" uid="uid://cp41h24vklk4k" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-11.png" id="12_ojccj"]
+[ext_resource type="Texture2D" uid="uid://cthpl7xx1kgix" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-2.png" id="12_rcdul"]
 [ext_resource type="Texture2D" uid="uid://dqs7x4k4fngpk" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-12.png" id="13_i1y88"]
+[ext_resource type="Texture2D" uid="uid://bkxynryiagssg" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-3.png" id="13_nufn8"]
 [ext_resource type="Texture2D" uid="uid://btaiab0iuc5nr" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-13.png" id="14_0eqiv"]
+[ext_resource type="Texture2D" uid="uid://d0oov35e7ti2u" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-4.png" id="14_mqbmh"]
+[ext_resource type="Texture2D" uid="uid://dapx16xdbb4e6" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-5.png" id="15_d5t6h"]
 [ext_resource type="Texture2D" uid="uid://b2ocdye4kw0y" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-14.png" id="15_vb7bj"]
 [ext_resource type="Texture2D" uid="uid://bi1jpb1mwuww" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-15.png" id="16_0y55j"]
+[ext_resource type="Texture2D" uid="uid://wueajippic78" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-6.png" id="16_xcigl"]
 [ext_resource type="Texture2D" uid="uid://dwt6hplvyiqxp" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-16.png" id="17_1w47i"]
+[ext_resource type="Texture2D" uid="uid://dc0n7236n5cs6" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-7.png" id="17_81r3h"]
+[ext_resource type="Texture2D" uid="uid://dsrspsn6rmw6n" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-8.png" id="18_g0mnb"]
 [ext_resource type="Texture2D" uid="uid://cutfm3nkm2560" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-17.png" id="18_tlgx8"]
+[ext_resource type="Texture2D" uid="uid://bbcmc8011oxf0" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-9.png" id="19_dp21v"]
 [ext_resource type="Texture2D" uid="uid://cxcl14dfp0q85" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-18.png" id="19_elvmr"]
 [ext_resource type="Texture2D" uid="uid://dkkgx35c05t4j" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-19.png" id="20_k4kus"]
+[ext_resource type="Texture2D" uid="uid://yo4s52rf8jrm" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-10.png" id="20_tb3la"]
+[ext_resource type="Texture2D" uid="uid://bry6ffokhgnmw" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-11.png" id="21_1fsfq"]
 [ext_resource type="Texture2D" uid="uid://dh6jbn6ij3a6a" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-20.png" id="21_6642e"]
 [ext_resource type="Texture2D" uid="uid://csw5plqfvihcm" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-21.png" id="22_rd6in"]
+[ext_resource type="Texture2D" uid="uid://d6q2l3eukhcy" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-12.png" id="22_u1ee6"]
 [ext_resource type="Texture2D" uid="uid://dgd43kk2ngyw6" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-22.png" id="23_c3a1r"]
+[ext_resource type="Texture2D" uid="uid://ytl8wa65kuc5" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-13.png" id="23_usnfl"]
 [ext_resource type="Theme" uid="uid://cfatnju5ngdlw" path="res://Common/main_theme.tres" id="24_0eqiv"]
 [ext_resource type="Script" uid="uid://b1kx7yi1xs7rc" path="res://Common/Player/Scenes/pause.gd" id="25_vb7bj"]
+[ext_resource type="Texture2D" uid="uid://bon73i4hbpif4" path="res://Common/Player/Sprites/Walking/idle_walk-1.png" id="29_p8lah"]
+[ext_resource type="Texture2D" uid="uid://dqrtsulnvi1be" path="res://Common/Player/Sprites/Walking/idle_walk-2.png" id="30_064ny"]
+[ext_resource type="Texture2D" uid="uid://bkmcw3hl3owj" path="res://Common/Player/Sprites/Walking/idle_walk-3.png" id="31_ivlyp"]
+[ext_resource type="Texture2D" uid="uid://burx6qxh83nt4" path="res://Common/Player/Sprites/Walking/idle_walk-4.png" id="32_i5yn5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8hir"]
 size = Vector3(2.6734009, 3.9063416, 0.7302246)
@@ -33,14 +59,123 @@ size = Vector3(2.6734009, 3.9063416, 0.7302246)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("22_rd6in")
+"texture": ExtResource("2_e2acc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_1w47i")
+"texture": ExtResource("3_py4yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nbdtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5l8e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xdexp")
 }],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
+"loop": 0,
+"name": &"idle_blink",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_1p4tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_erxw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tt7f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gh0rm")
+}],
+"loop": 0,
+"name": &"idle_stand",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_fss41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rcdul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nufn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mqbmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_d5t6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xcigl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_81r3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_g0mnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dp21v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_tb3la")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1fsfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_u1ee6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_usnfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fss41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rcdul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nufn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mqbmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_d5t6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xcigl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_81r3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_g0mnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dp21v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_tb3la")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1fsfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_u1ee6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_usnfl")
+}],
+"loop": 0,
+"name": &"idle_wind",
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -126,10 +261,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_0y55j")
+"texture": ExtResource("29_p8lah")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_elvmr")
+"texture": ExtResource("30_064ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ivlyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_i5yn5")
 }],
 "loop": 1,
 "name": &"walk",
@@ -250,7 +391,7 @@ layers = 3
 shaded = true
 render_priority = 2
 sprite_frames = SubResource("SpriteFrames_fl6ly")
-animation = &"idle"
+animation = &"idle_wind"
 speed_scale = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=559149421]
