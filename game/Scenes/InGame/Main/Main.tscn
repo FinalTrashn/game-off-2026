@@ -6,8 +6,10 @@
 [ext_resource type="Script" uid="uid://ds4yr2r0331tc" path="res://Scenes/InGame/Main/Controller/layer_controller.gd" id="4_70f0n"]
 [ext_resource type="PackedScene" uid="uid://kkjg6ihkj87u" path="res://Scenes/InGame/Rooms/GF_MainHall/MainHall.tscn" id="4_kyxfq"]
 [ext_resource type="PackedScene" uid="uid://c46a66umbr48p" path="res://Common/Entrance/Scenes/entrance.tscn" id="5_kyxfq"]
+[ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="5_lgr1e"]
 [ext_resource type="Script" uid="uid://b347ktpwjhg27" path="res://Scenes/InGame/Main/Controller/render_priority_generator.gd" id="5_stfqe"]
 [ext_resource type="PackedScene" uid="uid://8p1gb223acg4" path="res://Scenes/InGame/Rooms/GF_EntranceRoom/EntrenceRoom.tscn" id="6_70f0n"]
+[ext_resource type="PackedScene" uid="uid://bdee3xxqrwi1q" path="res://Common/FungusMan/fungus_man.tscn" id="7_82pi1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
 sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
@@ -27,6 +29,16 @@ ssao_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ac6x"]
+size = Vector3(31.14766, 6.897705, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_7mt2c"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 1.523, 0, 0, 0, 0, 0, 0, 0, -63.155632, 1.611, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="Main" type="Node3D" unique_id=848268648]
 
 [node name="BlackHole" type="WorldEnvironment" parent="." unique_id=1405360915]
@@ -34,7 +46,7 @@ environment = SubResource("Environment_stfqe")
 
 [node name="Player" parent="." unique_id=2079493257 instance=ExtResource("1_td30v")]
 unique_name_in_owner = true
-transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, 0, 0.89528155, 0)
+transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, -36.35672, 0.89528155, 0)
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1020457053 node_paths=PackedStringArray("player")]
 process_mode = 3
@@ -69,6 +81,19 @@ script = ExtResource("3_fx46b")
 [node name="MainHall" parent="Rooms" unique_id=1805491639 instance=ExtResource("4_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.101643, 0, 0)
 
+[node name="back_wall" type="StaticBody3D" parent="Rooms/MainHall" unique_id=1834018693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.841, 0, -1)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/MainHall/back_wall" unique_id=26881721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052497864, 2.753296, 0)
+shape = SubResource("BoxShape3D_5ac6x")
+
+[node name="Sprite3D" type="Sprite3D" parent="Rooms/MainHall/back_wall" unique_id=1439587580]
+transform = Transform3D(24.537537, 0, 0, 0, 4.629934, 0, 0, 0, 1, 0, 2.8465614, 0)
+shaded = true
+texture = ExtResource("5_lgr1e")
+
 [node name="Entrance" parent="Rooms/MainHall" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.382, 1.168, -0.9)
 exit = NodePath("../../TemplateFgRoom/Entrance")
@@ -78,6 +103,13 @@ exit = NodePath("../../TemplateFgRoom/Entrance")
 [node name="Entrance" parent="Rooms/TemplateFgRoom" unique_id=1683013020 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.757, 1.129, -0.9)
 exit = NodePath("../../MainHall/Entrance")
+
+[node name="FungusManPath" type="Path3D" parent="." unique_id=757050642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.375322, 0.6626167, -2)
+curve = SubResource("Curve3D_7mt2c")
+
+[node name="FungunsManFollow" parent="FungusManPath" unique_id=1735489169 instance=ExtResource("7_82pi1")]
+transform = Transform3D(1, 0, 0, 0, 0.99999505, 0, 0, 0, 0.99999505, 0, 1.523, 0)
 
 [node name="Controller" type="Node" parent="." unique_id=1408514781]
 
