@@ -57,5 +57,5 @@ func _change_opacity_of_wall(wall: Node, alpha: float = 0.5):
 		if sprite is Sprite3D:
 			var tween = create_tween()
 			tween.tween_property(sprite, "modulate:a", alpha, 0.5)
-		else:
+		elif sprite:
 			push_warning("%s has no modulate (not a Sprite3D)" % sprite.name)

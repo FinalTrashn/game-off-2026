@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="1_3wa1n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uaa7l"]
-size = Vector3(31.14766, 6.897705, 1)
+size = Vector3(31.14766, 6.897705, 1.7861328)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ej4cl"]
 size = Vector3(2.4234009, 5.9500732, 1)
@@ -32,13 +32,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 
 [node name="back_wall" type="StaticBody3D" parent="ForegroundLayer/Background/Walls" unique_id=507487844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.882564, 0, 0)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Background/Walls/back_wall" unique_id=1423288674]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052497864, 2.753296, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052497864, 2.753296, 0.3930664)
 shape = SubResource("BoxShape3D_uaa7l")
 
 [node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer/Background/Walls/back_wall" unique_id=2074389320]
 transform = Transform3D(24.537537, 0, 0, 0, 4.629934, 0, 0, 0, 1, 0, 2.8465614, 0)
+shaded = true
 texture = ExtResource("1_3wa1n")
 
 [node name="left_wall" type="StaticBody3D" parent="ForegroundLayer/Background/Walls" unique_id=1749524759]
@@ -46,6 +48,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.80
 
 [node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer/Background/Walls/left_wall" unique_id=765083813]
 transform = Transform3D(1.7639512, 0, 0, 0, 4.853201, 0, 0, 0, 1, 0, 2.2828946, 0)
+shaded = true
 texture = ExtResource("1_3wa1n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Background/Walls/left_wall" unique_id=2002215041]
@@ -57,6 +60,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.
 
 [node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer/Background/Walls/right_wall" unique_id=1880511238]
 transform = Transform3D(1.7639512, 0, 0, 0, 4.853201, 0, 0, 0, 1, 0, 2.2828946, 0)
+shaded = true
 texture = ExtResource("1_3wa1n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Background/Walls/right_wall" unique_id=1071312842]

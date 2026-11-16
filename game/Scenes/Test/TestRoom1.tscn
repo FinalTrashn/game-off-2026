@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b6vn7mxc471p"]
 
-[ext_resource type="Texture2D" uid="uid://cyfqmu1k2gy6k" path="res://Common/Background/Sprites/jokerofthomas.png" id="1_hc4fl"]
-[ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="2_f25oe"]
+[ext_resource type="Texture2D" uid="uid://dvwvusm8dys8e" path="res://Common/Background/Sprites/jokerofthomas.png" id="1_hc4fl"]
+[ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="2_f25oe"]
 [ext_resource type="PackedScene" uid="uid://c46a66umbr48p" path="res://Common/Entrance/Scenes/entrance.tscn" id="3_o6qm7"]
-[ext_resource type="Texture2D" uid="uid://b13em1yyks2wc" path="res://Common/Background/Sprites/stomped.png" id="5_ycgo4"]
+[ext_resource type="Texture2D" uid="uid://dxp5j80lrsngn" path="res://Common/Background/Sprites/stomped.png" id="5_ycgo4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
 size = Vector3(64.75586, 1.1855469, 1)
