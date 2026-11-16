@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="1_3wa1n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uaa7l"]
-size = Vector3(31.14766, 6.897705, 1)
+size = Vector3(31.14766, 6.897705, 1.7861328)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ej4cl"]
 size = Vector3(2.4234009, 5.9500732, 1)
@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.882564, 0, 0)
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Background/Walls/back_wall" unique_id=1423288674]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052497864, 2.753296, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052497864, 2.753296, 0.3930664)
 shape = SubResource("BoxShape3D_uaa7l")
 
 [node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer/Background/Walls/back_wall" unique_id=2074389320]

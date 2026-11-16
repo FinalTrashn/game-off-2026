@@ -30,7 +30,7 @@ sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ac6x"]
-size = Vector3(31.14766, 6.897705, 1)
+size = Vector3(14.332288, 6.897705, 1.6484985)
 
 [sub_resource type="Curve3D" id="Curve3D_7mt2c"]
 _data = {
@@ -86,11 +86,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.841, 0, -1)
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/MainHall/back_wall" unique_id=26881721]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052497864, 2.753296, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032604218, 2.753296, 0.32424927)
 shape = SubResource("BoxShape3D_5ac6x")
 
 [node name="Sprite3D" type="Sprite3D" parent="Rooms/MainHall/back_wall" unique_id=1439587580]
-transform = Transform3D(24.537537, 0, 0, 0, 4.629934, 0, 0, 0, 1, 0, 2.8465614, 0)
+transform = Transform3D(11.248, 0, 0, 0, 4.63, 0, 0, 0, 1, 0, 2.8465614, 0)
 shaded = true
 texture = ExtResource("5_lgr1e")
 
