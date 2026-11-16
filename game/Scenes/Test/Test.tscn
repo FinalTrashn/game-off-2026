@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://qeqgcruvjq6j"]
 
-[ext_resource type="Texture2D" uid="uid://cyfqmu1k2gy6k" path="res://Common/Background/Sprites/jokerofthomas.png" id="1_43i24"]
-[ext_resource type="Texture2D" uid="uid://crwl504g16ws7" path="res://icon.svg" id="1_2825q"]
+[ext_resource type="Texture2D" uid="uid://dvwvusm8dys8e" path="res://Common/Background/Sprites/jokerofthomas.png" id="1_43i24"]
+[ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="1_2825q"]
 [ext_resource type="PackedScene" uid="uid://bcleukcqgmo4n" path="res://Common/Player/Scenes/player.tscn" id="2_j2oh8"]
 [ext_resource type="Script" uid="uid://cp1htpn7ywhrp" path="res://Common/Camera/Scripts/camera.gd" id="3_nfwow"]
-[ext_resource type="Texture2D" uid="uid://b13em1yyks2wc" path="res://Common/Background/Sprites/stomped.png" id="5_77vx0"]
+[ext_resource type="Texture2D" uid="uid://dxp5j80lrsngn" path="res://Common/Background/Sprites/stomped.png" id="5_77vx0"]
 [ext_resource type="Script" uid="uid://ds4yr2r0331tc" path="res://Scenes/InGame/Main/Controller/layer_controller.gd" id="6_77vx0"]
 [ext_resource type="Script" uid="uid://b347ktpwjhg27" path="res://Scenes/InGame/Main/Controller/render_priority_generator.gd" id="7_17mwx"]
 

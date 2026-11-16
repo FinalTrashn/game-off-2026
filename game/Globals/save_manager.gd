@@ -4,10 +4,15 @@ const SAVE_PATH := "user://save.json"
 
 @export var auto_save := true
 
+@onready var sound_bus_id = AudioServer.get_bus_index("Sounds")
+@onready var music_bus_id = AudioServer.get_bus_index("Music")
+@onready var master_bus_id = AudioServer.get_bus_index("Master")
+
 var _data: Dictionary = {}
 
 func _ready() -> void:
 	load_data()
+	_setSoundAtBeginning()
 
 func set_value(key: String, value: String) -> void:
 	_data[key] = value
@@ -48,3 +53,17 @@ func load_data() -> void:
 	else:
 		push_warning("SaveManager: save file was invalid, starting fresh.")
 		_data = {}
+
+func _setSoundAtBeginning():
+	var old_sound_vol = SaveManager.get_value("sound-volume")
+	var old_music_vol = SaveManager.get_value("music-volume")
+	var old_master_vol = SaveManager.get_value("master-volume")
+	
+	##setting saved volume to bus
+	if old_sound_vol:
+		AudioServer.set_bus_volume_db(sound_bus_id, linear_to_db(float(old_sound_vol))+10)
+	if old_music_vol:
+		AudioServer.set_bus_volume_db(music_bus_id, linear_to_db(float(old_music_vol))+10)
+	if old_master_vol:
+		AudioServer.set_bus_volume_db(master_bus_id, linear_to_db(float(old_master_vol))+10)
+	
