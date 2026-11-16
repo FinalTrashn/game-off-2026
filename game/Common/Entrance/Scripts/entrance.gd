@@ -6,7 +6,7 @@ var player_overlay_player: AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = $"../../../../../../Player"
+	player = %Player
 	print(player)
 	player_overlay_player = player.get_node("CanvasLayer/Overlays/Black/AnimationPlayer")
 	player_overlay_player.connect("animation_finished", _fade_animation_finished)
