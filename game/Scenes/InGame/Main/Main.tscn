@@ -16,12 +16,12 @@ ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.014286831, 0.01615068, 0.03246209, 1)
 energy_multiplier = 0.0
 
-[sub_resource type="Sky" id="Sky_qkd4f"]
+[sub_resource type="Sky" id="Sky_kyxfq"]
 sky_material = SubResource("ProceduralSkyMaterial_70f0n")
 
 [sub_resource type="Environment" id="Environment_stfqe"]
 background_mode = 2
-sky = SubResource("Sky_qkd4f")
+sky = SubResource("Sky_kyxfq")
 tonemap_mode = 2
 ssao_enabled = true
 sdfgi_enabled = true
@@ -48,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, -0.30458832, 0.95248413, 0, -0.95248413, -0.
 [node name="AmbientLightTop" type="AreaLight3D" parent="AmbientLight" unique_id=778941693]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.9802322e-08, 0, 0, 0.99999994, -11.656877, 0, 0)
 layers = 3
-light_energy = 1.6
+light_energy = 12.0
 light_cull_mask = 4294966275
 shadow_enabled = true
 shadow_caster_mask = 4294966275
@@ -57,7 +57,7 @@ area_size = Vector2(238.61565, 0.43663782)
 [node name="AmbientLightBottom" type="AreaLight3D" parent="AmbientLight" unique_id=358042928]
 transform = Transform3D(1, 0, 0, 0, 0.838431, -0.54500765, 0, 0.54500765, 0.838431, -11.656877, 1.1733658, -3.3497202)
 layers = 3
-light_energy = 1.6
+light_energy = 12.0
 light_cull_mask = 4294966275
 shadow_enabled = true
 shadow_caster_mask = 4294966275
@@ -66,18 +66,18 @@ area_size = Vector2(247.79356, 0.43663782)
 [node name="Rooms" type="Node3D" parent="." unique_id=754864513]
 script = ExtResource("3_fx46b")
 
-[node name="ForgroundRoom" parent="Rooms" unique_id=1805491639 instance=ExtResource("4_kyxfq")]
+[node name="MainHall" parent="Rooms" unique_id=1805491639 instance=ExtResource("4_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.101643, 0, 0)
 
-[node name="Entrance" parent="Rooms/ForgroundRoom" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 31.810453, 1.7151396, -0.45135307)
+[node name="Entrance" parent="Rooms/MainHall" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.382, 1.168, -0.9)
 exit = NodePath("../../TemplateFgRoom/Entrance")
 
 [node name="TemplateFgRoom" parent="Rooms" unique_id=494643628 instance=ExtResource("6_70f0n")]
 
 [node name="Entrance" parent="Rooms/TemplateFgRoom" unique_id=1683013020 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -28.023016, 1.4730598, 0.043752864)
-exit = NodePath("../../ForgroundRoom/Entrance")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.757, 1.129, -0.9)
+exit = NodePath("../../MainHall/Entrance")
 
 [node name="Controller" type="Node" parent="." unique_id=1408514781]
 
