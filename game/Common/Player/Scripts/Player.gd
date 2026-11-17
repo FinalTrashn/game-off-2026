@@ -36,7 +36,7 @@ var is_colliding_with_wall: bool = false
 var last_collider: Node = null
 signal colliding_with_wall(colliding: bool, last_collider: Node, new_collider: Node)
 
-var IDLE_ANIMS = ["idle_blink", "idle_stand", "idle_wind"]
+var idle_animations = ["idle_blink", "idle_stand", "idle_wind"]
 var stand_loops_left: int = 0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -49,7 +49,7 @@ func _ready() -> void:
 	$Sprite.animation_finished.connect(_on_sprite_animation_finished)
 
 func _pick_random_idle() -> void:
-	$Sprite.play(IDLE_ANIMS.pick_random())
+	$Sprite.play(idle_animations.pick_random())
 
 func _start_stand_loops():
 	stand_loops_left = randi_range(3, 5)
@@ -75,7 +75,7 @@ func handle_animation():
 	if (is_preparing_jump or not is_on_floor()):
 		$Sprite.play("jump")
 	elif abs(velocity.x) == 0:
-		if not ($Sprite.animation in IDLE_ANIMS and $Sprite.is_playing()):
+		if not ($Sprite.animation in idle_animations and $Sprite.is_playing()):
 			_start_stand_loops()
 	elif is_on_floor() and current_speed == walk_speed:
 		$Sprite.play("walk")

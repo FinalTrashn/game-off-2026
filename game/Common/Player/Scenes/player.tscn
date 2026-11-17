@@ -53,7 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://burx6qxh83nt4" path="res://Common/Player/Sprites/Walking/idle_walk-4.png" id="32_i5yn5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8hir"]
-size = Vector3(2.6734009, 3.9063416, 0.7302246)
+size = Vector3(1.7888527, 3.9063416, 0.7302246)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fl6ly"]
 animations = [{
@@ -383,7 +383,7 @@ blink_player = NodePath("CanvasLayer/Staminabar/BlinkPlayer")
 [node name="footsteps" type="AudioStreamPlayer" parent="Sounds" unique_id=43817015]
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1339402680]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059051514, 0.063064575, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08967018, 0.063064575, 0)
 shape = SubResource("BoxShape3D_q8hir")
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." unique_id=1683576381]
@@ -456,7 +456,7 @@ grow_vertical = 2
 script = ExtResource("25_vb7bj")
 
 [node name="WallCollider" type="ShapeCast3D" parent="." unique_id=837483549]
-transform = Transform3D(3.67, 0, 0, 0, 0.165, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(1.73, 0, 0, 0, 0.165, 0, 0, 0, 3, 0.09130931, 0, 0)
 shape = SubResource("BoxShape3D_fl6ly")
 target_position = Vector3(0, 0, 0)
 collision_mask = 2

@@ -13,6 +13,7 @@ extends CharacterBody3D
 @onready var player = $"../../../Player"
 @onready var player_collider: ShapeCast3D = $PlayerCollider as ShapeCast3D
 @onready var vision_collider: ShapeCast3D = $VisionCollider as ShapeCast3D
+@onready var layer_controller = $"../../../Controller/LayerController"
 
 var target_progress: float = 0.0
 var current_speed: float = 0.0
@@ -29,55 +30,33 @@ func _ready() -> void:
 	_pick_new_random_destination()
 
 
-func _set_position(world_pos: Vector3) -> void:
-	var local_pos: Vector3 = path_node.to_local(world_pos)
-	target_progress = clamp(path_node.curve.get_closest_offset(local_pos), 0.0, path_length)
+func _set_destination(destination: Vector3) -> void:
+	var local_position = path_node.to_local(destination)
+	target_progress = clamp(path_node.curve.get_closest_offset(local_position), 0.0, path_length)
 
 
 func _pick_new_random_destination() -> void:
+	# set the speed to the patrol speed
 	current_speed = patrol_speed
 	
-	# Get the world-space start and end points of the path
-	var start_world: Vector3 = path_node.to_global(path_node.curve.sample_baked(0.0))
-	var end_world: Vector3 = path_node.to_global(path_node.curve.sample_baked(path_length))
+	# get the global coordinates of the end and start position of path
+	var start_position = path_node.to_global(path_node.curve.sample_baked(0.0))
+	var end_position = path_node.to_global(path_node.curve.sample_baked(path_length))
 	
-	# Check distances in world space from the character's current position
-	var dist_to_start: float = global_position.distance_to(start_world)
-	var dist_to_end: float = global_position.distance_to(end_world)
-	
-	# Safety check: if the path is shorter than min_patrol_distance, go to the furthest end
-	if path_length <= min_patrol_distance:
-		_set_position(start_world if dist_to_start > dist_to_end else end_world)
-		return
-	
-	var can_go_start: bool = dist_to_start >= min_patrol_distance
-	var can_go_end: bool = dist_to_end >= min_patrol_distance
-	
-	var chosen_target: Vector3
-	
-	if can_go_start and can_go_end:
-		# Both directions have enough room: pick a random world point on either side
-		if randf() < 0.5:
-			var stop_point = global_position.move_toward(start_world, min_patrol_distance)
-			chosen_target = stop_point.lerp(start_world, randf())
-		else:
-			var stop_point = global_position.move_toward(end_world, min_patrol_distance)
-			chosen_target = stop_point.lerp(end_world, randf())
-	elif can_go_start:
-		var stop_point = global_position.move_toward(start_world, min_patrol_distance)
-		chosen_target = stop_point.lerp(start_world, randf())
+	# move to left or right via coinflip
+	var destination = Vector3()
+	if randi_range(0, 1) == 0:
+		var max_distance = global_position.distance_to(start_position)
+		var random_distance = randf_range(min_patrol_distance, max_distance)
+		destination = global_position.move_toward(start_position, random_distance)
 	else:
-		var stop_point = global_position.move_toward(end_world, min_patrol_distance)
-		chosen_target = stop_point.lerp(end_world, randf())
+		var max_distance = global_position.distance_to(end_position)
+		var random_distance = randf_range(min_patrol_distance, max_distance)
+		destination = global_position.move_toward(end_position, random_distance)
 	
-	_set_position(chosen_target)
-
-
-func _on_destination_reached():
-	is_waiting = true
-	await get_tree().create_timer(randf_range(wait_time_range.x, wait_time_range.y)).timeout
-	is_waiting = false
-	_pick_new_random_destination()
+	destination.x = clamp(destination.x, min(start_position.x, end_position.x), max(start_position.x, end_position.x))
+	
+	_set_destination(destination)
 
 
 func _start_waiting() -> void:
@@ -92,28 +71,13 @@ func get_distance_to_player() -> float:
 func collides_with_player(collision_shape: ShapeCast3D) -> bool:
 	if not collision_shape.is_colliding():
 		return false
-
-	var hit_player := false
-	for i in range(collision_shape.get_collision_count()):
-		if collision_shape.get_collider(i) == player:
-			hit_player = true
-			break
-			
-	if not hit_player:
-		return false
-
-	# Fire a ray to check if a wall is between the Fungus Man and the Player
-	var space_state = get_world_3d().direct_space_state
-	var origin = global_position + Vector3(0, 1.0, 0)
-	var target = player.global_position + Vector3(0, 1.0, 0) 
 	
-	var query = PhysicsRayQueryParameters3D.create(origin, target)
-	query.collision_mask = 2 
-	query.exclude = [self.get_rid(), player.get_rid()]
+	# check if player is in a safe area
+	var player_is_in_front_of_wall = not layer_controller.currently_on_background_layer and layer_controller.currently_colliding_with_wall
+	# TODO: make collision detected when not fully colliding with wall
 	
-	var result = space_state.intersect_ray(query)
-	
-	return result.is_empty()
+	# player is visible if in collision and not in front of a wall
+	return not player_is_in_front_of_wall
 
 
 func _process(delta: float) -> void:
@@ -147,4 +111,4 @@ func _physics_process(delta: float) -> void:
 	if collides_with_player(vision_collider):
 		current_speed = chase_speed
 		is_waiting = false
-		_set_position(player.global_position)
+		_set_destination(player.global_position)
