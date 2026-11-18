@@ -23,6 +23,10 @@ func switch_layer():
 		tween.finished.connect(func(): emit_signal("layer_changed", currently_on_background_layer))
 		emit_signal("layer_changed", currently_on_background_layer)
 
+func set_currently_on_background_layer(on_background: bool):
+	currently_on_background_layer = on_background
+	emit_signal("layer_changed", currently_on_background_layer)
+
 
 func _on_collision_change(is_colliding: bool, last_collider: Node, new_collider: Node):
 	currently_colliding_with_wall = is_colliding

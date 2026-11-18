@@ -22,17 +22,31 @@ var last_x: float = 0.0
 var is_waiting: bool = false
 var wait_timer: float = 0.0
 
+var start_global: Vector3
+var end_global: Vector3
+
 
 func _ready() -> void:
 	path_length = path_node.curve.get_baked_length()
 	last_x = global_position.x
 	
+	start_global = path_node.to_global(path_node.curve.get_point_position(0))
+	end_global = path_node.to_global(path_node.curve.get_point_position(path_node.curve.point_count - 1))
+	
 	_pick_new_random_destination()
 
 
 func _set_destination(destination: Vector3) -> void:
-	var local_position = path_node.to_local(destination)
-	target_progress = clamp(path_node.curve.get_closest_offset(local_position), 0.0, path_length)
+	target_progress = convert_position_to_progress(destination)
+
+
+func _set_position(position: Vector3) -> void:
+	path_follow.progress = convert_position_to_progress(position)
+
+
+func convert_position_to_progress(position: Vector3) -> float:
+	var local_position = path_node.to_local(position)
+	return clamp(path_node.curve.get_closest_offset(local_position), -0.1, path_length + 0.1)
 
 
 func _pick_new_random_destination() -> void:
@@ -106,7 +120,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if collides_with_player(player_collider):
-		print("GOT YOU at ", global_position.x)
+		#print("GOT YOU at ", global_position.x)
+		pass
 	
 	if collides_with_player(vision_collider):
 		current_speed = chase_speed

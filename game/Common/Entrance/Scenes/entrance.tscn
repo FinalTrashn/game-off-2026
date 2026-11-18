@@ -8,9 +8,14 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_fl6ly"]
 size = Vector3(2.15802, 2.7619324, 0.45544434)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
+size = Vector3(15, 5, 2)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_glrit"]
 
 [node name="Entrance" type="StaticBody3D" unique_id=1231968614]
+collision_layer = 32768
+collision_mask = 8
 script = ExtResource("1_vdlsj")
 
 [node name="Sounds" type="Node" parent="." unique_id=827711644]
@@ -28,6 +33,11 @@ texture = ExtResource("1_1i6ro")
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=822151802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022369385, 0.16850281, 0.00018310547)
 shape = SubResource("BoxShape3D_fl6ly")
+
+[node name="SafeZone" type="Area3D" parent="." unique_id=1422443100]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="SafeZone" unique_id=1369994501]
+shape = SubResource("BoxShape3D_7t2l5")
 
 [node name="PlayerCollider" type="ShapeCast3D" parent="." unique_id=400597463]
 transform = Transform3D(2.25, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 0, 0)
