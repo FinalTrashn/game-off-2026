@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="5_lgr1e"]
 [ext_resource type="Script" uid="uid://b347ktpwjhg27" path="res://Scenes/InGame/Main/Controller/render_priority_generator.gd" id="5_stfqe"]
 [ext_resource type="PackedScene" uid="uid://8p1gb223acg4" path="res://Scenes/InGame/Rooms/GF_EntranceRoom/EntrenceRoom.tscn" id="6_70f0n"]
+[ext_resource type="PackedScene" uid="uid://bbw380nkud71p" path="res://Scenes/InGame/Rooms/GF_Waiting Room/Waiting Room.tscn" id="7_5ac6x"]
 [ext_resource type="PackedScene" uid="uid://bdee3xxqrwi1q" path="res://Common/FungusMan/fungus_man.tscn" id="7_82pi1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
@@ -79,7 +80,7 @@ area_size = Vector2(247.79356, 0.43663782)
 script = ExtResource("3_fx46b")
 
 [node name="MainHall" parent="Rooms" unique_id=1805491639 instance=ExtResource("4_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.101643, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.11237, 0, 0)
 
 [node name="back_wall" type="StaticBody3D" parent="Rooms/MainHall" unique_id=1834018693]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.841, 0, -1)
@@ -94,15 +95,30 @@ transform = Transform3D(11.248, 0, 0, 0, 4.63, 0, 0, 0, 1, 0, 2.8465614, 0)
 shaded = true
 texture = ExtResource("5_lgr1e")
 
-[node name="Entrance" parent="Rooms/MainHall" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.382, 1.168, -0.9)
-exit = NodePath("../../TemplateFgRoom/Entrance")
+[node name="Waiting Room" parent="Rooms" unique_id=388544862 instance=ExtResource("7_5ac6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -196.80106, 0, 0)
 
-[node name="TemplateFgRoom" parent="Rooms" unique_id=494643628 instance=ExtResource("6_70f0n")]
+[node name="Entrance EntryRoom" parent="Rooms/Waiting Room" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.677612, 1.168, -0.9)
+exit = NodePath("../../Entrence Room/Entrance")
 
-[node name="Entrance" parent="Rooms/TemplateFgRoom" unique_id=1683013020 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+[node name="Entrance CR" parent="Rooms/Waiting Room" unique_id=1086408560 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.312149, 1.4487033, -2.9609592)
+exit = NodePath("../../CR/Entrance Waiting Room")
+
+[node name="Entrence Room" parent="Rooms" unique_id=494643628 instance=ExtResource("6_70f0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.574226, 0, 0)
+
+[node name="Entrance" parent="Rooms/Entrence Room" unique_id=1683013020 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.757, 1.129, -0.9)
-exit = NodePath("../../MainHall/Entrance")
+exit = NodePath("../../Waiting Room/Entrance EntryRoom")
+
+[node name="CR" parent="Rooms" unique_id=425210454 instance=ExtResource("6_70f0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3395195, 0, 0)
+
+[node name="Entrance Waiting Room" parent="Rooms/CR" unique_id=1590336971 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8223705, 1.129, -0.9)
+exit = NodePath("../../Waiting Room/Entrance CR")
 
 [node name="FungusManPath" type="Path3D" parent="." unique_id=757050642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.375322, 0.6626167, -2)

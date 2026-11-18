@@ -53,9 +53,11 @@ func _input(event: InputEvent) -> void:
 			
 func _change_opacity_of_wall(wall: Node, alpha: float = 0.5):
 	if wall:
-		var sprite = wall.get_node("Sprite")
-		if sprite is Sprite3D:
-			var tween = create_tween()
-			tween.tween_property(sprite, "modulate:a", alpha, 0.5)
-		elif sprite:
-			push_warning("%s has no modulate (not a Sprite3D)" % sprite.name)
+		var children = wall.get_children()
+		#var sprites: Array[Sprite3D]
+		
+		for c in children:
+			if c is Sprite3D:
+				var tween = create_tween()
+				tween.tween_property(c, "modulate:a", alpha, 0.2)
+				#sprites.append(c) #disabled because maybe needed later

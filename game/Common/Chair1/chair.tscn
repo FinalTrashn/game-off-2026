@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cd711pwici2qd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3lt0"]
+size = Vector3(1, 1.1688232, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w3lt0"]
+size = Vector3(1, 1.1444092, 1)
+
+[node name="Chair" type="StaticBody3D" unique_id=660549112]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1474681037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08441162, 0)
+shape = SubResource("BoxShape3D_w3lt0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=378477782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07220459, 0)
+mesh = SubResource("BoxMesh_w3lt0")
