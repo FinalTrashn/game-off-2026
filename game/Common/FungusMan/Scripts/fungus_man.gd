@@ -120,8 +120,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if collides_with_player(player_collider):
-		#print("GOT YOU at ", global_position.x)
-		pass
+		print("GOT YOU at ", global_position.x)
+		SceneLoader.go_to("res://Scenes/Menus/DeathAnimations/deathFungus.tscn")
 	
 	if collides_with_player(vision_collider):
 		current_speed = chase_speed
