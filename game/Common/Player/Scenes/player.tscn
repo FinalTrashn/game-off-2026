@@ -51,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://dqrtsulnvi1be" path="res://Common/Player/Sprites/Walking/idle_walk-2.png" id="30_064ny"]
 [ext_resource type="Texture2D" uid="uid://bkmcw3hl3owj" path="res://Common/Player/Sprites/Walking/idle_walk-3.png" id="31_ivlyp"]
 [ext_resource type="Texture2D" uid="uid://burx6qxh83nt4" path="res://Common/Player/Sprites/Walking/idle_walk-4.png" id="32_i5yn5"]
+[ext_resource type="Script" uid="uid://tkwgck8yp2ni" path="res://Common/Player/Scenes/debug.gd" id="52_erxw7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8hir"]
 size = Vector3(1.7888527, 3.9063416, 0.7302246)
@@ -455,8 +456,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("25_vb7bj")
 
+[node name="Debug" type="Control" parent="CanvasLayer/Overlays" unique_id=350414657]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("52_erxw7")
+
+[node name="Fast" type="CheckBox" parent="CanvasLayer/Overlays/Debug" unique_id=541914073]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "Fast Boy"
+
 [node name="WallCollider" type="ShapeCast3D" parent="." unique_id=837483549]
 transform = Transform3D(1.73, 0, 0, 0, 0.165, 0, 0, 0, 3, 0.09130931, 0, 0)
 shape = SubResource("BoxShape3D_fl6ly")
 target_position = Vector3(0, 0, 0)
 collision_mask = 2
+
+[connection signal="toggled" from="CanvasLayer/Overlays/Debug/Fast" to="CanvasLayer/Overlays/Debug" method="_on_fast_toggled"]

@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://bbw380nkud71p"]
 
+[ext_resource type="PackedScene" uid="uid://dhefm6yod0u11" path="res://Common/Lamp1/lamp1.tscn" id="1_cjcln"]
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="1_e5vmy"]
 [ext_resource type="PackedScene" uid="uid://cd711pwici2qd" path="res://Common/Chair1/chair.tscn" id="2_jyjoe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jyjoe"]
+size = Vector3(53.65622, 7.5178223, 0.25805664)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
 size = Vector3(64.75586, 1.1855469, 1)
@@ -14,7 +18,16 @@ albedo_texture = ExtResource("1_e5vmy")
 uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6oc8"]
-size = Vector3(14.332288, 6.897705, 1.6484985)
+size = Vector3(14.017578, 6.897705, 0.96292114)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjcln"]
+size = Vector3(25.376709, 5.880432, 0.6053467)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cjcln"]
+size = Vector3(73.35675, 1, 1.5336914)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ac6x"]
+size = Vector3(73.42551, 1, 1)
 
 [node name="ForgroundRoom" type="Node3D" unique_id=848268648]
 
@@ -39,8 +52,24 @@ area_size = Vector2(50.348717, 0.43663782)
 [node name="BackgroundLayer" type="Node3D" parent="." unique_id=681735042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
+[node name="Lamp1" parent="BackgroundLayer" unique_id=1192315633 instance=ExtResource("1_cjcln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.325123, 2.7657807, -0.70751524)
+
 [node name="Background" type="Node3D" parent="BackgroundLayer" unique_id=550256398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4840813, 0, -1)
+
+[node name="back_wall" type="StaticBody3D" parent="BackgroundLayer/Background" unique_id=1644058086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.841, 0, 0.06406236)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundLayer/Background/back_wall" unique_id=1040434433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3071256, 1.9020996, -0.046722412)
+shape = SubResource("BoxShape3D_jyjoe")
+
+[node name="Sprite3D" type="Sprite3D" parent="BackgroundLayer/Background/back_wall" unique_id=1702333212]
+transform = Transform3D(49.876842, 0, 0, 0, 4.63, 0, 0, 0, 1, -1.4319946, 2.8465614, 0)
+shaded = true
+texture = ExtResource("1_e5vmy")
 
 [node name="Floor" type="Node3D" parent="BackgroundLayer" unique_id=763499834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -87,11 +116,11 @@ shaded = true
 texture = ExtResource("1_e5vmy")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="ForegroundLayer/Background/TrennerWall" unique_id=1536210779]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.999115, 0, 0)
-shape = SubResource("BoxShape3D_b6oc8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.303814, -0.13345337, 0.14546204)
+shape = SubResource("BoxShape3D_cjcln")
 
 [node name="Sprite3D3" type="Sprite3D" parent="ForegroundLayer/Background/TrennerWall" unique_id=1986660774]
-transform = Transform3D(11.248, 0, 0, 0, 4.63, 0, 0, 0, 1, -39.999115, 0, 0)
+transform = Transform3D(19.872538, 0, 0, 0, 4.63, 0, 0, 0, 1, -45.33683, 0, 0)
 shaded = true
 texture = ExtResource("1_e5vmy")
 
@@ -101,12 +130,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 [node name="Floor" type="StaticBody3D" parent="ForegroundLayer/Floor" unique_id=2032125679]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ForegroundLayer/Floor/Floor" unique_id=2102826387]
-mesh = SubResource("BoxMesh_fl6ly")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7415466, 0, -0.2668457)
+mesh = SubResource("BoxMesh_cjcln")
 surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Floor/Floor" unique_id=1090373279]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037078857, 0.026367188, 0)
-shape = SubResource("BoxShape3D_7t2l5")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7892456, 0.026367188, 0)
+shape = SubResource("BoxShape3D_5ac6x")
 
 [node name="Foreground" type="Node3D" parent="ForegroundLayer" unique_id=201959878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)

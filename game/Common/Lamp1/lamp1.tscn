@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dhefm6yod0u11"]
+
+[node name="Lamp1" type="Node3D" unique_id=1192315633]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1693215101]
+light_color = Color(0.5844649, 0.51561487, 0.18656167, 1)
+shadow_enabled = true

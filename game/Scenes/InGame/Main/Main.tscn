@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://cwvoiwj6qr8lu" path="res://Scenes/InGame/Main/room_manager.gd" id="3_fx46b"]
 [ext_resource type="Script" uid="uid://cp1htpn7ywhrp" path="res://Common/Camera/Scripts/camera.gd" id="3_qvh5f"]
 [ext_resource type="Script" uid="uid://ds4yr2r0331tc" path="res://Scenes/InGame/Main/Controller/layer_controller.gd" id="4_70f0n"]
-[ext_resource type="PackedScene" uid="uid://kkjg6ihkj87u" path="res://Scenes/InGame/Rooms/GF_MainHall/MainHall.tscn" id="4_kyxfq"]
+[ext_resource type="PackedScene" uid="uid://c5y27x76v2vit" path="res://Scenes/InGame/Rooms/GF_Dining/Dining.tscn" id="4_s0738"]
 [ext_resource type="PackedScene" uid="uid://c46a66umbr48p" path="res://Common/Entrance/Scenes/entrance.tscn" id="5_kyxfq"]
-[ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="5_lgr1e"]
 [ext_resource type="Script" uid="uid://b347ktpwjhg27" path="res://Scenes/InGame/Main/Controller/render_priority_generator.gd" id="5_stfqe"]
 [ext_resource type="PackedScene" uid="uid://8p1gb223acg4" path="res://Scenes/InGame/Rooms/GF_EntranceRoom/EntrenceRoom.tscn" id="6_70f0n"]
 [ext_resource type="PackedScene" uid="uid://bbw380nkud71p" path="res://Scenes/InGame/Rooms/GF_Waiting Room/Waiting Room.tscn" id="7_5ac6x"]
 [ext_resource type="PackedScene" uid="uid://bdee3xxqrwi1q" path="res://Common/FungusMan/fungus_man.tscn" id="7_82pi1"]
+[ext_resource type="PackedScene" uid="uid://345eshkt5dbw" path="res://Scenes/InGame/Rooms/GF_Kitchen/Kitchen.tscn" id="11_5ac6x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
 sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
@@ -30,12 +30,9 @@ ssao_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5ac6x"]
-size = Vector3(14.332288, 6.897705, 1.6484985)
-
 [sub_resource type="Curve3D" id="Curve3D_7mt2c"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 1.523, 0, 0, 0, 0, 0, 0, 0, -63.155632, 1.611, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 1.523, 0, 0, 0, 0, 0, 0, 0, -89.338776, 1.6110001, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -79,49 +76,58 @@ area_size = Vector2(247.79356, 0.43663782)
 [node name="Rooms" type="Node3D" parent="." unique_id=754864513]
 script = ExtResource("3_fx46b")
 
-[node name="MainHall" parent="Rooms" unique_id=1805491639 instance=ExtResource("4_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.11237, 0, 0)
+[node name="Dinging" parent="Rooms" unique_id=779119736 instance=ExtResource("4_s0738")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.082542, 0, 0)
 
-[node name="back_wall" type="StaticBody3D" parent="Rooms/MainHall" unique_id=1834018693]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.841, 0, -1)
-collision_layer = 2
+[node name="Kitchen Entrance" parent="Rooms/Dinging" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4929085, 1.4945354, -1.8590117)
+exit = NodePath("../../Kitchen/Dining Entrance")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/MainHall/back_wall" unique_id=26881721]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032604218, 2.753296, 0.32424927)
-shape = SubResource("BoxShape3D_5ac6x")
-
-[node name="Sprite3D" type="Sprite3D" parent="Rooms/MainHall/back_wall" unique_id=1439587580]
-transform = Transform3D(11.248, 0, 0, 0, 4.63, 0, 0, 0, 1, 0, 2.8465614, 0)
-shaded = true
-texture = ExtResource("5_lgr1e")
+[node name="Waiting Room Entrance" parent="Rooms/Dinging" unique_id=1894213556 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.94989, 1.4945354, -2.7647042)
+exit = NodePath("../../Waiting Room/Dining Entrance")
 
 [node name="Waiting Room" parent="Rooms" unique_id=388544862 instance=ExtResource("7_5ac6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -196.80106, 0, 0)
 
-[node name="Entrance EntryRoom" parent="Rooms/Waiting Room" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.677612, 1.168, -0.9)
+[node name="EntryRoom Entrance" parent="Rooms/Waiting Room" unique_id=531227826 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.677612, 1.168, -2.7221515)
 exit = NodePath("../../Entrence Room/Entrance")
 
-[node name="Entrance CR" parent="Rooms/Waiting Room" unique_id=1086408560 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+[node name="CR Entrance" parent="Rooms/Waiting Room" unique_id=1086408560 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.312149, 1.4487033, -2.9609592)
 exit = NodePath("../../CR/Entrance Waiting Room")
+
+[node name="Dining Entrance" parent="Rooms/Waiting Room" unique_id=1775192129 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.325943, 1.4487033, -2.9609592)
+exit = NodePath("../../Dinging/Waiting Room Entrance")
 
 [node name="Entrence Room" parent="Rooms" unique_id=494643628 instance=ExtResource("6_70f0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.574226, 0, 0)
 
 [node name="Entrance" parent="Rooms/Entrence Room" unique_id=1683013020 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.757, 1.129, -0.9)
-exit = NodePath("../../Waiting Room/Entrance EntryRoom")
+exit = NodePath("../../Waiting Room/EntryRoom Entrance")
+
+[node name="Kitchen" parent="Rooms" unique_id=539365797 instance=ExtResource("11_5ac6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252.91817, 0, 0)
+
+[node name="Dining Entrance" parent="Rooms/Kitchen" unique_id=344677237 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.02388, 1.1938503, -2.6903372)
+exit = NodePath("../../Dinging/Kitchen Entrance")
+
+[node name="Pant Entrance" parent="Rooms/Kitchen" unique_id=508742498 instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.235016, 1.1938503, -2.6903372)
 
 [node name="CR" parent="Rooms" unique_id=425210454 instance=ExtResource("6_70f0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3395195, 0, 0)
 
 [node name="Entrance Waiting Room" parent="Rooms/CR" unique_id=1590336971 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8223705, 1.129, -0.9)
-exit = NodePath("../../Waiting Room/Entrance CR")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8223705, 1.129, -0.13319564)
+exit = NodePath("../../Waiting Room/CR Entrance")
 
 [node name="FungusManPath" type="Path3D" parent="." unique_id=757050642]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.375322, 0.6626167, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.75404, 0.6626167, -2)
 curve = SubResource("Curve3D_7mt2c")
 
 [node name="FungunsManFollow" parent="FungusManPath" unique_id=1735489169 instance=ExtResource("7_82pi1")]

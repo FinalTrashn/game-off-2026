@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b2uwlosvx5kav"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3lt0"]
+size = Vector3(2.135315, 2.6713867, 0.41430664)
+
+[node name="DoorBackColision" type="StaticBody3D" unique_id=295965330]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1816805606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019378662, 0.18334961, 0)
+shape = SubResource("BoxShape3D_w3lt0")
