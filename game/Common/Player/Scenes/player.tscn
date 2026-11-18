@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bpwsmvjlg2g76" path="res://Common/Player/Scripts/Player.gd" id="1_wtflm"]
 [ext_resource type="Texture2D" uid="uid://ca7o01usdaoi7" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-5.png" id="2_7r375"]
 [ext_resource type="Texture2D" uid="uid://b7gsrmudffubp" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-1.png" id="2_e2acc"]
+[ext_resource type="Script" uid="uid://by3b5fsqbj60p" path="res://Common/Player/Scenes/entrance_timeout.gd" id="2_tt7f6"]
 [ext_resource type="Texture2D" uid="uid://te8rgcgt06ij" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-2.png" id="3_py4yh"]
 [ext_resource type="Texture2D" uid="uid://b6jdd2v1ki7h2" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-9.png" id="3_q8hir"]
 [ext_resource type="Texture2D" uid="uid://jdv5cb4kq7lo" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-1.png" id="4_d1b2g"]
@@ -379,6 +380,13 @@ script = ExtResource("1_wtflm")
 stamina_bar = NodePath("CanvasLayer/Staminabar")
 blink_player = NodePath("CanvasLayer/Staminabar/BlinkPlayer")
 
+[node name="Timers" type="Node" parent="." unique_id=774328225]
+
+[node name="EntranceTimeout" type="Timer" parent="Timers" unique_id=1618753194]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("2_tt7f6")
+
 [node name="Sounds" type="Node" parent="." unique_id=1899632598]
 
 [node name="footsteps" type="AudioStreamPlayer" parent="Sounds" unique_id=43817015]
@@ -477,4 +485,5 @@ shape = SubResource("BoxShape3D_fl6ly")
 target_position = Vector3(0, 0, 0)
 collision_mask = 2
 
+[connection signal="timeout" from="Timers/EntranceTimeout" to="Timers/EntranceTimeout" method="_on_timeout"]
 [connection signal="toggled" from="CanvasLayer/Overlays/Debug/Fast" to="CanvasLayer/Overlays/Debug" method="_on_fast_toggled"]

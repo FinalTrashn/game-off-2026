@@ -40,6 +40,8 @@ var idle_animations = ["idle_blink", "idle_stand", "idle_wind"]
 var stand_loops_left: int = 0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var teleportation_allowed = true
+
 func _ready() -> void:
 	if layer_controller:
 		layer_controller.layer_changed.connect(_on_layer_changed)

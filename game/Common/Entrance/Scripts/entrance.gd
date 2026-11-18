@@ -16,7 +16,8 @@ func _fade_animation_finished(anim_name):
 	get_tree().paused = false
 
 func _input(event: InputEvent) -> void:
-	if player.is_on_floor() and $PlayerCollider.is_colliding() and Input.is_action_just_pressed("use_door"):
+	if player.is_on_floor() and $PlayerCollider.is_colliding() and Input.is_action_just_pressed("use_door") and player.teleportation_allowed:
+		player.get_node("Timers/EntranceTimeout").doEntranceTimoutThing()
 		handle_use_door()
 
 func handle_use_door():
