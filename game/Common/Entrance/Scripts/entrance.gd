@@ -38,6 +38,8 @@ func move_player():
 	layer_controller.set_currently_on_background_layer(on_background)
 	var z_pos = 0 if not on_background else -layer_controller.background_z_offset
 	player.global_position = Vector3(new_pos.x, new_pos.y, z_pos)
+	
+	player.get_node("Sprite").render_priority = -2 if on_background else 0
 
 func move_fungus_man_if_in_range():
 	if safe_zone.has_overlapping_bodies():
