@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bay0uooqixme6"
-path="res://.godot/imported/buttonPromptKeyboard.svg-f72b069c55900d6d08abd9a9314c7684.ctex"
+uid="uid://cc4aku80wvxs6"
+path="res://.godot/imported/switch.png-3d1b7282e5d7c678ed7792eabd1e1c2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Common/Entrance/Sprites/buttonPromptKeyboard.svg"
-dest_files=["res://.godot/imported/buttonPromptKeyboard.svg-f72b069c55900d6d08abd9a9314c7684.ctex"]
+source_file="res://Common/switch.png"
+dest_files=["res://.godot/imported/switch.png-3d1b7282e5d7c678ed7792eabd1e1c2d.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

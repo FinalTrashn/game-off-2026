@@ -23,3 +23,9 @@ func _input(event: InputEvent) -> void:
 			get_tree().root.get_node("Main/Items").add_child(new_item)
 			primary_item = ""
 			item_ui.update_items()
+	elif Input.is_action_just_pressed("rotate_items"):
+		var old_prim = primary_item
+		primary_item = secondary_item
+		secondary_item = old_prim
+		item_ui.update_items()
+	

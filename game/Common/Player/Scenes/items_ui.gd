@@ -1,10 +1,10 @@
 extends Control
 
 @onready var inventory_manager = %InventoryManager
-@onready var prim_item_name = $Panel/HBoxContainer/PrimItem/MarginContainer/Panel/VBoxContainer/RichTextLabel
-@onready var sec_item_name = $Panel/HBoxContainer/SecItem/Panel/VBoxContainer/RichTextLabel
-@onready var prim_item_sprite = $Panel/HBoxContainer/PrimItem/MarginContainer/Panel/VBoxContainer/TextureRect
-@onready var sec_item_sprite = $Panel/HBoxContainer/SecItem/Panel/VBoxContainer/TextureRect
+@onready var prim_item_name = $Panel/VBoxContainer/HBoxContainer/PrimItem/MarginContainer/Panel/VBoxContainer/RichTextLabel
+@onready var prim_item_sprite = $Panel/VBoxContainer/HBoxContainer/PrimItem/MarginContainer/Panel/VBoxContainer/TextureRect
+@onready var sec_item_name = $Panel/VBoxContainer/HBoxContainer/SecItem/Panel/VBoxContainer/RichTextLabel
+@onready var sec_item_sprite = $Panel/VBoxContainer/HBoxContainer/SecItem/Panel/VBoxContainer/TextureRect
 
 func _ready() -> void:
 	update_items()
