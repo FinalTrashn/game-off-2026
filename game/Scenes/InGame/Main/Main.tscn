@@ -78,12 +78,16 @@ shadow_caster_mask = 4294966275
 area_size = Vector2(247.79356, 0.43663782)
 
 [node name="Items" type="Node3D" parent="." unique_id=469260023]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 4.7683716e-07, 1.1920929e-07)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -0.5)
 
 [node name="Super Weapon" parent="Items" unique_id=1659101238 instance=ExtResource("8_4gcju")]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -21.238, 0, -0.5)
-collision_layer = 0
-collision_mask = 256
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -21.238, 0, 0)
+
+[node name="test" parent="Items" unique_id=1067764632 instance=ExtResource("8_4gcju")]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -25.141, 0, 0)
+
+[node name="the physical button F" parent="Items" unique_id=87890402 instance=ExtResource("8_4gcju")]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -27.573, 0, 0)
 
 [node name="Rooms" type="Node3D" parent="." unique_id=754864513]
 script = ExtResource("3_fx46b")
@@ -92,7 +96,7 @@ script = ExtResource("3_fx46b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.082542, 0, 0)
 
 [node name="Kitchen Entrance" parent="Rooms/Dinging" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4929085, 1.4945354, -1.8590117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4929085, 1.1522875, -2.321016)
 exit = NodePath("../../Kitchen/Dining Entrance")
 
 [node name="Waiting Room Entrance" parent="Rooms/Dinging" unique_id=1894213556 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]

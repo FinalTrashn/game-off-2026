@@ -89,7 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 
 [node name="BackgroundWall" type="StaticBody3D" parent="ForegroundLayer/Background" unique_id=583479048]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1860237, 0, 0)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Background/BackgroundWall" unique_id=1634422856]

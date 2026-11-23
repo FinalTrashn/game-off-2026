@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://te8rgcgt06ij" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-2.png" id="3_py4yh"]
 [ext_resource type="Texture2D" uid="uid://b6jdd2v1ki7h2" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-9.png" id="3_q8hir"]
 [ext_resource type="Texture2D" uid="uid://jdv5cb4kq7lo" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-1.png" id="4_d1b2g"]
+[ext_resource type="AudioStream" uid="uid://dkwuddcr2imaw" path="res://Common/Sounds/pgame-foot 2026-11-11 1539.ogg" id="4_d5t6h"]
 [ext_resource type="Texture2D" uid="uid://8jvih37h3xnv" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-3.png" id="4_nbdtt"]
 [ext_resource type="Texture2D" uid="uid://b0b8c8lphrh6w" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-4.png" id="5_5l8e6"]
 [ext_resource type="Texture2D" uid="uid://bd6pl6bhrbc6l" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-2.png" id="5_yof5a"]
@@ -401,6 +402,7 @@ script = ExtResource("2_tt7f6")
 [node name="Sounds" type="Node" parent="." unique_id=1899632598]
 
 [node name="footsteps" type="AudioStreamPlayer" parent="Sounds" unique_id=43817015]
+stream = ExtResource("4_d5t6h")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1339402680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08967018, 0.063064575, 0)

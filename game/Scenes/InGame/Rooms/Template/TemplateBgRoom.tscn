@@ -72,6 +72,10 @@ texture = ExtResource("1_lsuy6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03353882, 3.4118652, -0.9626689)
 shape = SubResource("BoxShape3D_uaa7l")
 
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BackgroundLayer/Walls" unique_id=1796818645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03353882, 3.4118652, 1.0187223)
+shape = SubResource("BoxShape3D_uaa7l")
+
 [node name="sw" type="Sprite3D" parent="BackgroundLayer/Walls" unique_id=1361428091]
 transform = Transform3D(-6.656556e-08, 0, 1, 0, 5.6383433, 0, -1.5228425, 0, -4.371139e-08, -31.60262, 3.2777796, 1.3813943e-06)
 texture = ExtResource("1_lsuy6")

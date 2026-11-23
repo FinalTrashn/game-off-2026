@@ -5,12 +5,12 @@ var player = null
 func _ready() -> void:
 	update_gui()
 	print(" my name is ",name)
+	$Sprite3D.texture = ItemSource.get_item_sprite_from_name(name)
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		$ButtonPrompt.visible = true
 		player = body
-
 
 func _on_body_exited(body: Node3D) -> void:
 	if body.name == "Player":
