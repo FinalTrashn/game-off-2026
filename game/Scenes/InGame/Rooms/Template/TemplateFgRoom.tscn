@@ -12,6 +12,12 @@ uv1_triplanar = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
 size = Vector3(64.75586, 1.1855469, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8lvws"]
+size = Vector3(63.859802, 7.8237305, 0.28955078)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pikvx"]
+size = Vector3(0.07090759, 7.8237305, 3.6716309)
+
 [node name="TemplateFgRoom" type="Node3D" unique_id=848268648]
 
 [node name="AmbientLightTop" type="AreaLight3D" parent="." unique_id=319551526]
@@ -51,3 +57,30 @@ shape = SubResource("BoxShape3D_7t2l5")
 
 [node name="Foreground" type="Node3D" parent="ForegroundLayer" unique_id=201959878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)
+
+[node name="Walls" type="StaticBody3D" parent="ForegroundLayer" unique_id=2122234735]
+collision_layer = 2
+
+[node name="bw" type="Sprite3D" parent="ForegroundLayer/Walls" unique_id=538931235]
+transform = Transform3D(49.41428, 0, 0, 0, 6.17357, 0, 0, 0, 1, 0, 3.4249332, -1.0097318)
+texture = ExtResource("1_8lvws")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Walls" unique_id=357266718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03353882, 3.4118652, -0.9626689)
+shape = SubResource("BoxShape3D_8lvws")
+
+[node name="sw" type="Sprite3D" parent="ForegroundLayer/Walls" unique_id=207326411]
+transform = Transform3D(-6.656556e-08, 0, 1, 0, 5.6383433, 0, -1.5228425, 0, -4.371139e-08, -31.60262, 3.2777796, 1.3813943e-06)
+texture = ExtResource("1_8lvws")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ForegroundLayer/Walls" unique_id=779499005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.601503, 3.4118652, 0.72837114)
+shape = SubResource("BoxShape3D_pikvx")
+
+[node name="sw2" type="Sprite3D" parent="ForegroundLayer/Walls" unique_id=1079480024]
+transform = Transform3D(-6.656556e-08, 0, 1, 0, 5.6383433, 0, -1.5228425, 0, -4.371139e-08, 31.877254, 3.2777796, 1.4305115e-06)
+texture = ExtResource("1_8lvws")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ForegroundLayer/Walls" unique_id=1040647187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.87837, 3.4118652, 0.72837114)
+shape = SubResource("BoxShape3D_pikvx")

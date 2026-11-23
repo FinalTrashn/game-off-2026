@@ -12,6 +12,12 @@ size = Vector3(63.698, 1, 2)
 albedo_texture = ExtResource("1_lsuy6")
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaa7l"]
+size = Vector3(63.859802, 7.8237305, 0.28955078)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lsuy6"]
+size = Vector3(0.07090759, 7.8237305, 3.6716309)
+
 [node name="TemplateBgRoom" type="Node3D" unique_id=848268648]
 
 [node name="AmbientLightTop" type="AreaLight3D" parent="." unique_id=319551526]
@@ -54,3 +60,30 @@ surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
 
 [node name="Foreground" type="Node3D" parent="BackgroundLayer" unique_id=255377330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.591199, 0.656, 0.5)
+
+[node name="Walls" type="StaticBody3D" parent="BackgroundLayer" unique_id=343077859]
+collision_layer = 2
+
+[node name="bw" type="Sprite3D" parent="BackgroundLayer/Walls" unique_id=200319781]
+transform = Transform3D(49.41428, 0, 0, 0, 6.17357, 0, 0, 0, 1, 0, 3.4249332, -1.0097318)
+texture = ExtResource("1_lsuy6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundLayer/Walls" unique_id=163734643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03353882, 3.4118652, -0.9626689)
+shape = SubResource("BoxShape3D_uaa7l")
+
+[node name="sw" type="Sprite3D" parent="BackgroundLayer/Walls" unique_id=1361428091]
+transform = Transform3D(-6.656556e-08, 0, 1, 0, 5.6383433, 0, -1.5228425, 0, -4.371139e-08, -31.60262, 3.2777796, 1.3813943e-06)
+texture = ExtResource("1_lsuy6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BackgroundLayer/Walls" unique_id=70162258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.601503, 3.4118652, 0.72837114)
+shape = SubResource("BoxShape3D_lsuy6")
+
+[node name="sw2" type="Sprite3D" parent="BackgroundLayer/Walls" unique_id=1375243282]
+transform = Transform3D(-6.656556e-08, 0, 1, 0, 5.6383433, 0, -1.5228425, 0, -4.371139e-08, 31.877254, 3.2777796, 1.4305115e-06)
+texture = ExtResource("1_lsuy6")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BackgroundLayer/Walls" unique_id=1792944797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.87837, 3.4118652, 0.72837114)
+shape = SubResource("BoxShape3D_lsuy6")

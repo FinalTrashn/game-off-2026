@@ -42,6 +42,9 @@ func move_player():
 	player.get_node("Sprite").render_priority = -2 if on_background else 0
 
 func move_fungus_man_if_in_range():
+	if !fungus_man:
+		print("fungus man doesnt exist")
+		return
 	if safe_zone.has_overlapping_bodies():
 		print("moved")
 		var right_pos = Vector3(global_position.x + fungus_man_x_pushback, global_position.y, global_position.z)

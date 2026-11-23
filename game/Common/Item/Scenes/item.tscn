@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cg7vmlimhfjqn"]
+
+[ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="1_2s0la"]
+[ext_resource type="Script" uid="uid://qfx3t706ks47" path="res://Common/Item/Scripts/item.gd" id="1_els48"]
+[ext_resource type="Texture2D" uid="uid://d4kdhnegw5p86" path="res://Common/Item/Sprites/buttonPromptKeyboard2.png" id="3_ok18s"]
+[ext_resource type="FontFile" uid="uid://18kmbnsvfio8" path="res://Common/Fonts/18thCentury Regular.ttf" id="4_ok18s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2s0la"]
+size = Vector3(1, 2.0577393, 1)
+
+[sub_resource type="Animation" id="Animation_1utxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.961264, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o0jmn"]
+resource_name = "hover"
+length = 1.6333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.961264, 0), Vector3(0, 0.49799287, 0), Vector3(0, 0.961264, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_10kw4"]
+_data = {
+&"RESET": SubResource("Animation_1utxi"),
+&"hover": SubResource("Animation_o0jmn")
+}
+
+[node name="Item" type="Area3D" unique_id=1067764632]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_els48")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2033209310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.961264, 0)
+shaded = true
+texture = ExtResource("1_2s0la")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1723531236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5288696, 0)
+shape = SubResource("BoxShape3D_2s0la")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=673790313]
+libraries/ = SubResource("AnimationLibrary_10kw4")
+autoplay = &"hover"
+
+[node name="ButtonPrompt" type="Node3D" parent="." unique_id=1362593833]
+transform = Transform3D(0.10325551, 0, 0, 0, 0.10325551, 0, 0, 0, 0.10325551, -0.4211026, 1.9753399, 0)
+
+[node name="Label3D" type="Label3D" parent="ButtonPrompt" unique_id=920185042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9444396, 0, 0)
+text = "estsetsetsetsetsetsetset"
+font = ExtResource("4_ok18s")
+font_size = 670
+horizontal_alignment = 0
+
+[node name="Sprite3D" type="Sprite3D" parent="ButtonPrompt" unique_id=1995033333]
+texture = ExtResource("3_ok18s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

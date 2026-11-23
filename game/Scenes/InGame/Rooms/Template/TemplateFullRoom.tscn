@@ -12,6 +12,12 @@ size = Vector3(63.698, 1, 2)
 albedo_texture = ExtResource("1_7e2f3")
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ecpy"]
+size = Vector3(63.859802, 7.8237305, 0.28955078)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4s1x6"]
+size = Vector3(0.07090759, 7.8237305, 4.157959)
+
 [node name="ForgroundRoom" type="Node3D" unique_id=848268648]
 
 [node name="AmbientLightTop" type="AreaLight3D" parent="." unique_id=319551526]
@@ -83,3 +89,31 @@ shape = SubResource("BoxShape3D_7t2l5")
 
 [node name="Foreground" type="Node3D" parent="ForegroundLayer" unique_id=201959878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)
+
+[node name="Walls" type="StaticBody3D" parent="." unique_id=1346911931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.0236948)
+collision_layer = 2
+
+[node name="bw" type="Sprite3D" parent="Walls" unique_id=228509356]
+transform = Transform3D(49.41428, 0, 0, 0, 6.17357, 0, 0, 0, 1, 0, 3.4249332, -1.0097318)
+texture = ExtResource("1_7e2f3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls" unique_id=556774362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03353882, 3.4118652, -0.9626689)
+shape = SubResource("BoxShape3D_5ecpy")
+
+[node name="sw" type="Sprite3D" parent="Walls" unique_id=2033207676]
+transform = Transform3D(-1.5010384e-07, 0, 1, 0, 5.6383433, 0, -3.4339757, 0, -4.371139e-08, -31.60262, 3.2777796, 0.8622174)
+texture = ExtResource("1_7e2f3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls" unique_id=341114596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.601503, 3.4118652, 0.9715352)
+shape = SubResource("BoxShape3D_4s1x6")
+
+[node name="sw2" type="Sprite3D" parent="Walls" unique_id=1020468694]
+transform = Transform3D(-1.5010384e-07, 0, 1, 0, 5.6383433, 0, -3.4339757, 0, -4.371139e-08, 31.84903, 3.2777796, 0.8622174)
+texture = ExtResource("1_7e2f3")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls" unique_id=162012642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.850145, 3.4118652, 0.9715352)
+shape = SubResource("BoxShape3D_4s1x6")

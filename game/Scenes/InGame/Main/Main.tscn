@@ -10,7 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://8p1gb223acg4" path="res://Scenes/InGame/Rooms/GF_EntranceRoom/EntrenceRoom.tscn" id="6_70f0n"]
 [ext_resource type="PackedScene" uid="uid://bbw380nkud71p" path="res://Scenes/InGame/Rooms/GF_Waiting Room/Waiting Room.tscn" id="7_5ac6x"]
 [ext_resource type="PackedScene" uid="uid://bdee3xxqrwi1q" path="res://Common/FungusMan/fungus_man.tscn" id="7_82pi1"]
+[ext_resource type="PackedScene" uid="uid://cg7vmlimhfjqn" path="res://Common/Item/Scenes/item.tscn" id="8_4gcju"]
+[ext_resource type="PackedScene" uid="uid://c1qlle7xh384a" path="res://Scenes/InGame/Rooms/GF_Lab/Lab.tscn" id="10_1aapj"]
 [ext_resource type="PackedScene" uid="uid://345eshkt5dbw" path="res://Scenes/InGame/Rooms/GF_Kitchen/Kitchen.tscn" id="11_5ac6x"]
+[ext_resource type="PackedScene" uid="uid://co11gsrcf71g4" path="res://Scenes/InGame/Rooms/GF_Pantry/Pantry.tscn" id="12_s0738"]
+[ext_resource type="PackedScene" uid="uid://c1t01g1smawnb" path="res://Scenes/InGame/Rooms/GF_Surgury/Surgury.tscn" id="14_vvmuv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
 sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
@@ -73,6 +77,14 @@ shadow_enabled = true
 shadow_caster_mask = 4294966275
 area_size = Vector2(247.79356, 0.43663782)
 
+[node name="Items" type="Node3D" parent="." unique_id=469260023]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 4.7683716e-07, 1.1920929e-07)
+
+[node name="Super Weapon" parent="Items" unique_id=1659101238 instance=ExtResource("8_4gcju")]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -21.238, 0, -0.5)
+collision_layer = 0
+collision_mask = 256
+
 [node name="Rooms" type="Node3D" parent="." unique_id=754864513]
 script = ExtResource("3_fx46b")
 
@@ -84,11 +96,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4929085, 1.4945354, -1.85
 exit = NodePath("../../Kitchen/Dining Entrance")
 
 [node name="Waiting Room Entrance" parent="Rooms/Dinging" unique_id=1894213556 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.94989, 1.4945354, -2.7647042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.94989, 1.1475148, -2.377471)
 exit = NodePath("../../Waiting Room/Dining Entrance")
 
+[node name="Label3D" type="Label3D" parent="Rooms/Dinging" unique_id=1150775837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3106756, 0)
+text = "Dinging Room"
+font_size = 414
+
 [node name="Waiting Room" parent="Rooms" unique_id=388544862 instance=ExtResource("7_5ac6x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -196.80106, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.77108, 0, 0)
 
 [node name="EntryRoom Entrance" parent="Rooms/Waiting Room" unique_id=531227826 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.677612, 1.168, -2.7221515)
@@ -98,9 +115,18 @@ exit = NodePath("../../Entrence Room/Entrance")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.312149, 1.4487033, -2.9609592)
 exit = NodePath("../../CR/Entrance Waiting Room")
 
+[node name="Lab Entrance" parent="Rooms/Waiting Room" unique_id=142541953 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.828987, 1.1266499, -0.51853895)
+exit = NodePath("../../Lab/Waiting Room Entrance")
+
 [node name="Dining Entrance" parent="Rooms/Waiting Room" unique_id=1775192129 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.325943, 1.4487033, -2.9609592)
 exit = NodePath("../../Dinging/Waiting Room Entrance")
+
+[node name="Label3D" type="Label3D" parent="Rooms/Waiting Room" unique_id=110759302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8139274, 0)
+text = "Waiting Room"
+font_size = 576
 
 [node name="Entrence Room" parent="Rooms" unique_id=494643628 instance=ExtResource("6_70f0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.574226, 0, 0)
@@ -109,15 +135,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.574226, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.757, 1.129, -0.9)
 exit = NodePath("../../Waiting Room/EntryRoom Entrance")
 
+[node name="Label3D" type="Label3D" parent="Rooms/Entrence Room" unique_id=1013252402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.133429, 2.9613466, 0)
+text = "Entrance Room"
+font_size = 395
+
 [node name="Kitchen" parent="Rooms" unique_id=539365797 instance=ExtResource("11_5ac6x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252.91817, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.88818, 0, 0)
 
 [node name="Dining Entrance" parent="Rooms/Kitchen" unique_id=344677237 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.02388, 1.1938503, -2.6903372)
 exit = NodePath("../../Dinging/Kitchen Entrance")
 
-[node name="Pant Entrance" parent="Rooms/Kitchen" unique_id=508742498 instance=ExtResource("5_kyxfq")]
+[node name="Pant Entrance" parent="Rooms/Kitchen" unique_id=508742498 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.235016, 1.1938503, -2.6903372)
+exit = NodePath("../../Pantry/Kitchen Entrance")
+
+[node name="Label3D" type="Label3D" parent="Rooms/Kitchen" unique_id=1316710648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7167811, -2.3403487)
+text = "Kitchen"
+font_size = 549
 
 [node name="CR" parent="Rooms" unique_id=425210454 instance=ExtResource("6_70f0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3395195, 0, 0)
@@ -126,8 +163,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3395195, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8223705, 1.129, -0.13319564)
 exit = NodePath("../../Waiting Room/CR Entrance")
 
+[node name="Label3D" type="Label3D" parent="Rooms/CR" unique_id=129403262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.823563, 3.46639, 0)
+text = "CR"
+font_size = 473
+
+[node name="Surgury" parent="Rooms" unique_id=944143579 instance=ExtResource("14_vvmuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.90985, 0, 0)
+
+[node name="Lab Entrance" parent="Rooms/Surgury" unique_id=161593253 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.30188, 1.2034585, -0.74633586)
+exit = NodePath("../../Lab/Surgory Entrance2")
+
+[node name="Label3D" type="Label3D" parent="Rooms/Surgury" unique_id=623141906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1176193, -0.7434473)
+text = "Surgury"
+font_size = 559
+
+[node name="Pantry" parent="Rooms" unique_id=1693758300 instance=ExtResource("12_s0738")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.89469, 0, 0)
+
+[node name="Kitchen Entrance" parent="Rooms/Pantry" unique_id=1634902185 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.26921, 1.1373975, -1.0529156)
+exit = NodePath("../../Kitchen/Pant Entrance")
+
+[node name="Label3D" type="Label3D" parent="Rooms/Pantry" unique_id=631164125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.50328, 4.38912, 0)
+text = "Pantry"
+font_size = 300
+
+[node name="Lab" parent="Rooms" unique_id=1209847780 instance=ExtResource("10_1aapj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.3212, 0, 0)
+
+[node name="Waiting Room Entrance" parent="Rooms/Lab" unique_id=334820837 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.381027, 1.2466365, -0.57767004)
+exit = NodePath("../../Waiting Room/Lab Entrance")
+
+[node name="Surgory Entrance2" parent="Rooms/Lab" unique_id=1191275570 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.000137, 1.2466365, -0.57767004)
+exit = NodePath("../../Surgury/Lab Entrance")
+
+[node name="Label3D" type="Label3D" parent="Rooms/Lab" unique_id=2104961473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.60043, 0)
+text = "Lab"
+font_size = 757
+
 [node name="FungusManPath" type="Path3D" parent="." unique_id=757050642]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.75404, 0.6626167, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.72407, 0.6626167, -2)
 curve = SubResource("Curve3D_7mt2c")
 
 [node name="FungunsManFollow" parent="FungusManPath" unique_id=1735489169 instance=ExtResource("7_82pi1")]

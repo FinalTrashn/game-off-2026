@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://bpwsmvjlg2g76" path="res://Common/Player/Scripts/Player.gd" id="1_wtflm"]
 [ext_resource type="Texture2D" uid="uid://ca7o01usdaoi7" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-5.png" id="2_7r375"]
 [ext_resource type="Texture2D" uid="uid://b7gsrmudffubp" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-1.png" id="2_e2acc"]
-[ext_resource type="Script" uid="uid://by3b5fsqbj60p" path="res://Common/Player/Scenes/entrance_timeout.gd" id="2_tt7f6"]
+[ext_resource type="Script" uid="uid://bktwf5txxhhn5" path="res://Common/Player/Scripts/inventory_manager.gd" id="2_gh0rm"]
+[ext_resource type="Script" uid="uid://by3b5fsqbj60p" path="res://Common/Player/Scripts/entrance_timeout.gd" id="2_tt7f6"]
 [ext_resource type="Texture2D" uid="uid://te8rgcgt06ij" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-2.png" id="3_py4yh"]
 [ext_resource type="Texture2D" uid="uid://b6jdd2v1ki7h2" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-9.png" id="3_q8hir"]
 [ext_resource type="Texture2D" uid="uid://jdv5cb4kq7lo" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-1.png" id="4_d1b2g"]
@@ -47,12 +48,14 @@
 [ext_resource type="Texture2D" uid="uid://dgd43kk2ngyw6" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-22.png" id="23_c3a1r"]
 [ext_resource type="Texture2D" uid="uid://ytl8wa65kuc5" path="res://Common/Player/Sprites/Idle/idle_wind/idle_wind-13.png" id="23_usnfl"]
 [ext_resource type="Theme" uid="uid://cfatnju5ngdlw" path="res://Common/main_theme.tres" id="24_0eqiv"]
-[ext_resource type="Script" uid="uid://b1kx7yi1xs7rc" path="res://Common/Player/Scenes/pause.gd" id="25_vb7bj"]
+[ext_resource type="Script" uid="uid://b1kx7yi1xs7rc" path="res://Common/Player/Scripts/pause.gd" id="25_vb7bj"]
 [ext_resource type="Texture2D" uid="uid://bon73i4hbpif4" path="res://Common/Player/Sprites/Walking/idle_walk-1.png" id="29_p8lah"]
 [ext_resource type="Texture2D" uid="uid://dqrtsulnvi1be" path="res://Common/Player/Sprites/Walking/idle_walk-2.png" id="30_064ny"]
 [ext_resource type="Texture2D" uid="uid://bkmcw3hl3owj" path="res://Common/Player/Sprites/Walking/idle_walk-3.png" id="31_ivlyp"]
 [ext_resource type="Texture2D" uid="uid://burx6qxh83nt4" path="res://Common/Player/Sprites/Walking/idle_walk-4.png" id="32_i5yn5"]
-[ext_resource type="Script" uid="uid://tkwgck8yp2ni" path="res://Common/Player/Scenes/debug.gd" id="52_erxw7"]
+[ext_resource type="Script" uid="uid://tkwgck8yp2ni" path="res://Common/Player/Scripts/debug.gd" id="52_erxw7"]
+[ext_resource type="Script" uid="uid://bhdufh854mde" path="res://Common/Player/Scenes/items_ui.gd" id="53_fss41"]
+[ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="54_rcdul"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8hir"]
 size = Vector3(1.7888527, 3.9063416, 0.7302246)
@@ -375,15 +378,21 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_fl6ly"]
 
 [node name="Player" type="CharacterBody3D" unique_id=2079493257 node_paths=PackedStringArray("stamina_bar", "blink_player")]
-collision_layer = 4
+collision_layer = 260
 script = ExtResource("1_wtflm")
 stamina_bar = NodePath("CanvasLayer/Staminabar")
 blink_player = NodePath("CanvasLayer/Staminabar/BlinkPlayer")
 
+[node name="Workers" type="Node" parent="." unique_id=833604774]
+
+[node name="InventoryManager" type="Node" parent="Workers" unique_id=805939269]
+unique_name_in_owner = true
+script = ExtResource("2_gh0rm")
+
 [node name="Timers" type="Node" parent="." unique_id=774328225]
 
 [node name="EntranceTimeout" type="Timer" parent="Timers" unique_id=1618753194]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 script = ExtResource("2_tt7f6")
 
@@ -431,6 +440,107 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("24_0eqiv")
+
+[node name="Items" type="Control" parent="CanvasLayer/Ui" unique_id=1708652473]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 186.0
+offset_bottom = 102.0
+script = ExtResource("53_fss41")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Ui/Items" unique_id=1389674355]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Ui/Items/Panel" unique_id=1434542493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SecItem" type="Control" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer" unique_id=1416133613]
+custom_minimum_size = Vector2(90, 100)
+custom_maximum_size = Vector2(-1, 100)
+propagate_maximum_size = true
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer/SecItem" unique_id=418478172]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer/SecItem/Panel" unique_id=671093690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer/SecItem/Panel/VBoxContainer" unique_id=1108837813]
+layout_mode = 2
+texture = ExtResource("54_rcdul")
+expand_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer/SecItem/Panel/VBoxContainer" unique_id=488556018]
+custom_minimum_size = Vector2(0, 10)
+custom_maximum_size = Vector2(-1, 10)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 11
+text = "tesset"
+horizontal_alignment = 1
+
+[node name="PrimItem" type="Control" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer" unique_id=774079435]
+custom_minimum_size = Vector2(90, 100)
+custom_maximum_size = Vector2(-1, 100)
+propagate_maximum_size = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer/PrimItem" unique_id=1818527957]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer/PrimItem/MarginContainer" unique_id=1618517661]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer/PrimItem/MarginContainer/Panel" unique_id=1732517806]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer/PrimItem/MarginContainer/Panel/VBoxContainer" unique_id=1249579078]
+layout_mode = 2
+texture = ExtResource("54_rcdul")
+expand_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Ui/Items/Panel/HBoxContainer/PrimItem/MarginContainer/Panel/VBoxContainer" unique_id=1197531849]
+custom_minimum_size = Vector2(0, 10)
+custom_maximum_size = Vector2(-1, 10)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 11
+text = "tesset"
+horizontal_alignment = 1
 
 [node name="Overlays" type="Control" parent="CanvasLayer" unique_id=520609969]
 process_mode = 3
@@ -464,7 +574,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("25_vb7bj")
 
-[node name="Debug" type="Control" parent="CanvasLayer/Overlays" unique_id=350414657]
+[node name="Debug" type="Panel" parent="CanvasLayer/Overlays" unique_id=995190179]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -473,11 +583,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("52_erxw7")
 
-[node name="Fast" type="CheckBox" parent="CanvasLayer/Overlays/Debug" unique_id=541914073]
-layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Overlays/Debug" unique_id=1331711124]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fast" type="CheckBox" parent="CanvasLayer/Overlays/Debug/VBoxContainer" unique_id=541914073]
+layout_mode = 2
 text = "Fast Boy"
+
+[node name="killFuingus" type="Button" parent="CanvasLayer/Overlays/Debug/VBoxContainer" unique_id=432163001]
+layout_mode = 2
+text = "Kill fungus"
 
 [node name="WallCollider" type="ShapeCast3D" parent="." unique_id=837483549]
 transform = Transform3D(1.73, 0, 0, 0, 0.165, 0, 0, 0, 3, 0.09130931, 0, 0)
@@ -486,4 +606,5 @@ target_position = Vector3(0, 0, 0)
 collision_mask = 2
 
 [connection signal="timeout" from="Timers/EntranceTimeout" to="Timers/EntranceTimeout" method="_on_timeout"]
-[connection signal="toggled" from="CanvasLayer/Overlays/Debug/Fast" to="CanvasLayer/Overlays/Debug" method="_on_fast_toggled"]
+[connection signal="toggled" from="CanvasLayer/Overlays/Debug/VBoxContainer/Fast" to="CanvasLayer/Overlays/Debug" method="_on_fast_toggled"]
+[connection signal="pressed" from="CanvasLayer/Overlays/Debug/VBoxContainer/killFuingus" to="CanvasLayer/Overlays/Debug" method="_on_kill_fuingus_pressed"]

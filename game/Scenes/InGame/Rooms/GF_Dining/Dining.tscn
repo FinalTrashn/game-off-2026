@@ -12,6 +12,12 @@ size = Vector3(35.099365, 1, 2)
 albedo_texture = ExtResource("1_ym65u")
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ej4cl"]
+size = Vector3(1, 5.0010986, 3.9501953)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaa7l"]
+size = Vector3(35, 6, 1)
+
 [node name="Dinging" type="Node3D" unique_id=848268648]
 
 [node name="AmbientLightTop" type="AreaLight3D" parent="." unique_id=319551526]
@@ -55,6 +61,24 @@ surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
 [node name="Foreground" type="Node3D" parent="BackgroundLayer" unique_id=255377330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.591199, 0.656, 0.5)
 
+[node name="SideWalls" type="StaticBody3D" parent="BackgroundLayer" unique_id=1532921088]
+
+[node name="Sprite3D" type="Sprite3D" parent="BackgroundLayer/SideWalls" unique_id=565267030]
+transform = Transform3D(-1.6736679e-07, 0, 1, 0, 4.6734257, 0, -3.828906, 0, -4.371139e-08, -17.516098, 1.7536727, 0.8524198)
+texture = ExtResource("1_ym65u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundLayer/SideWalls" unique_id=1404984399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.597187, 2.0005493, 0.93603516)
+shape = SubResource("BoxShape3D_ej4cl")
+
+[node name="Sprite3D2" type="Sprite3D" parent="BackgroundLayer/SideWalls" unique_id=993973343]
+transform = Transform3D(-1.6736679e-07, 0, 1, 0, 4.6734257, 0, -3.828906, 0, -4.371139e-08, 17.53629, 1.7536727, 0.85241985)
+texture = ExtResource("1_ym65u")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BackgroundLayer/SideWalls" unique_id=1012551304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4552, 2.0005493, 0.93603516)
+shape = SubResource("BoxShape3D_ej4cl")
+
 [node name="ForegroundLayer" type="Node3D" parent="." unique_id=313849714]
 
 [node name="Background" type="Node3D" parent="ForegroundLayer" unique_id=66736751]
@@ -67,6 +91,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1860237, 0, 0)
 collision_layer = 2
 collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Background/BackgroundWall" unique_id=1634422856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1860237, 2.5, -2)
+shape = SubResource("BoxShape3D_uaa7l")
+
+[node name="Sprite3D" type="Sprite3D" parent="ForegroundLayer/Background/BackgroundWall" unique_id=1819929238]
+transform = Transform3D(27.320627, 0, 0, 0, 4.7071905, 0, 0, 0, 1, 7.131086, 2.6234505, -1.6217389)
+texture = ExtResource("1_ym65u")
 
 [node name="Floor" type="Node3D" parent="ForegroundLayer" unique_id=2127064873]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
