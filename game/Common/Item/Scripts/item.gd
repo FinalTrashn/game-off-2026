@@ -18,7 +18,7 @@ func _on_body_exited(body: Node3D) -> void:
 		player = null
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and player:
 		player.get_node("Workers/InventoryManager").hold_item_prim(name) # using name of node cause why not
 		queue_free()
 
