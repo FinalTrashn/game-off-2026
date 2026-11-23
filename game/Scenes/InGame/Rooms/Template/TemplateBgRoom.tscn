@@ -62,7 +62,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.591199, 0.656, 0.5)
 
 [node name="Walls" type="StaticBody3D" parent="BackgroundLayer" unique_id=343077859]
-collision_layer = 2
+collision_layer = 3
 
 [node name="bw" type="Sprite3D" parent="BackgroundLayer/Walls" unique_id=200319781]
 transform = Transform3D(49.41428, 0, 0, 0, 6.17357, 0, 0, 0, 1, 0, 3.4249332, -1.0097318)

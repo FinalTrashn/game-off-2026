@@ -59,7 +59,7 @@ shape = SubResource("BoxShape3D_7t2l5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)
 
 [node name="Walls" type="StaticBody3D" parent="ForegroundLayer" unique_id=2122234735]
-collision_layer = 2
+collision_layer = 3
 
 [node name="bw" type="Sprite3D" parent="ForegroundLayer/Walls" unique_id=538931235]
 transform = Transform3D(49.41428, 0, 0, 0, 6.17357, 0, 0, 0, 1, 0, 3.4249332, -1.0097318)

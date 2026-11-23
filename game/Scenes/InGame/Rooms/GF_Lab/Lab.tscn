@@ -16,10 +16,10 @@ uv1_triplanar = true
 size = Vector3(63.859802, 7.8237305, 0.28955078)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f1gsk"]
-size = Vector3(57.106064, 7.8237305, 0.28955078)
+size = Vector3(57.106064, 7.8237305, 1.3615112)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4s1x6"]
-size = Vector3(0.07090759, 7.8237305, 4.157959)
+size = Vector3(0.7031517, 7.8237305, 4.157959)
 
 [node name="ForgroundRoom" type="Node3D" unique_id=848268648]
 
@@ -95,7 +95,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0.5)
 
 [node name="Walls" type="StaticBody3D" parent="." unique_id=1346911931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.0236948)
-collision_layer = 2
+collision_layer = 3
 
 [node name="bw" type="Sprite3D" parent="Walls" unique_id=228509356]
 transform = Transform3D(49.41428, 0, 0, 0, 6.17357, 0, 0, 0, 1, 0, 3.4249332, -1.0097318)
@@ -110,7 +110,7 @@ transform = Transform3D(44.812748, 0, 0, 0, 6.17357, 0, 0, 0, 1, 3.4493575, 3.42
 texture = ExtResource("1_puijt")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls" unique_id=1157912769]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3433304, 3.4118652, 1.4370959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3433304, 3.4118652, 0.90111566)
 shape = SubResource("BoxShape3D_f1gsk")
 
 [node name="sw" type="Sprite3D" parent="Walls" unique_id=2033207676]
@@ -118,7 +118,7 @@ transform = Transform3D(-1.5010384e-07, 0, 1, 0, 5.6383433, 0, -3.4339757, 0, -4
 texture = ExtResource("1_puijt")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls" unique_id=341114596]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.601503, 3.4118652, 0.9715352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.689978, 3.4118652, 0.9715352)
 shape = SubResource("BoxShape3D_4s1x6")
 
 [node name="sw2" type="Sprite3D" parent="Walls" unique_id=1020468694]
@@ -126,7 +126,7 @@ transform = Transform3D(-1.5010384e-07, 0, 1, 0, 5.6383433, 0, -3.4339757, 0, -4
 texture = ExtResource("1_puijt")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls" unique_id=162012642]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.850145, 3.4118652, 0.9715352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.077793, 3.4118652, 0.9715352)
 shape = SubResource("BoxShape3D_4s1x6")
 
 [node name="sw3" type="Sprite3D" parent="Walls" unique_id=688288259]
