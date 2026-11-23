@@ -6,6 +6,8 @@ extends CharacterBody3D
 @export var chase_speed: float = 5.5
 @export var wait_time_range: Vector2 = Vector2(1.5, 4.0)
 @export var min_patrol_distance: float = 8.0
+@export var sanity_visibility: float = 0.5
+@export var sanity_lethal: float = 0.7
 
 @onready var sprite: Sprite3D = $Sprite as Sprite3D
 @onready var path_follow: PathFollow3D = get_parent() as PathFollow3D
@@ -14,6 +16,9 @@ extends CharacterBody3D
 @onready var player_collider: ShapeCast3D = $PlayerCollider as ShapeCast3D
 @onready var vision_collider: ShapeCast3D = $VisionCollider as ShapeCast3D
 @onready var layer_controller = $"../../../Controller/LayerController"
+@onready var sanity_controller = $"../../../Controller/SanityController"
+
+var sanity_enough_for_attack = false
 
 var target_progress: float = 0.0
 var current_speed: float = 0.0
@@ -34,6 +39,7 @@ func _ready() -> void:
 	end_global = path_node.to_global(path_node.curve.get_point_position(path_node.curve.point_count - 1))
 	
 	_pick_new_random_destination()
+	sanity_controller.connect("insanity", on_sanity_change)
 
 
 func _set_destination(destination: Vector3) -> void:
@@ -82,8 +88,13 @@ func get_distance_to_player() -> float:
 	return player.global_position.x - global_position.x
 
 
+func on_sanity_change(sanity_ratio: float):
+	sprite.modulate.a = clamp(remap(sanity_ratio, sanity_visibility, 1.0, 0.0, 1.0), 0.0, 1.0)
+	sanity_enough_for_attack = sanity_ratio >= sanity_lethal
+
+
 func collides_with_player(collision_shape: ShapeCast3D) -> bool:
-	if not collision_shape.is_colliding():
+	if not collision_shape.is_colliding() or not sanity_enough_for_attack:
 		return false
 	
 	# check if player is in a safe area

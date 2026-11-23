@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://345eshkt5dbw" path="res://Scenes/InGame/Rooms/GF_Kitchen/Kitchen.tscn" id="11_5ac6x"]
 [ext_resource type="PackedScene" uid="uid://co11gsrcf71g4" path="res://Scenes/InGame/Rooms/GF_Pantry/Pantry.tscn" id="12_s0738"]
 [ext_resource type="PackedScene" uid="uid://c1t01g1smawnb" path="res://Scenes/InGame/Rooms/GF_Surgury/Surgury.tscn" id="14_vvmuv"]
+[ext_resource type="Script" uid="uid://pinrfc45r5d2" path="res://Scenes/InGame/Main/Controller/sanity_controller.gd" id="16_8kos1"]
+[ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="16_mg11r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
 sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
@@ -40,6 +42,17 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8kos1"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.35, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.101960786, 0.011764706, 0.07058824, 0.9019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fl6ly"]
+gradient = SubResource("Gradient_8kos1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.95, 0.5)
 
 [node name="Main" type="Node3D" unique_id=848268648]
 
@@ -225,3 +238,34 @@ background_z_offset = 2
 
 [node name="RenderPriorityGenerator" type="Node" parent="Controller" unique_id=1917705024]
 script = ExtResource("5_stfqe")
+
+[node name="SanityController" type="Node" parent="Controller" unique_id=1315844438]
+script = ExtResource("16_8kos1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2042959778]
+
+[node name="SanityFilter" type="TextureRect" parent="CanvasLayer" unique_id=2092454591]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_fl6ly")
+
+[node name="SanityFill" type="TextureRect" parent="CanvasLayer" unique_id=962290768]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -188.0
+offset_right = -18.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 0
+texture = ExtResource("16_mg11r")
+
+[connection signal="gui_input" from="CanvasLayer/SanityFill" to="Controller/SanityController" method="_on_sanity_fill_gui_input"]
