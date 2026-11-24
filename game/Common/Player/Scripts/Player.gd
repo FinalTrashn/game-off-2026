@@ -30,7 +30,12 @@ var currently_penalty_recharging = false
 @export var stamina_bar: TextureProgressBar
 @export var blink_player: AnimationPlayer
 
+# footsteps
+@export var walk_step_frames: Array[int] = [2]
+@export var sprint_step_frames: Array[int] = [0, 5,10,16]
+
 @onready var layer_controller = %LayerController
+@onready var footstep_sound = $Sounds/footsteps_gatsch
 
 var is_colliding_with_wall: bool = false
 var last_collider: Node = null
@@ -48,6 +53,13 @@ func _handle_room_change(room_name: String):
 	if room_name != "Cortyard":
 		$"../Camera/RainDropFloorEffect".visible = false
 	%RoomController.show_room(room_name)
+	
+	#footstep sounds
+	match(room_name):
+		"Cortyard":
+			footstep_sound = $Sounds/footsteps_gatsch
+		_:
+			footstep_sound = $Sounds/footsteps
 
 func _ready() -> void:
 	if layer_controller:
@@ -56,6 +68,7 @@ func _ready() -> void:
 		
 	_pick_random_idle()
 	$Sprite.animation_finished.connect(_on_sprite_animation_finished)
+	$Sprite.frame_changed.connect(_on_sprite_frame_changed)
 	
 	room_changed.connect(_handle_room_change)
 
@@ -65,6 +78,24 @@ func _pick_random_idle() -> void:
 func _start_stand_loops():
 	stand_loops_left = randi_range(3, 5)
 	$Sprite.play("idle_stand")
+
+func _on_sprite_frame_changed() -> void:
+	if not is_on_floor():
+		return
+	
+	var step_frames: Array[int]
+	match $Sprite.animation:
+		"walk": step_frames = walk_step_frames
+		"sprint": step_frames = sprint_step_frames
+		_: return
+	
+	if $Sprite.frame in step_frames:
+		_play_footstep()
+
+func _play_footstep() -> void:
+	var base_pitch = 1.4 if current_speed == sprint_speed else 1.0
+	footstep_sound.pitch_scale = base_pitch * randf_range(0.62, 1.38)
+	footstep_sound.play()
 
 func _on_sprite_animation_finished() -> void:
 	var current_anim = $Sprite.animation

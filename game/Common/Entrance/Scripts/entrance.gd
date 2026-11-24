@@ -3,6 +3,8 @@ extends StaticBody3D
 @export var exit: Node3D
 @export var fungus_man_x_pushback: float = 8
 @export var item_required: String
+@export var is_stairs: bool = false
+
 @onready var player = %Player
 var player_overlay_player: AnimationPlayer
 
@@ -15,6 +17,11 @@ var player_overlay_player: AnimationPlayer
 func _ready() -> void:
 	player_overlay_player = player.get_node("CanvasLayer/Overlays/Black/AnimationPlayer")
 	player_overlay_player.connect("animation_finished", _fade_animation_finished)
+	
+	if is_stairs:
+		#TODO actuall sounds
+		$Sprite.texture = load("res://Common/Entrance/Sprites/buttonPromptKeyboard.png")
+		$Sounds/DoorNormal.stream = load("res://Common/Sounds/thunder.ogg")
 
 func _fade_animation_finished(anim_name):
 	get_tree().paused = false

@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dkwuddcr2imaw" path="res://Common/Sounds/pgame-foot 2026-11-11 1539.ogg" id="4_d5t6h"]
 [ext_resource type="Texture2D" uid="uid://8jvih37h3xnv" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-3.png" id="4_nbdtt"]
 [ext_resource type="Texture2D" uid="uid://b0b8c8lphrh6w" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-4.png" id="5_5l8e6"]
+[ext_resource type="AudioStream" uid="uid://butp8b5r16g3d" path="res://Common/Sounds/WETFOOT.ogg" id="5_xcigl"]
 [ext_resource type="Texture2D" uid="uid://bd6pl6bhrbc6l" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-2.png" id="5_yof5a"]
 [ext_resource type="Texture2D" uid="uid://ceu6y228txdep" path="res://Common/Player/Sprites/Sprinting/Unbenanntes_Projekt-3.png" id="6_opyvn"]
 [ext_resource type="Texture2D" uid="uid://c3vugkwv5rjfl" path="res://Common/Player/Sprites/Idle/idle_blink/idle_blink-5.png" id="6_xdexp"]
@@ -59,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="54_rcdul"]
 [ext_resource type="Texture2D" uid="uid://cc4aku80wvxs6" path="res://Common/switch.png" id="55_nufn8"]
 [ext_resource type="Texture2D" uid="uid://c3skfqwf2nnku" path="res://Common/drop.png" id="56_mqbmh"]
+[ext_resource type="Script" uid="uid://cgny5t4qtyn0l" path="res://Common/Player/Scripts/room_name_ui.gd" id="59_81r3h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8hir"]
 size = Vector3(1.7888527, 3.9063416, 0.7302246)
@@ -341,6 +343,43 @@ _data = {
 &"RESET": SubResource("Animation_65f8f")
 }
 
+[sub_resource type="Animation" id="Animation_g0mnb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_81r3h"]
+resource_name = "fadein"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.1, 4.9333334),
+"transitions": PackedFloat32Array(10.196479, 1, 0.19614607, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-255.285, 0), Vector2(-255.285, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0mnb"]
+_data = {
+&"RESET": SubResource("Animation_g0mnb"),
+&"fadein": SubResource("Animation_81r3h")
+}
+
 [sub_resource type="Animation" id="Animation_i1y88"]
 length = 0.001
 tracks/0/type = "value"
@@ -403,6 +442,15 @@ script = ExtResource("2_tt7f6")
 
 [node name="footsteps" type="AudioStreamPlayer" parent="Sounds" unique_id=43817015]
 stream = ExtResource("4_d5t6h")
+volume_db = 13.525
+max_polyphony = 5
+bus = &"Footsteps"
+
+[node name="footsteps_gatsch" type="AudioStreamPlayer" parent="Sounds" unique_id=2107265367]
+stream = ExtResource("5_xcigl")
+volume_db = 5.575
+max_polyphony = 5
+bus = &"Footsteps"
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1339402680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08967018, 0.063064575, 0)
@@ -413,7 +461,7 @@ layers = 3
 shaded = true
 render_priority = 2
 sprite_frames = SubResource("SpriteFrames_fl6ly")
-animation = &"idle_wind"
+animation = &"sprint"
 speed_scale = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=559149421]
@@ -590,6 +638,42 @@ layout_mode = 2
 text = "Q"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RoomName" type="Control" parent="CanvasLayer/Ui" unique_id=369386169]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 3.0
+offset_right = 251.99878
+offset_bottom = 117.0
+grow_horizontal = 0
+offset_transform_position = Vector2(84.52686, 0)
+script = ExtResource("59_81r3h")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Ui/RoomName" unique_id=815884454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Ui/RoomName/Panel" unique_id=1340040567]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "testestest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Ui/RoomName" unique_id=950595974]
+libraries/ = SubResource("AnimationLibrary_g0mnb")
 
 [node name="Overlays" type="Control" parent="CanvasLayer" unique_id=520609969]
 process_mode = 3

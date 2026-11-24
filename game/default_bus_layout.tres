@@ -1,5 +1,17 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://bpjhyo67ejxvh"]
 
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_j3pel"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_j3pel"]
+resource_name = "Amplify"
+volume_db = -9.48
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+room_size = 0.5
+spread = 0.62
+
 [resource]
 bus/1/name = &"Music"
 bus/1/solo = false
@@ -13,3 +25,21 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = -0.030508041
 bus/2/send = &"Master"
+bus/3/name = &"Ambiance"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Sounds"
+bus/3/effect/0/effect = SubResource("AudioEffectLowPassFilter_j3pel")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectAmplify_j3pel")
+bus/3/effect/1/enabled = true
+bus/4/name = &"Footsteps"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Sounds"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
+bus/4/effect/0/enabled = true

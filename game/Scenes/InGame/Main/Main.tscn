@@ -13,9 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://8p1gb223acg4" path="res://Scenes/InGame/Rooms/GF_EntranceRoom/EntrenceRoom.tscn" id="6_70f0n"]
 [ext_resource type="PackedScene" uid="uid://bbw380nkud71p" path="res://Scenes/InGame/Rooms/GF_Waiting Room/Waiting Room.tscn" id="7_5ac6x"]
 [ext_resource type="PackedScene" uid="uid://bdee3xxqrwi1q" path="res://Common/FungusMan/fungus_man.tscn" id="7_82pi1"]
+[ext_resource type="PackedScene" uid="uid://cg7vmlimhfjqn" path="res://Common/Item/Scenes/item.tscn" id="8_4gcju"]
+[ext_resource type="AudioStream" uid="uid://drc8t4ck1u3cs" path="res://Common/Sounds/perfect rain ambiance 2026-11-24 1902.ogg" id="8_ucmjt"]
+[ext_resource type="Script" uid="uid://yrk4kshtwihi" path="res://Scenes/InGame/Main/rain.gd" id="9_8d4mu"]
 [ext_resource type="PackedScene" uid="uid://c1qlle7xh384a" path="res://Scenes/InGame/Rooms/GF_Lab/Lab.tscn" id="10_1aapj"]
 [ext_resource type="PackedScene" uid="uid://345eshkt5dbw" path="res://Scenes/InGame/Rooms/GF_Kitchen/Kitchen.tscn" id="11_5ac6x"]
+[ext_resource type="Script" uid="uid://egnhoi5uuf01" path="res://Scenes/InGame/Main/pile_of_wood.gd" id="11_rd06x"]
+[ext_resource type="Texture2D" uid="uid://5v456snr4kt6" path="res://Common/buttonPromptInteract.png" id="12_h7gso"]
+[ext_resource type="AudioStream" uid="uid://boof2i1t5ukt3" path="res://Common/Sounds/835881__matustrm__failed.ogg" id="12_hp4ic"]
 [ext_resource type="PackedScene" uid="uid://co11gsrcf71g4" path="res://Scenes/InGame/Rooms/GF_Pantry/Pantry.tscn" id="12_s0738"]
+[ext_resource type="AudioStream" uid="uid://dst6t7xlxf6w4" path="res://Common/Sounds/703420__hadescolossus__chopping-logs-with-an-axe.ogg" id="14_nj4lg"]
 [ext_resource type="PackedScene" uid="uid://c1t01g1smawnb" path="res://Scenes/InGame/Rooms/GF_Surgury/Surgury.tscn" id="14_vvmuv"]
 [ext_resource type="Script" uid="uid://pinrfc45r5d2" path="res://Scenes/InGame/Main/Controller/sanity_controller.gd" id="16_8kos1"]
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="16_mg11r"]
@@ -66,6 +73,66 @@ _surfaces = [{
 "vertex_count": 3,
 "vertex_data": PackedByteArray(0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 64, 64, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 64, 64, 0, 0, 0, 0)
 }]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaa7l"]
+size = Vector3(1, 2.8842773, 2.7295532)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uaa7l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uaa7l"]
+radius = 2.0648189
+
+[sub_resource type="Animation" id="Animation_hp4ic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonPrompt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.628952, 1.7543498, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nj4lg"]
+resource_name = "shake"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonPrompt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.3969048, 0.4969048, 0.5969048),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.628952, 1.7543498, 0), Vector3(0.50009155, 1.7543498, 0), Vector3(0.628952, 1.7543498, 0), Vector3(0.50009155, 1.7543498, 0), Vector3(0.628952, 1.7543498, 0), Vector3(0.50009155, 1.7543498, 0), Vector3(0.628952, 1.7543498, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/835881MatustrmFailed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_hp4ic")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qtnim"]
+_data = {
+&"RESET": SubResource("Animation_hp4ic"),
+&"shake": SubResource("Animation_nj4lg")
+}
 
 [sub_resource type="Curve3D" id="Curve3D_7mt2c"]
 _data = {
@@ -132,6 +199,9 @@ area_size = Vector2(247.79356, 0.43663782)
 [node name="Items" type="Node3D" parent="." unique_id=469260023]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -0.5)
 
+[node name="Fire Axt" parent="Items" unique_id=1067764632 instance=ExtResource("8_4gcju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.87862, 0.026367188, 0.16718197)
+
 [node name="SpecialRooms" type="Node3D" parent="." unique_id=1124294359]
 
 [node name="Cortyard" parent="SpecialRooms" unique_id=201954112 instance=ExtResource("18_ng53i")]
@@ -141,6 +211,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.89282, 0, 0)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -30.337967, 0.7746624, 0.69189453)
 disabled = false
 exit = NodePath("../../../Rooms/Entrence Room/MainEntrance")
+
+[node name="Ambiance" type="Node3D" parent="." unique_id=2015630404]
+
+[node name="PerfectRainAmbiance202611241902" type="AudioStreamPlayer" parent="Ambiance" unique_id=102449327]
+stream = ExtResource("8_ucmjt")
+volume_db = 13.207
+autoplay = true
+bus = &"Ambiance"
+script = ExtResource("9_8d4mu")
 
 [node name="Rooms" type="Node3D" parent="." unique_id=754864513]
 script = ExtResource("3_fx46b")
@@ -156,21 +235,24 @@ exit = NodePath("../../Kitchen/Dining Entrance")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.94989, 1.1475148, -2.377471)
 exit = NodePath("../../Waiting Room/Dining Entrance")
 
-[node name="Label3D" type="Label3D" parent="Rooms/Dinging" unique_id=1150775837]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3106756, 0)
-text = "Dinging Room"
-font_size = 414
-
 [node name="Waiting Room" parent="Rooms" unique_id=388544862 instance=ExtResource("7_5ac6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.77108, 0, 0)
 
+[node name="Down Stairs" parent="Rooms/Waiting Room" unique_id=1054853913 instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.632088, 1.1911931, -2.824713)
+is_stairs = true
+
 [node name="EntryRoom Entrance" parent="Rooms/Waiting Room" unique_id=531227826 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.677612, 1.168, -2.7221515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.814201, 1.168, -0.9791857)
 exit = NodePath("../../Entrence Room/Entrance")
 
 [node name="CR Entrance" parent="Rooms/Waiting Room" unique_id=1086408560 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.312149, 1.4487033, -2.9609592)
 exit = NodePath("../../CR/Entrance Waiting Room")
+
+[node name="Up Stairs" parent="Rooms/Waiting Room" unique_id=572772506 instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.698326, 1.1894968, -2.6369257)
+is_stairs = true
 
 [node name="Lab Entrance" parent="Rooms/Waiting Room" unique_id=142541953 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.828987, 1.1266499, -0.51853895)
@@ -180,10 +262,38 @@ exit = NodePath("../../Lab/Waiting Room Entrance")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.325943, 1.4487033, -2.9609592)
 exit = NodePath("../../Dinging/Waiting Room Entrance")
 
-[node name="Label3D" type="Label3D" parent="Rooms/Waiting Room" unique_id=110759302]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8139274, 0)
-text = "Waiting Room"
-font_size = 576
+[node name="PileOfWood" type="StaticBody3D" parent="Rooms/Waiting Room" unique_id=2119388630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.68505, 0, -2.0415173)
+collision_mask = 0
+script = ExtResource("11_rd06x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=276703896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9421387, -0.12246704)
+shape = SubResource("BoxShape3D_uaa7l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=973547896]
+mesh = SubResource("CapsuleMesh_uaa7l")
+
+[node name="ButtonPrompt" type="Sprite3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=1655479440]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0.628952, 1.7543498, 0)
+texture = ExtResource("12_h7gso")
+
+[node name="Area3D" type="Area3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=466856731]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Waiting Room/PileOfWood/Area3D" unique_id=2025147062]
+shape = SubResource("SphereShape3D_uaa7l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Waiting Room/PileOfWood" unique_id=1026416263]
+libraries/ = SubResource("AnimationLibrary_qtnim")
+
+[node name="703420HadescolossusChoppingLogsWithAnAxe" type="AudioStreamPlayer" parent="Rooms/Waiting Room/PileOfWood/AnimationPlayer" unique_id=1273258314]
+stream = ExtResource("14_nj4lg")
+bus = &"Sounds"
+
+[node name="835881MatustrmFailed" type="AudioStreamPlayer" parent="Rooms/Waiting Room/PileOfWood/AnimationPlayer" unique_id=2054269556]
+bus = &"Sounds"
 
 [node name="Entrence Room" parent="Rooms" unique_id=494643628 instance=ExtResource("6_70f0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.574226, 0, 0)
@@ -196,11 +306,6 @@ exit = NodePath("../../../SpecialRooms/Cortyard/MainEntrance")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.757, 1.129, -0.9)
 exit = NodePath("../../Waiting Room/EntryRoom Entrance")
 
-[node name="Label3D" type="Label3D" parent="Rooms/Entrence Room" unique_id=1013252402]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.133429, 2.9613466, 0)
-text = "Entrance Room"
-font_size = 395
-
 [node name="Kitchen" parent="Rooms" unique_id=539365797 instance=ExtResource("11_5ac6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.7175, 0, 0)
 
@@ -212,22 +317,12 @@ exit = NodePath("../../Dinging/Kitchen Entrance")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.235016, 1.1938503, -2.6903372)
 exit = NodePath("../../Pantry/Kitchen Entrance")
 
-[node name="Label3D" type="Label3D" parent="Rooms/Kitchen" unique_id=1316710648]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7167811, -2.3403487)
-text = "Kitchen"
-font_size = 549
-
 [node name="CR" parent="Rooms" unique_id=425210454 instance=ExtResource("6_70f0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3395195, 0, 0)
 
 [node name="Entrance Waiting Room" parent="Rooms/CR" unique_id=1590336971 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8223705, 1.129, -0.13319564)
 exit = NodePath("../../Waiting Room/CR Entrance")
-
-[node name="Label3D" type="Label3D" parent="Rooms/CR" unique_id=129403262]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.823563, 3.46639, 0)
-text = "CR"
-font_size = 473
 
 [node name="Surgury" parent="Rooms" unique_id=944143579 instance=ExtResource("14_vvmuv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.90985, 0, 0)
@@ -236,22 +331,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.90985, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.30188, 1.2034585, -0.74633586)
 exit = NodePath("../../Lab/Surgory Entrance2")
 
-[node name="Label3D" type="Label3D" parent="Rooms/Surgury" unique_id=623141906]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1176193, -0.7434473)
-text = "Surgury"
-font_size = 559
-
 [node name="Pantry" parent="Rooms" unique_id=1693758300 instance=ExtResource("12_s0738")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.89469, 0, 0)
 
 [node name="Kitchen Entrance" parent="Rooms/Pantry" unique_id=1634902185 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.26921, 1.1373975, -1.0529156)
 exit = NodePath("../../Kitchen/Pant Entrance")
-
-[node name="Label3D" type="Label3D" parent="Rooms/Pantry" unique_id=631164125]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.50328, 4.38912, 0)
-text = "Pantry"
-font_size = 300
 
 [node name="Lab" parent="Rooms" unique_id=1209847780 instance=ExtResource("10_1aapj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.15051, 0, 0)
@@ -263,11 +348,6 @@ exit = NodePath("../../Waiting Room/Lab Entrance")
 [node name="Surgory Entrance2" parent="Rooms/Lab" unique_id=1191275570 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.000137, 1.2466365, -0.57767004)
 exit = NodePath("../../Surgury/Lab Entrance")
-
-[node name="Label3D" type="Label3D" parent="Rooms/Lab" unique_id=2104961473]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.60043, 0)
-text = "Lab"
-font_size = 757
 
 [node name="FungusManPath" type="Path3D" parent="." unique_id=757050642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.72407, 0.6626167, -2)
@@ -320,4 +400,6 @@ grow_vertical = 0
 mouse_filter = 0
 texture = ExtResource("16_mg11r")
 
+[connection signal="body_entered" from="Rooms/Waiting Room/PileOfWood/Area3D" to="Rooms/Waiting Room/PileOfWood" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Rooms/Waiting Room/PileOfWood/Area3D" to="Rooms/Waiting Room/PileOfWood" method="_on_area_3d_body_exited"]
 [connection signal="gui_input" from="CanvasLayer/SanityFill" to="Controller/SanityController" method="_on_sanity_fill_gui_input"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://drc8t4ck1u3cs"
+path="res://.godot/imported/perfect rain ambiance 2026-11-24 1902.ogg-ca1e034c3454761b74242b71d6849781.oggvorbisstr"
+
+[deps]
+
+source_file="res://Common/Sounds/perfect rain ambiance 2026-11-24 1902.ogg"
+dest_files=["res://.godot/imported/perfect rain ambiance 2026-11-24 1902.ogg-ca1e034c3454761b74242b71d6849781.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
