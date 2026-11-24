@@ -41,6 +41,13 @@ var stand_loops_left: int = 0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var teleportation_allowed = true
+signal room_changed(String)
+
+func _handle_room_change(room_name: String):
+	print("i am in ", room_name)
+	if room_name != "Cortyard":
+		$"../Camera/RainDropFloorEffect".visible = false
+	%RoomController.show_room(room_name)
 
 func _ready() -> void:
 	if layer_controller:
@@ -49,6 +56,8 @@ func _ready() -> void:
 		
 	_pick_random_idle()
 	$Sprite.animation_finished.connect(_on_sprite_animation_finished)
+	
+	room_changed.connect(_handle_room_change)
 
 func _pick_random_idle() -> void:
 	$Sprite.play(idle_animations.pick_random())

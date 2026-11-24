@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://djwnjfreimque"]
+
+[ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="1_810os"]
+[ext_resource type="Script" uid="uid://cpporwihw46ff" path="res://Scenes/InGame/Main/MainEntrance/main_entrance.gd" id="1_kwqmu"]
+[ext_resource type="Texture2D" uid="uid://d4kdhnegw5p86" path="res://Common/buttonPromptKeyboard2.png" id="3_38dvn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaa7l"]
+size = Vector3(3.8322754, 6.767578, 0.61621094)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ej4cl"]
+size = Vector3(7.2109375, 1, 2.138733)
+
+[node name="MainEntrance" type="StaticBody3D" unique_id=1610729764]
+collision_layer = 5
+collision_mask = 0
+script = ExtResource("1_kwqmu")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=51565581]
+transform = Transform3D(3.1904516, 0, 0, 0, 5.6788063, 0, 0, 0, 1, 0, 2.6042016, -1.4761112)
+shaded = true
+texture = ExtResource("1_810os")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1667613591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6042016, -1.6680057)
+shape = SubResource("BoxShape3D_uaa7l")
+
+[node name="PlayerDetector" type="Area3D" parent="." unique_id=1048407933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8161242, -1.4761112)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetector" unique_id=4077071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.734375, 1.7759709, 0.56936646)
+shape = SubResource("BoxShape3D_ej4cl")
+
+[node name="ButtonPrompt" type="Sprite3D" parent="." unique_id=266414240]
+transform = Transform3D(-6.512997e-09, 0, -0.149, 0, 0.149, 0, 0.149, 0, -6.512997e-09, 1.9498839, 1.6884782, 1.7873371)
+render_priority = 100
+texture = ExtResource("3_38dvn")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

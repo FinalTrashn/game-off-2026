@@ -2,26 +2,29 @@ extends StaticBody3D
 
 @export var exit: Node3D
 @export var fungus_man_x_pushback: float = 8
-var player: Node3D
+@export var item_required: String
+@onready var player = %Player
 var player_overlay_player: AnimationPlayer
 
 @onready var layer_controller = %LayerController
 @onready var safe_zone: Area3D = $SafeZone as Area3D
 @onready var fungus_man = $"../../../FungusManPath/FungunsManFollow/FungusMan"
+@onready var parent_room = $"../"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = %Player
-	print(player)
 	player_overlay_player = player.get_node("CanvasLayer/Overlays/Black/AnimationPlayer")
 	player_overlay_player.connect("animation_finished", _fade_animation_finished)
 
 func _fade_animation_finished(anim_name):
-	print(anim_name)
 	get_tree().paused = false
 
 func _input(event: InputEvent) -> void:
-	if player.is_on_floor() and $PlayerCollider.is_colliding() and Input.is_action_just_pressed("use_door") and player.teleportation_allowed:
+	if player.is_on_floor() \
+	and $PlayerCollider.is_colliding() \
+	and Input.is_action_just_pressed("use_door") \
+	and player.teleportation_allowed \
+	and (not item_required or player.get_node("Workers/InventoryManager").primary_item == item_required):
 		player.get_node("Timers/EntranceTimeout").doEntranceTimoutThing()
 		handle_use_door()
 
@@ -31,6 +34,7 @@ func handle_use_door():
 	$Sounds/DoorNormal.play()
 	exit.move_fungus_man_if_in_range()
 	await get_tree().create_timer(0.2, true).connect("timeout", func(): move_player())
+	player.room_changed.emit(exit.parent_room.name)
 
 func move_player():
 	var new_pos = exit.global_position

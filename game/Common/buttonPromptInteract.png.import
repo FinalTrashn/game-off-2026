@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4kdhnegw5p86"
-path.s3tc="res://.godot/imported/buttonPromptKeyboard2.png-b9be920f8cd6855f1dc6213dd8966aec.s3tc.ctex"
-path.etc2="res://.godot/imported/buttonPromptKeyboard2.png-b9be920f8cd6855f1dc6213dd8966aec.etc2.ctex"
+uid="uid://5v456snr4kt6"
+path.s3tc="res://.godot/imported/buttonPromptInteract.png-01edaa4cb780a169c9a56f6634005c6e.s3tc.ctex"
+path.etc2="res://.godot/imported/buttonPromptInteract.png-01edaa4cb780a169c9a56f6634005c6e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Common/Item/Sprites/buttonPromptKeyboard2.png"
-dest_files=["res://.godot/imported/buttonPromptKeyboard2.png-b9be920f8cd6855f1dc6213dd8966aec.s3tc.ctex", "res://.godot/imported/buttonPromptKeyboard2.png-b9be920f8cd6855f1dc6213dd8966aec.etc2.ctex"]
+source_file="res://Common/buttonPromptInteract.png"
+dest_files=["res://.godot/imported/buttonPromptInteract.png-01edaa4cb780a169c9a56f6634005c6e.s3tc.ctex", "res://.godot/imported/buttonPromptInteract.png-01edaa4cb780a169c9a56f6634005c6e.etc2.ctex"]
 
 [params]
 

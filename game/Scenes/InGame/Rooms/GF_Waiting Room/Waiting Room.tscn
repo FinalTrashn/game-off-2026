@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="1_e5vmy"]
 [ext_resource type="PackedScene" uid="uid://cd711pwici2qd" path="res://Common/Chair1/chair.tscn" id="2_jyjoe"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jyjoe"]
-size = Vector3(53.65622, 7.5178223, 0.25805664)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t2l5"]
 size = Vector3(64.75586, 1.1855469, 1)
 
@@ -17,23 +14,38 @@ size = Vector3(63.698, 1, 2)
 albedo_texture = ExtResource("1_e5vmy")
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mrkc7"]
+size = Vector3(9.719727, 1.1855469, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wn1kk"]
+size = Vector3(10, 1, 2)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6oc8"]
 size = Vector3(14.017578, 6.897705, 0.96292114)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cjcln"]
 size = Vector3(25.186523, 6.897705, 0.96292114)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cjcln"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_uaa7l"]
 size = Vector3(0.5605469, 6.015747, 3.6120605)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckxyw"]
-size = Vector3(0.5605469, 6.015747, 3.6120605)
+size = Vector3(0.5605469, 6.015747, 1.5058594)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gdhdk"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_58dwe"]
+size = Vector3(0.5605469, 6.015747, 2.0108032)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cjcln"]
-size = Vector3(73.35675, 1, 1.5336914)
+size = Vector3(75.76431, 1, 1.5336914)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ac6x"]
-size = Vector3(73.42551, 1, 1)
+size = Vector3(75.751816, 1, 1)
 
 [node name="ForgroundRoom" type="Node3D" unique_id=848268648]
 
@@ -68,10 +80,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4840813, 0, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.841, 0, 0.06406236)
 collision_layer = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundLayer/Background/back_wall" unique_id=1040434433]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3071256, 1.9020996, -0.046722412)
-shape = SubResource("BoxShape3D_jyjoe")
-
 [node name="Sprite3D" type="Sprite3D" parent="BackgroundLayer/Background/back_wall" unique_id=1702333212]
 transform = Transform3D(49.876842, 0, 0, 0, 4.63, 0, 0, 0, 1, -1.4319946, 2.8465614, 0)
 shaded = true
@@ -89,6 +97,16 @@ shape = SubResource("BoxShape3D_7t2l5")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BackgroundLayer/Floor/Floor" unique_id=1214645673]
 layers = 2
 mesh = SubResource("BoxMesh_fl6ly")
+surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BackgroundLayer/Floor/Floor" unique_id=1028804783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.915344, 0.026367188, 0)
+shape = SubResource("BoxShape3D_mrkc7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="BackgroundLayer/Floor/Floor" unique_id=1300610654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.885273, 0, 0)
+layers = 2
+mesh = SubResource("BoxMesh_wn1kk")
 surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
 
 [node name="Foreground" type="Node3D" parent="BackgroundLayer" unique_id=255377330]
@@ -112,23 +130,28 @@ transform = Transform3D(11.248, 0, 0, 0, 4.63, 0, 0, 0, 1, 0, 0, 0)
 shaded = true
 texture = ExtResource("1_e5vmy")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ForegroundLayer/Background/TrennerWall" unique_id=331568844]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.236116, 0, 0)
-shape = SubResource("BoxShape3D_b6oc8")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="ForegroundLayer/Background/TrennerWall" unique_id=658163354]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.268394, 0, 0)
-shape = SubResource("BoxShape3D_cjcln")
-
 [node name="Sprite3D2" type="Sprite3D" parent="ForegroundLayer/Background/TrennerWall" unique_id=2054169806]
 transform = Transform3D(11.248, 0, 0, 0, 4.63, 0, 0, 0, 1, -20.236116, 0, 0)
 shaded = true
 texture = ExtResource("1_e5vmy")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ForegroundLayer/Background/TrennerWall" unique_id=331568844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.236116, 0, 0)
+shape = SubResource("BoxShape3D_b6oc8")
+
 [node name="Sprite3D3" type="Sprite3D" parent="ForegroundLayer/Background/TrennerWall" unique_id=1986660774]
 transform = Transform3D(19.872538, 0, 0, 0, 4.63, 0, 0, 0, 1, -45.33683, 0, 0)
 shaded = true
 texture = ExtResource("1_e5vmy")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ForegroundLayer/Background/TrennerWall" unique_id=658163354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -45.268394, 0, 0)
+shape = SubResource("BoxShape3D_cjcln")
+
+[node name="Sprite3D4" type="Sprite3D" parent="ForegroundLayer/Background/TrennerWall" unique_id=1282920424]
+transform = Transform3D(7.7502894, 0, 0, 0, 4.63, 0, 0, 0, 1, -63.59972, 0, -1.6975083)
+shaded = true
+texture = SubResource("CompressedTexture2D_cjcln")
 
 [node name="SideWalls" type="StaticBody3D" parent="ForegroundLayer/Background" unique_id=273592874]
 
@@ -149,12 +172,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.77709, 2.5078735, -1.7482
 shape = SubResource("BoxShape3D_ckxyw")
 
 [node name="Sprite3D3" type="Sprite3D" parent="ForegroundLayer/Background/SideWalls" unique_id=1145114848]
-transform = Transform3D(-1.2868797e-07, 0, -1, 0, 4.7552085, 0, 2.9440377, 0, -4.371139e-08, -41.215263, 2.400538, 0.17823327)
+transform = Transform3D(-5.5593205e-08, 0, -1, 0, 4.7552085, 0, 1.2718244, 0, -4.371139e-08, -43.733135, 2.400538, 0.7107065)
 texture = ExtResource("1_e5vmy")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="ForegroundLayer/Background/SideWalls" unique_id=2142116915]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.410133, 2.5078735, 0.22938669)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.928005, 2.5078735, 0.69211406)
 shape = SubResource("BoxShape3D_ckxyw")
+
+[node name="Sprite3D4" type="Sprite3D" parent="ForegroundLayer/Background/SideWalls" unique_id=1339917023]
+transform = Transform3D(-7.227116e-08, 0, -1, 0, 4.7552085, 0, 1.6533716, 0, -4.371139e-08, -51.715214, 2.400538, -0.99051714)
+texture = SubResource("CompressedTexture2D_gdhdk")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="ForegroundLayer/Background/SideWalls" unique_id=1655198543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.910084, 2.5078735, -1.017597)
+shape = SubResource("BoxShape3D_58dwe")
+
+[node name="Sprite3D5" type="Sprite3D" parent="ForegroundLayer/Background/SideWalls" unique_id=1630416213]
+transform = Transform3D(-7.227116e-08, 0, -1, 0, 4.7552085, 0, 1.6533716, 0, -4.371139e-08, -41.932644, 2.400538, -0.99051714)
+texture = SubResource("CompressedTexture2D_gdhdk")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="ForegroundLayer/Background/SideWalls" unique_id=2111865301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.72317, 2.5078735, -1.017597)
+shape = SubResource("BoxShape3D_58dwe")
 
 [node name="Floor" type="Node3D" parent="ForegroundLayer" unique_id=2127064873]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -162,12 +201,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 [node name="Floor" type="StaticBody3D" parent="ForegroundLayer/Floor" unique_id=2032125679]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ForegroundLayer/Floor/Floor" unique_id=2102826387]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7415466, 0, -0.2668457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9453278, 0, -0.2668457)
 mesh = SubResource("BoxMesh_cjcln")
 surface_material_override/0 = SubResource("StandardMaterial3D_77vx0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForegroundLayer/Floor/Floor" unique_id=1090373279]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7892456, 0.026367188, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9524, 0.026367188, 0)
 shape = SubResource("BoxShape3D_5ac6x")
 
 [node name="Foreground" type="Node3D" parent="ForegroundLayer" unique_id=201959878]

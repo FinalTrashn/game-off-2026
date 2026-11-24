@@ -1,22 +1,26 @@
 [gd_scene format=3 uid="uid://bjdtyobw63xur"]
 
 [ext_resource type="PackedScene" uid="uid://bcleukcqgmo4n" path="res://Common/Player/Scenes/player.tscn" id="1_td30v"]
+[ext_resource type="Shader" uid="uid://co3b6pjlrfgar" path="res://Common/Shaders/3d/rain_floor.gdshader" id="3_b35b2"]
 [ext_resource type="Script" uid="uid://cwvoiwj6qr8lu" path="res://Scenes/InGame/Main/room_manager.gd" id="3_fx46b"]
 [ext_resource type="Script" uid="uid://cp1htpn7ywhrp" path="res://Common/Camera/Scripts/camera.gd" id="3_qvh5f"]
 [ext_resource type="Script" uid="uid://ds4yr2r0331tc" path="res://Scenes/InGame/Main/Controller/layer_controller.gd" id="4_70f0n"]
+[ext_resource type="Script" uid="uid://dxfgfr200w0h8" path="res://Common/Tools/rain_puddles_mesh.gd" id="4_rd06x"]
 [ext_resource type="PackedScene" uid="uid://c5y27x76v2vit" path="res://Scenes/InGame/Rooms/GF_Dining/Dining.tscn" id="4_s0738"]
+[ext_resource type="PackedScene" uid="uid://djwnjfreimque" path="res://Scenes/InGame/Main/MainEntrance/MainEntrance.tscn" id="4_unmd2"]
 [ext_resource type="PackedScene" uid="uid://c46a66umbr48p" path="res://Common/Entrance/Scenes/entrance.tscn" id="5_kyxfq"]
 [ext_resource type="Script" uid="uid://b347ktpwjhg27" path="res://Scenes/InGame/Main/Controller/render_priority_generator.gd" id="5_stfqe"]
 [ext_resource type="PackedScene" uid="uid://8p1gb223acg4" path="res://Scenes/InGame/Rooms/GF_EntranceRoom/EntrenceRoom.tscn" id="6_70f0n"]
 [ext_resource type="PackedScene" uid="uid://bbw380nkud71p" path="res://Scenes/InGame/Rooms/GF_Waiting Room/Waiting Room.tscn" id="7_5ac6x"]
 [ext_resource type="PackedScene" uid="uid://bdee3xxqrwi1q" path="res://Common/FungusMan/fungus_man.tscn" id="7_82pi1"]
-[ext_resource type="PackedScene" uid="uid://cg7vmlimhfjqn" path="res://Common/Item/Scenes/item.tscn" id="8_4gcju"]
 [ext_resource type="PackedScene" uid="uid://c1qlle7xh384a" path="res://Scenes/InGame/Rooms/GF_Lab/Lab.tscn" id="10_1aapj"]
 [ext_resource type="PackedScene" uid="uid://345eshkt5dbw" path="res://Scenes/InGame/Rooms/GF_Kitchen/Kitchen.tscn" id="11_5ac6x"]
 [ext_resource type="PackedScene" uid="uid://co11gsrcf71g4" path="res://Scenes/InGame/Rooms/GF_Pantry/Pantry.tscn" id="12_s0738"]
 [ext_resource type="PackedScene" uid="uid://c1t01g1smawnb" path="res://Scenes/InGame/Rooms/GF_Surgury/Surgury.tscn" id="14_vvmuv"]
 [ext_resource type="Script" uid="uid://pinrfc45r5d2" path="res://Scenes/InGame/Main/Controller/sanity_controller.gd" id="16_8kos1"]
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="16_mg11r"]
+[ext_resource type="Script" uid="uid://lt52d1syn01x" path="res://Scenes/InGame/Main/room_controller.gd" id="16_ng53i"]
+[ext_resource type="PackedScene" uid="uid://b7q1ykxytxr4b" path="res://Scenes/InGame/Rooms/GF_Cortyard/Cortyard.tscn" id="18_ng53i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
 sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
@@ -35,6 +39,33 @@ tonemap_mode = 2
 ssao_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
+volumetric_fog_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7gso"]
+render_priority = -1
+shader = ExtResource("3_b35b2")
+shader_parameter/puddle_color = Color(0.01, 0.3, 0.28, 0.7)
+shader_parameter/puddle_reflectivness = 2.0
+shader_parameter/puddle_micro_mask_size = 5.0
+shader_parameter/puddle_macro_mask_size = 25.0
+shader_parameter/puddle_mask_threshold = 0.33
+shader_parameter/ssr_resolution = 1.0
+shader_parameter/ssr_max_travel = 30.0
+shader_parameter/ssr_max_diff = 4.0
+shader_parameter/ssr_screen_border_fadeout = 0.3
+shader_parameter/ripple_max_radius = 2.0
+shader_parameter/ripple_scale = 1.0
+shader_parameter/ripple_speed = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hp4ic"]
+_surfaces = [{
+"aabb": AABB(-1, -1, 0, 4, 4, 1e-05),
+"format": 34359738369,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray(0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 64, 64, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 64, 64, 0, 0, 0, 0)
+}]
 
 [sub_resource type="Curve3D" id="Curve3D_7mt2c"]
 _data = {
@@ -56,18 +87,26 @@ fill_to = Vector2(0.95, 0.5)
 
 [node name="Main" type="Node3D" unique_id=848268648]
 
-[node name="BlackHole" type="WorldEnvironment" parent="." unique_id=1405360915]
+[node name="BlackHoleWithFog" type="WorldEnvironment" parent="." unique_id=1405360915]
 environment = SubResource("Environment_stfqe")
 
 [node name="Player" parent="." unique_id=2079493257 instance=ExtResource("1_td30v")]
 unique_name_in_owner = true
-transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, -31.253391, 0.89528155, 0)
+transform = Transform3D(0.465, 0, 0, 0, 0.465, 0, 0, 0, 0.465, 154.29239, 0.89528155, 0)
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1020457053 node_paths=PackedStringArray("player")]
 process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 5, 7)
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 185.54578, 5, 7)
 script = ExtResource("3_qvh5f")
 player = NodePath("../Player")
+
+[node name="RainDropFloorEffect" type="MeshInstance3D" parent="Camera" unique_id=854644599]
+material_override = SubResource("ShaderMaterial_h7gso")
+cast_shadow = 0
+extra_cull_margin = 16384.0
+gi_mode = 0
+mesh = SubResource("ArrayMesh_hp4ic")
+script = ExtResource("4_rd06x")
 
 [node name="AmbientLight" type="Node3D" parent="." unique_id=834956244]
 transform = Transform3D(1, 0, 0, 0, -0.30458832, 0.95248413, 0, -0.95248413, -0.30458832, 4.7997904, 4.842346, 1.860204)
@@ -93,14 +132,15 @@ area_size = Vector2(247.79356, 0.43663782)
 [node name="Items" type="Node3D" parent="." unique_id=469260023]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -0.5)
 
-[node name="Super Weapon" parent="Items" unique_id=1659101238 instance=ExtResource("8_4gcju")]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -21.238, 0, 0)
+[node name="SpecialRooms" type="Node3D" parent="." unique_id=1124294359]
 
-[node name="test" parent="Items" unique_id=1067764632 instance=ExtResource("8_4gcju")]
-transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -25.141, 0, 0)
+[node name="Cortyard" parent="SpecialRooms" unique_id=201954112 instance=ExtResource("18_ng53i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.89282, 0, 0)
 
-[node name="the physical button F" parent="Items" unique_id=87890402 instance=ExtResource("8_4gcju")]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -27.573, 0, 0)
+[node name="MainEntrance" parent="SpecialRooms/Cortyard" unique_id=1610729764 node_paths=PackedStringArray("exit") instance=ExtResource("4_unmd2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -30.337967, 0.7746624, 0.69189453)
+disabled = false
+exit = NodePath("../../../Rooms/Entrence Room/MainEntrance")
 
 [node name="Rooms" type="Node3D" parent="." unique_id=754864513]
 script = ExtResource("3_fx46b")
@@ -148,6 +188,10 @@ font_size = 576
 [node name="Entrence Room" parent="Rooms" unique_id=494643628 instance=ExtResource("6_70f0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.574226, 0, 0)
 
+[node name="MainEntrance" parent="Rooms/Entrence Room" unique_id=1130818194 node_paths=PackedStringArray("exit") instance=ExtResource("4_unmd2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.8476143, 0.89401054, 0.5270748)
+exit = NodePath("../../../SpecialRooms/Cortyard/MainEntrance")
+
 [node name="Entrance" parent="Rooms/Entrence Room" unique_id=1683013020 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.757, 1.129, -0.9)
 exit = NodePath("../../Waiting Room/EntryRoom Entrance")
@@ -158,7 +202,7 @@ text = "Entrance Room"
 font_size = 395
 
 [node name="Kitchen" parent="Rooms" unique_id=539365797 instance=ExtResource("11_5ac6x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.88818, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.7175, 0, 0)
 
 [node name="Dining Entrance" parent="Rooms/Kitchen" unique_id=344677237 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.02388, 1.1938503, -2.6903372)
@@ -210,7 +254,7 @@ text = "Pantry"
 font_size = 300
 
 [node name="Lab" parent="Rooms" unique_id=1209847780 instance=ExtResource("10_1aapj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.3212, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.15051, 0, 0)
 
 [node name="Waiting Room Entrance" parent="Rooms/Lab" unique_id=334820837 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.381027, 1.2466365, -0.57767004)
@@ -245,6 +289,10 @@ script = ExtResource("5_stfqe")
 
 [node name="SanityController" type="Node" parent="Controller" unique_id=1315844438]
 script = ExtResource("16_8kos1")
+
+[node name="RoomController" type="Node" parent="Controller" unique_id=2065030297]
+unique_name_in_owner = true
+script = ExtResource("16_ng53i")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2042959778]
 
