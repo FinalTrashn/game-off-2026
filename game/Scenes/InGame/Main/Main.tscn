@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://yrk4kshtwihi" path="res://Scenes/InGame/Main/rain.gd" id="9_8d4mu"]
 [ext_resource type="PackedScene" uid="uid://c1qlle7xh384a" path="res://Scenes/InGame/Rooms/GF_Lab/Lab.tscn" id="10_1aapj"]
 [ext_resource type="PackedScene" uid="uid://345eshkt5dbw" path="res://Scenes/InGame/Rooms/GF_Kitchen/Kitchen.tscn" id="11_5ac6x"]
+[ext_resource type="PackedScene" uid="uid://bc7phsvxt5jho" path="res://Scenes/InGame/Rooms/1F_MasterBedroom/MasterBedroom.tscn" id="11_fkcb3"]
 [ext_resource type="Script" uid="uid://egnhoi5uuf01" path="res://Scenes/InGame/Main/pile_of_wood.gd" id="11_rd06x"]
 [ext_resource type="Texture2D" uid="uid://5v456snr4kt6" path="res://Common/buttonPromptInteract.png" id="12_h7gso"]
 [ext_resource type="AudioStream" uid="uid://boof2i1t5ukt3" path="res://Common/Sounds/835881__matustrm__failed.ogg" id="12_hp4ic"]
@@ -29,6 +30,10 @@
 [ext_resource type="Script" uid="uid://lt52d1syn01x" path="res://Scenes/InGame/Main/room_controller.gd" id="16_ng53i"]
 [ext_resource type="PackedScene" uid="uid://b7q1ykxytxr4b" path="res://Scenes/InGame/Rooms/GF_Cortyard/Cortyard.tscn" id="18_ng53i"]
 [ext_resource type="PackedScene" uid="uid://pu46my4wldo5" path="res://Scenes/InGame/Rooms/1F_MainHall/1F_MainHall.tscn" id="23_iu00n"]
+[ext_resource type="PackedScene" uid="uid://dddmh8540lkhw" path="res://Scenes/InGame/Rooms/1F_Dresser/Dresser.tscn" id="24_vea1n"]
+[ext_resource type="PackedScene" uid="uid://df3fbyj0eaqky" path="res://Scenes/InGame/Rooms/1F_MasterBath/MasterBath.tscn" id="25_ituyg"]
+[ext_resource type="PackedScene" uid="uid://8mu6j04rlda7" path="res://Scenes/InGame/Rooms/1F_GuestBedroom/GuestBedroom.tscn" id="27_kmroj"]
+[ext_resource type="PackedScene" uid="uid://c6et2nlbjgatp" path="res://Scenes/InGame/Rooms/1F_GuestBathroom/GuestBathroom.tscn" id="28_ggvdr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
 sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
@@ -228,7 +233,7 @@ script = ExtResource("3_fx46b")
 [node name="Dinging" parent="Rooms" unique_id=779119736 instance=ExtResource("4_s0738")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.082542, 0, 0)
 
-[node name="Kitchen Entrance" parent="Rooms/Dinging" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+[node name="Kitchen Entrance" parent="Rooms/Dinging" unique_id=2079732095 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4929085, 1.1522875, -2.321016)
 exit = NodePath("../../Kitchen/Dining Entrance")
 
@@ -352,12 +357,67 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.000137, 1.2466365, -0.5776
 exit = NodePath("../../Surgury/Lab Entrance")
 
 [node name="1 Floor Main Hall" parent="Rooms" unique_id=544678660 instance=ExtResource("23_iu00n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -285.46136, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -269.04517, 0, 0)
+
+[node name="Dresser Entrance" parent="Rooms/1 Floor Main Hall" unique_id=677027873 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.239685, 1.107271, -0.5217155)
+exit = NodePath("../../Dresser/1FMH Entrance")
+
+[node name="MBa Entrance" parent="Rooms/1 Floor Main Hall" unique_id=1186846497 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.388306, 1.107271, -0.5217155)
+exit = NodePath("../../Master Bathroom/1FMH Entrance")
+
+[node name="MBe Entrance" parent="Rooms/1 Floor Main Hall" unique_id=1198343681 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0335388, 1.107271, -0.5217155)
+exit = NodePath("../../Master Bedroom/1FMH Entrance")
 
 [node name="Stairs Down" parent="Rooms/1 Floor Main Hall" unique_id=1439339871 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.686005, 1.2312279, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.745636, 4.308261, -2.989267)
 exit = NodePath("../../Waiting Room/Up Stairs")
 is_stairs = true
+
+[node name="GBeEntrance" parent="Rooms/1 Floor Main Hall" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.390991, 0.88799155, -2.790944)
+exit = NodePath("../../Guest Bedroom/1FMH Entrance")
+
+[node name="Dresser" parent="Rooms" unique_id=1605810335 instance=ExtResource("24_vea1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.60094, 0, 0)
+
+[node name="1FMH Entrance" parent="Rooms/Dresser" unique_id=1903074749 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9026947, 1.0213492, -0.7313996)
+exit = NodePath("../../1 Floor Main Hall/Dresser Entrance")
+
+[node name="Master Bedroom" parent="Rooms" unique_id=1179039185 instance=ExtResource("11_fkcb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 242.9016, 0, 0)
+
+[node name="1FMH Entrance" parent="Rooms/Master Bedroom" unique_id=2122127609 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.687881, 1.1105239, -0.8506116)
+exit = NodePath("../../1 Floor Main Hall/MBe Entrance")
+
+[node name="Master Bathroom" parent="Rooms" unique_id=817039326 instance=ExtResource("25_ituyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.57562, 0, 0)
+
+[node name="1FMH Entrance" parent="Rooms/Master Bathroom" unique_id=869544371 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4530487, 1.0046661, -0.78719604)
+exit = NodePath("../../1 Floor Main Hall/MBa Entrance")
+
+[node name="Guest Bedroom" parent="Rooms" unique_id=1021096972 instance=ExtResource("27_kmroj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -320.15955, 0, 0)
+
+[node name="GBaEntrance" parent="Rooms/Guest Bedroom" unique_id=1189035240 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.016846, 0.96184087, -1.0775517)
+exit = NodePath("../../Guest Bathroom/GBeEntrance")
+
+[node name="1FMH Entrance" parent="Rooms/Guest Bedroom" unique_id=1710375187 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.750824, 1.715141, -2.3379908)
+exit = NodePath("../../1 Floor Main Hall/GBeEntrance")
+
+[node name="Guest Bathroom" parent="Rooms" unique_id=1420294968 instance=ExtResource("28_ggvdr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.12653, 0, 0)
+
+[node name="GBeEntrance" parent="Rooms/Guest Bathroom" unique_id=754196185 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023376465, 1.1063983, -0.8139129)
+exit = NodePath("../../Guest Bedroom/GBaEntrance")
 
 [node name="FungusManPath" type="Path3D" parent="." unique_id=757050642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.72407, 0.6626167, -2)

@@ -18,6 +18,10 @@ func _ready() -> void:
 	player_overlay_player = player.get_node("CanvasLayer/Overlays/Black/AnimationPlayer")
 	player_overlay_player.connect("animation_finished", _fade_animation_finished)
 	
+	#sanity check
+	if !exit:
+		push_error("Entrance in ",parent_room.name, " has no exit")
+	
 	if is_stairs:
 		#TODO actuall sounds
 		$Sprite.texture = load("res://Common/Entrance/Sprites/buttonPromptKeyboard.png")
