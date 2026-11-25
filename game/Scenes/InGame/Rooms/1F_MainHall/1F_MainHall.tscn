@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dhefm6yod0u11" path="res://Common/Lamp1/lamp1.tscn" id="2_if6l0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j15l7"]
-size = Vector3(47.945313, 1.1855469, 1)
+size = Vector3(53.01013, 1.1855469, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fl6ly"]
 size = Vector3(53.01013, 1, 2)
@@ -58,7 +58,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BackgroundLayer/Floor/Floor" unique_id=2013088521]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7602787, 0.026367188, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.343935, 0.026367188, 0)
 shape = SubResource("BoxShape3D_j15l7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BackgroundLayer/Floor/Floor" unique_id=1214645673]

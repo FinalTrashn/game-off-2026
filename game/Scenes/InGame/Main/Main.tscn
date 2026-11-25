@@ -34,6 +34,15 @@
 [ext_resource type="PackedScene" uid="uid://df3fbyj0eaqky" path="res://Scenes/InGame/Rooms/1F_MasterBath/MasterBath.tscn" id="25_ituyg"]
 [ext_resource type="PackedScene" uid="uid://8mu6j04rlda7" path="res://Scenes/InGame/Rooms/1F_GuestBedroom/GuestBedroom.tscn" id="27_kmroj"]
 [ext_resource type="PackedScene" uid="uid://c6et2nlbjgatp" path="res://Scenes/InGame/Rooms/1F_GuestBathroom/GuestBathroom.tscn" id="28_ggvdr"]
+[ext_resource type="PackedScene" uid="uid://uar8b8j6qr2" path="res://Scenes/InGame/Rooms/1F_MusicRoom/MusicRoom.tscn" id="29_wjnoh"]
+[ext_resource type="PackedScene" uid="uid://dak6imhj0qbxm" path="res://Scenes/InGame/Rooms/1F_BallRoom/BallRoom.tscn" id="30_vm5d8"]
+[ext_resource type="PackedScene" uid="uid://ilj8jmgxmq58" path="res://Scenes/InGame/Rooms/CL_MainRoom/MainRoom.tscn" id="31_ggccx"]
+[ext_resource type="PackedScene" uid="uid://bewgfcr2qf1fu" path="res://Scenes/InGame/Rooms/1F_Library/Library.tscn" id="31_phtcn"]
+[ext_resource type="PackedScene" uid="uid://ds5vodqk008he" path="res://Scenes/InGame/Rooms/CL_Wine/Wine.tscn" id="32_4l75k"]
+[ext_resource type="PackedScene" uid="uid://diaju6ff6yrro" path="res://Scenes/InGame/Rooms/CL_Bioler/Boiler.tscn" id="32_l2y4i"]
+[ext_resource type="PackedScene" uid="uid://do4nw4t1ge41p" path="res://Scenes/InGame/Rooms/CL_Coal/Coal.tscn" id="33_1wg2q"]
+[ext_resource type="PackedScene" uid="uid://ca0vl7aultlc0" path="res://Scenes/InGame/Rooms/CL_Backrooms/Backrooms.tscn" id="35_hjtbq"]
+[ext_resource type="PackedScene" uid="uid://bm7to0ayewfbw" path="res://Scenes/InGame/Rooms/CL_Storage/Storage Room.tscn" id="37_8swjn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
 sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
@@ -244,8 +253,9 @@ exit = NodePath("../../Waiting Room/Dining Entrance")
 [node name="Waiting Room" parent="Rooms" unique_id=388544862 instance=ExtResource("7_5ac6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.77108, 0, 0)
 
-[node name="Down Stairs" parent="Rooms/Waiting Room" unique_id=1054853913 instance=ExtResource("5_kyxfq")]
+[node name="Down Stairs" parent="Rooms/Waiting Room" unique_id=1054853913 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.632088, 1.1911931, -2.824713)
+exit = NodePath("../../CLMainRoom/Up Stairs")
 is_stairs = true
 
 [node name="EntryRoom Entrance" parent="Rooms/Waiting Room" unique_id=531227826 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
@@ -372,13 +382,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0335388, 1.107271, -0.5217
 exit = NodePath("../../Master Bedroom/1FMH Entrance")
 
 [node name="Stairs Down" parent="Rooms/1 Floor Main Hall" unique_id=1439339871 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.745636, 4.308261, -2.989267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.745636, 1.5973015, -2.989267)
 exit = NodePath("../../Waiting Room/Up Stairs")
 is_stairs = true
 
-[node name="GBeEntrance" parent="Rooms/1 Floor Main Hall" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+[node name="GBe Entrance" parent="Rooms/1 Floor Main Hall" unique_id=1231968614 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.390991, 0.88799155, -2.790944)
 exit = NodePath("../../Guest Bedroom/1FMH Entrance")
+
+[node name="Music Entrance" parent="Rooms/1 Floor Main Hall" unique_id=792113270 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8698425, 0.88799155, -2.790944)
+exit = NodePath("../../Music Room/1FMH Entrance")
+
+[node name="Ball Entrance" parent="Rooms/1 Floor Main Hall" unique_id=789432020 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6753235, 0.88799155, -2.790944)
+exit = NodePath("../../Ball Room/1FMH Entrance")
 
 [node name="Dresser" parent="Rooms" unique_id=1605810335 instance=ExtResource("24_vea1n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.60094, 0, 0)
@@ -410,7 +428,7 @@ exit = NodePath("../../Guest Bathroom/GBeEntrance")
 
 [node name="1FMH Entrance" parent="Rooms/Guest Bedroom" unique_id=1710375187 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.750824, 1.715141, -2.3379908)
-exit = NodePath("../../1 Floor Main Hall/GBeEntrance")
+exit = NodePath("../../1 Floor Main Hall/GBe Entrance")
 
 [node name="Guest Bathroom" parent="Rooms" unique_id=1420294968 instance=ExtResource("28_ggvdr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.12653, 0, 0)
@@ -418,6 +436,110 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.12653, 0, 0)
 [node name="GBeEntrance" parent="Rooms/Guest Bathroom" unique_id=754196185 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023376465, 1.1063983, -0.8139129)
 exit = NodePath("../../Guest Bedroom/GBaEntrance")
+
+[node name="Music Room" parent="Rooms" unique_id=1078204619 instance=ExtResource("29_wjnoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 298.91574, 0, 0)
+
+[node name="1FMH Entrance" parent="Rooms/Music Room" unique_id=1595505089 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8926697, 1.1395078, -0.6993754)
+exit = NodePath("../../1 Floor Main Hall/Music Entrance")
+
+[node name="Ball Room" parent="Rooms" unique_id=200863175 instance=ExtResource("30_vm5d8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -353.83597, 0, 0)
+
+[node name="Library Key" parent="Rooms/Ball Room" unique_id=340849504 instance=ExtResource("8_4gcju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1034546, 0.1191411, 0.2895546)
+
+[node name="Library Entrance" parent="Rooms/Ball Room" unique_id=326138549 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.542267, 1.0216475, -2.4949522)
+exit = NodePath("../../Library/Ball Room Entrance")
+item_required = "Library Key"
+
+[node name="1FMH Entrance" parent="Rooms/Ball Room" unique_id=1047133612 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.61676, 1.0633671, -2.6418014)
+exit = NodePath("../../1 Floor Main Hall/Ball Entrance")
+
+[node name="CLMainRoom" parent="Rooms" unique_id=1876950609 instance=ExtResource("31_ggccx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -394.39792, 0, 0)
+
+[node name="Up Stairs" parent="Rooms/CLMainRoom" unique_id=276416497 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.28479, 1.0622339, -2.8039436)
+exit = NodePath("../../Waiting Room/Down Stairs")
+is_stairs = true
+
+[node name="StorageRoom Entrance" parent="Rooms/CLMainRoom" unique_id=1245735401 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5012817, 1.0868164, -3.0320754)
+exit = NodePath("../../Storage Room/CLMR Locked")
+
+[node name="Coal Locked" parent="Rooms/CLMainRoom" unique_id=205570580 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7860107, 1.0622339, -0.61382675)
+exit = NodePath("../../Coal Room/CLMR Entrance")
+always_locked = true
+
+[node name="Boiler Entrance" parent="Rooms/CLMainRoom" unique_id=311121277 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997162, 1.0622339, -0.61382675)
+exit = NodePath("../../Boiler Room/CLMR Entrance")
+
+[node name="Wine Celler" parent="Rooms" unique_id=640415335 instance=ExtResource("32_4l75k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 384.057, 0, 0)
+
+[node name="Coal Entrance" parent="Rooms/Wine Celler" unique_id=1196089631 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27597046, 1.1626407, -0.9132055)
+exit = NodePath("../../Coal Room/Wine Entrance Locked")
+
+[node name="Backroom Locked" parent="Rooms/Wine Celler" unique_id=796659042 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.27597046, 1.1626407, 0.796101)
+exit = NodePath("../../Backrooms/Wine Entrance")
+always_locked = true
+
+[node name="Boiler Room" parent="Rooms" unique_id=852579675 instance=ExtResource("32_l2y4i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 346.16373, 0, 0)
+
+[node name="CLMR Entrance" parent="Rooms/Boiler Room" unique_id=1837885771 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0881958, 1.121028, -0.700037)
+exit = NodePath("../../CLMainRoom/Boiler Entrance")
+
+[node name="Coal Room" parent="Rooms" unique_id=66955886 instance=ExtResource("33_1wg2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.6681, 0, 0)
+
+[node name="CLMR Entrance" parent="Rooms/Coal Room" unique_id=709432730 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46365356, 1.0781189, -0.7850437)
+exit = NodePath("../../CLMainRoom/Coal Locked")
+
+[node name="Wine Entrance Locked" parent="Rooms/Coal Room" unique_id=1025998204 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.46365356, 1.0781189, 0.7970793)
+exit = NodePath("../../Wine Celler/Coal Entrance")
+always_locked = true
+
+[node name="Backrooms" parent="Rooms" unique_id=508937578 instance=ExtResource("35_hjtbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -431.95352, 0, 0)
+
+[node name="Wine Entrance" parent="Rooms/Backrooms" unique_id=687149334 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.028107, 1.7151406, -2.2709732)
+exit = NodePath("../../Wine Celler/Backroom Locked")
+
+[node name="Storage Entrance" parent="Rooms/Backrooms" unique_id=2096128015 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.194733, 1.7151406, -2.2709732)
+exit = NodePath("../../Storage Room/Backroom Entrance")
+
+[node name="Library" parent="Rooms" unique_id=1799141925 instance=ExtResource("31_phtcn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 326.38254, 0, 0)
+
+[node name="Ball Room Entrance" parent="Rooms/Library" unique_id=2038793098 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6350708, 1.0843271, -0.7358432)
+exit = NodePath("../../Ball Room/Library Entrance")
+
+[node name="Storage Room" parent="Rooms" unique_id=86460571 instance=ExtResource("37_8swjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -461.32288, 0, 0)
+
+[node name="Backroom Entrance" parent="Rooms/Storage Room" unique_id=1021961248 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17034912, 1.0167222, -2.507536)
+exit = NodePath("../../Backrooms/Storage Entrance")
+
+[node name="CLMR Locked" parent="Rooms/Storage Room" unique_id=667232100 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.17034912, 1.0167222, 0.7109895)
+exit = NodePath("../../CLMainRoom/StorageRoom Entrance")
+always_locked = true
 
 [node name="FungusManPath" type="Path3D" parent="." unique_id=757050642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.72407, 0.6626167, -2)

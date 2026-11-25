@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bw0pgi18ekowk" path="res://Common/Entrance/Sprites/door.webp" id="1_1i6ro"]
 [ext_resource type="Script" uid="uid://b0stbfvjspyjy" path="res://Common/Entrance/Scripts/entrance.gd" id="1_vdlsj"]
+[ext_resource type="AudioStream" uid="uid://jamo7djre1n6" path="res://Common/Sounds/391724__jpolito__jp_circuitbox_locked01.ogg" id="2_efwi5"]
 [ext_resource type="AudioStream" uid="uid://dt8k8pf5ja7tb" path="res://Common/Sounds/door_normal.ogg" id="2_opb37"]
 [ext_resource type="Texture2D" uid="uid://b7lyam12bpk1m" path="res://Common/Entrance/Sprites/buttonPromptKeyboard.png" id="4_dyyeq"]
 
@@ -20,6 +21,10 @@ script = ExtResource("1_vdlsj")
 
 [node name="Sounds" type="Node" parent="." unique_id=827711644]
 process_mode = 3
+
+[node name="Locked" type="AudioStreamPlayer" parent="Sounds" unique_id=1574154157]
+stream = ExtResource("2_efwi5")
+bus = &"Footsteps"
 
 [node name="DoorNormal" type="AudioStreamPlayer" parent="Sounds" unique_id=1153196875]
 stream = ExtResource("2_opb37")

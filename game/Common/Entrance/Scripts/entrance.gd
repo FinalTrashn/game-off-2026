@@ -4,6 +4,7 @@ extends StaticBody3D
 @export var fungus_man_x_pushback: float = 8
 @export var item_required: String
 @export var is_stairs: bool = false
+@export var always_locked = false
 
 @onready var player = %Player
 var player_overlay_player: AnimationPlayer
@@ -13,19 +14,21 @@ var player_overlay_player: AnimationPlayer
 @onready var fungus_man = $"../../../FungusManPath/FungunsManFollow/FungusMan"
 @onready var parent_room = $"../"
 
-# Called when the node enters the scene tree for the first time.
+var unlocked = false
+
 func _ready() -> void:
 	player_overlay_player = player.get_node("CanvasLayer/Overlays/Black/AnimationPlayer")
 	player_overlay_player.connect("animation_finished", _fade_animation_finished)
 	
-	#sanity check
 	if !exit:
 		push_error("Entrance in ",parent_room.name, " has no exit")
 	
 	if is_stairs:
-		#TODO actuall sounds
 		$Sprite.texture = load("res://Common/Entrance/Sprites/buttonPromptKeyboard.png")
 		$Sounds/DoorNormal.stream = load("res://Common/Sounds/thunder.ogg")
+	
+	if always_locked and rotation.y != 0.0:
+		$Sprite.modulate = Color.from_string("#ffffff47", Color.TRANSPARENT)
 
 func _fade_animation_finished(anim_name):
 	get_tree().paused = false
@@ -34,10 +37,18 @@ func _input(event: InputEvent) -> void:
 	if player.is_on_floor() \
 	and $PlayerCollider.is_colliding() \
 	and Input.is_action_just_pressed("use_door") \
-	and player.teleportation_allowed \
-	and (not item_required or player.get_node("Workers/InventoryManager").primary_item == item_required):
-		player.get_node("Timers/EntranceTimeout").doEntranceTimoutThing()
-		handle_use_door()
+	and player.teleportation_allowed:
+		if always_locked:
+			$Sounds/Locked.play()
+			return
+		
+		if not unlocked and (not item_required or player.get_node("Workers/InventoryManager").primary_item == item_required):
+			unlocked = true
+		if unlocked:
+			player.get_node("Timers/EntranceTimeout").doEntranceTimoutThing()
+			handle_use_door()
+		else:
+			$Sounds/Locked.play()
 
 func handle_use_door():
 	player_overlay_player.play("fade_out_in")
@@ -72,7 +83,6 @@ func move_fungus_man_if_in_range():
 		var can_go_left = abs(left_pos.x) >= min_x and abs(left_pos.x) <= max_x
 		
 		var chosen_pos = Vector3()
-		# coinflip which direction
 		if randi_range(0, 1) == 0:
 			chosen_pos = left_pos if can_go_left else right_pos
 		else:
@@ -80,9 +90,10 @@ func move_fungus_man_if_in_range():
 		
 		fungus_man._set_position(chosen_pos)
 
-
-#weil timing egal physics und ned normal process
 func _physics_process(delta: float) -> void:
+	if always_locked:
+		$ButtonPrompt.visible = false
+		return
 	if $PlayerCollider.is_colliding():
 		$ButtonPrompt.modulate = lerp($ButtonPrompt.modulate, Color.WHITE, 0.2)
 	else:

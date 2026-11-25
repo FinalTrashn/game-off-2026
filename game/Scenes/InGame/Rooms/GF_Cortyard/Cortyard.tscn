@@ -47,7 +47,7 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("2_0puvp")
 }],
-"times": PackedFloat32Array(0.06666667)
+"times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
 
@@ -125,6 +125,19 @@ autostart = true
 [node name="Lightnings" type="Node3D" parent="3dSounds" unique_id=418784761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9073486e-06, -1.9073486e-06)
 
+[node name="Lightning3" type="OmniLight3D" parent="3dSounds/Lightnings" unique_id=842916717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.818266, 7.304039, 1.9073484e-06)
+light_color = Color(0.53171283, 0.5317128, 0.53171283, 1)
+light_energy = 0.0
+omni_range = 24.474
+
+[node name="242048TurrusLightningStrike" type="AudioStreamPlayer3D" parent="3dSounds/Lightnings/Lightning3" unique_id=376122613]
+bus = &"Sounds"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="3dSounds/Lightnings/Lightning3" unique_id=230989307]
+root_node = NodePath("../../Lightning3")
+libraries/ = SubResource("AnimationLibrary_0puvp")
+
 [node name="Lightning" type="OmniLight3D" parent="3dSounds/Lightnings" unique_id=667907915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.386274, 7.3040404, 1.9073485e-06)
 light_color = Color(0.53171283, 0.5317128, 0.53171283, 1)
@@ -132,36 +145,22 @@ light_energy = 0.0
 omni_range = 24.474
 
 [node name="242048TurrusLightningStrike" type="AudioStreamPlayer3D" parent="3dSounds/Lightnings/Lightning" unique_id=2022213874]
+bus = &"Sounds"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="3dSounds/Lightnings/Lightning" unique_id=494797045]
 libraries/ = SubResource("AnimationLibrary_0puvp")
 
-[node name="Lightnings2" type="Node3D" parent="3dSounds" unique_id=1296100741]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -26.059172, -1.9073485e-06, -1.9073485e-06)
-
-[node name="Lightning" type="OmniLight3D" parent="3dSounds/Lightnings2" unique_id=773875888]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.386274, 7.3040404, 1.9073485e-06)
+[node name="Lightning2" type="OmniLight3D" parent="3dSounds/Lightnings" unique_id=773875888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67289734, 7.3040395, 1.9073484e-06)
 light_color = Color(0.53171283, 0.5317128, 0.53171283, 1)
 light_energy = 0.0
 omni_range = 24.474
 
-[node name="242048TurrusLightningStrike" type="AudioStreamPlayer3D" parent="3dSounds/Lightnings2/Lightning" unique_id=1213153996]
+[node name="242048TurrusLightningStrike" type="AudioStreamPlayer3D" parent="3dSounds/Lightnings/Lightning2" unique_id=1213153996]
+bus = &"Sounds"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="3dSounds/Lightnings2/Lightning" unique_id=722617318]
-libraries/ = SubResource("AnimationLibrary_0puvp")
-
-[node name="Lightnings3" type="Node3D" parent="3dSounds" unique_id=1483769913]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -48.20454, -1.9073484e-06, -1.9073484e-06)
-
-[node name="Lightning" type="OmniLight3D" parent="3dSounds/Lightnings3" unique_id=842916717]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.386274, 7.3040404, 1.9073485e-06)
-light_color = Color(0.53171283, 0.5317128, 0.53171283, 1)
-light_energy = 0.0
-omni_range = 24.474
-
-[node name="242048TurrusLightningStrike" type="AudioStreamPlayer3D" parent="3dSounds/Lightnings3/Lightning" unique_id=376122613]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="3dSounds/Lightnings3/Lightning" unique_id=230989307]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="3dSounds/Lightnings/Lightning2" unique_id=722617318]
+root_node = NodePath("../../Lightning2")
 libraries/ = SubResource("AnimationLibrary_0puvp")
 
 [node name="AmbientLightTop" type="OmniLight3D" parent="." unique_id=1825701664]

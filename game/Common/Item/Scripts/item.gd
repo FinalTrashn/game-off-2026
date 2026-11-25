@@ -5,7 +5,11 @@ var player = null
 func _ready() -> void:
 	update_gui()
 	print(" my name is ",name)
-	$Sprite3D.texture = ItemSource.get_item_sprite_from_name(name)
+	var sprite = ItemSource.get_item_sprite_from_name(name)
+	if sprite:
+		$Sprite3D.texture = sprite
+	else:
+		$Sprite3D.texture = load("res://Common/Item/Sprites/Types/test.png")
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
