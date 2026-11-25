@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="16_mg11r"]
 [ext_resource type="Script" uid="uid://lt52d1syn01x" path="res://Scenes/InGame/Main/room_controller.gd" id="16_ng53i"]
 [ext_resource type="PackedScene" uid="uid://b7q1ykxytxr4b" path="res://Scenes/InGame/Rooms/GF_Cortyard/Cortyard.tscn" id="18_ng53i"]
+[ext_resource type="PackedScene" uid="uid://pu46my4wldo5" path="res://Scenes/InGame/Rooms/1F_MainHall/1F_MainHall.tscn" id="23_iu00n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
 sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
@@ -250,8 +251,9 @@ exit = NodePath("../../Entrence Room/Entrance")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.312149, 1.4487033, -2.9609592)
 exit = NodePath("../../CR/Entrance Waiting Room")
 
-[node name="Up Stairs" parent="Rooms/Waiting Room" unique_id=572772506 instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.698326, 1.1894968, -2.6369257)
+[node name="Up Stairs" parent="Rooms/Waiting Room" unique_id=572772506 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.698326, 1.1894968, -2.614235)
+exit = NodePath("../../1 Floor Main Hall/Stairs Down")
 is_stairs = true
 
 [node name="Lab Entrance" parent="Rooms/Waiting Room" unique_id=142541953 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
@@ -348,6 +350,14 @@ exit = NodePath("../../Waiting Room/Lab Entrance")
 [node name="Surgory Entrance2" parent="Rooms/Lab" unique_id=1191275570 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.000137, 1.2466365, -0.57767004)
 exit = NodePath("../../Surgury/Lab Entrance")
+
+[node name="1 Floor Main Hall" parent="Rooms" unique_id=544678660 instance=ExtResource("23_iu00n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -285.46136, 0, 0)
+
+[node name="Stairs Down" parent="Rooms/1 Floor Main Hall" unique_id=1439339871 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.686005, 1.2312279, -0.5)
+exit = NodePath("../../Waiting Room/Up Stairs")
+is_stairs = true
 
 [node name="FungusManPath" type="Path3D" parent="." unique_id=757050642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.72407, 0.6626167, -2)

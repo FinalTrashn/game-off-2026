@@ -19,6 +19,10 @@ boot_splash/show_image=false
 boot_splash/image="uid://bd6pl6bhrbc6l"
 config/icon="uid://bd6pl6bhrbc6l"
 
+[audio]
+
+buses/default_bus_layout="uid://bpjhyo67ejxvh"
+
 [autoload]
 
 SceneLoader="*uid://ctg2ev3q50par"

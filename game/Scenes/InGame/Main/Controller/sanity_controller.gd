@@ -29,6 +29,12 @@ func reset_sanity():
 
 
 func _process(delta: float) -> void:
+	if %Player.insanity_disabled:
+		insanity_ratio = 0.0
+		#print("SANITY IS DISABLED")
+		return
+	#print(insanity_ratio)
+	
 	insanity_ratio += sanity_drain * delta
 	insanity_ratio = clampf(insanity_ratio, 0.0, 1.0)
 	insanity.emit(insanity_ratio)

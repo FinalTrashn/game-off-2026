@@ -48,6 +48,13 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var teleportation_allowed = true
 signal room_changed(String)
 
+var insanity_disabled = true
+signal insanity_changed(bool)
+
+func _set_insanity(b:bool):
+	print("playersanity DISABLED is now ",b)
+	insanity_disabled = b
+
 func _handle_room_change(room_name: String):
 	print("i am in ", room_name)
 	if room_name != "Cortyard":
@@ -58,8 +65,10 @@ func _handle_room_change(room_name: String):
 	match(room_name):
 		"Cortyard":
 			footstep_sound = $Sounds/footsteps_gatsch
+			insanity_changed.emit(true)
 		_:
 			footstep_sound = $Sounds/footsteps
+			insanity_changed.emit(false)
 
 func _ready() -> void:
 	if layer_controller:
@@ -71,6 +80,7 @@ func _ready() -> void:
 	$Sprite.frame_changed.connect(_on_sprite_frame_changed)
 	
 	room_changed.connect(_handle_room_change)
+	insanity_changed.connect(_set_insanity)
 
 func _pick_random_idle() -> void:
 	$Sprite.play(idle_animations.pick_random())

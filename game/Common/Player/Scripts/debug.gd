@@ -7,6 +7,7 @@ extends Control
 
 func _ready() -> void:
 	visible = false
+	$VBoxContainer/DisableSanity.button_pressed = player.insanity_disabled
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Debug"):
@@ -26,3 +27,7 @@ func _on_kill_fuingus_pressed() -> void:
 	var fm = get_tree().root.get_node("Main/FungusManPath")
 	print("fm found ", fm.name)
 	fm.queue_free()
+
+
+func _on_disable_sanity_pressed() -> void:
+	player.insanity_changed.emit(true)
