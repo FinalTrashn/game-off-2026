@@ -4,7 +4,6 @@ var player = null
 
 func _ready() -> void:
 	update_gui()
-	print(" my name is ",name)
 	var sprite = ItemSource.get_item_sprite_from_name(name)
 	if sprite:
 		$Sprite3D.texture = sprite

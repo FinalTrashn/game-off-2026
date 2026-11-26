@@ -46,7 +46,7 @@ _data = {
 &"hover": SubResource("Animation_o0jmn")
 }
 
-[node name="Item" type="Area3D" unique_id=1067764632]
+[node name="Item" type="Area3D" unique_id=1067764632 groups=["Item"]]
 collision_layer = 0
 collision_mask = 256
 script = ExtResource("1_els48")

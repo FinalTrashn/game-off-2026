@@ -32,11 +32,15 @@ func _drop_item(name:String):
 	new_item.set_item_name(name)
 	new_item.global_position.x = $"../..".global_position.x
 	
-	get_tree().root.get_node("Main/Items").add_child(new_item)
+	get_tree().current_scene.get_node("Items").add_child(new_item)
 	item_ui.update_items()
 
 func _swap_items():
 	var old_prim = primary_item
 	primary_item = secondary_item
 	secondary_item = old_prim
+	item_ui.update_items()
+
+func del_prim_item():
+	primary_item = ""
 	item_ui.update_items()

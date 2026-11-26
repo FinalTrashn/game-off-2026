@@ -17,7 +17,7 @@ func _ready() -> void:
 func _on_player_detector_body_entered(body: Node3D) -> void:
 	print(body.name)
 	if body.name == "Player":
-		if !disabled:
+		if !disabled or body.get_node("Workers/InventoryManager").primary_item == "Main Entrance Key":
 			print("OOOOHHH SHIIIIIIDD")
 			_player_in = true
 

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bmmiqvxp5ief7"]
+
+[ext_resource type="Script" uid="uid://egnhoi5uuf01" path="res://Scenes/InGame/Main/pile_of_wood.gd" id="1_tuowy"]
+[ext_resource type="Texture2D" uid="uid://5v456snr4kt6" path="res://Common/buttonPromptInteract.png" id="2_rroxs"]
+[ext_resource type="AudioStream" uid="uid://boof2i1t5ukt3" path="res://Common/Sounds/835881__matustrm__failed.ogg" id="3_ieavl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uaa7l"]
+radius = 2.8444483
+
+[sub_resource type="Animation" id="Animation_hp4ic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonPrompt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.628952, 1.7543498, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nj4lg"]
+resource_name = "shake"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonPrompt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.3969048, 0.4969048, 0.5969048),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.628952, 1.7543498, 0), Vector3(0.50009155, 1.7543498, 0), Vector3(0.628952, 1.7543498, 0), Vector3(0.50009155, 1.7543498, 0), Vector3(0.628952, 1.7543498, 0), Vector3(0.50009155, 1.7543498, 0), Vector3(0.628952, 1.7543498, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/835881MatustrmFailed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_ieavl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qtnim"]
+_data = {
+&"RESET": SubResource("Animation_hp4ic"),
+&"shake": SubResource("Animation_nj4lg")
+}
+
+[node name="ItemInteractable" type="StaticBody3D" unique_id=486290073]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_tuowy")
+
+[node name="ButtonPrompt" type="Sprite3D" parent="." unique_id=703847484]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0.628952, 1.7543498, 0)
+texture = ExtResource("2_rroxs")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=319289886]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1992665585]
+shape = SubResource("SphereShape3D_uaa7l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1242099550]
+libraries/ = SubResource("AnimationLibrary_qtnim")
+
+[node name="use" type="AudioStreamPlayer" parent="AnimationPlayer" unique_id=1572341864]
+bus = &"Sounds"
+
+[node name="835881MatustrmFailed" type="AudioStreamPlayer" parent="AnimationPlayer" unique_id=386406654]
+bus = &"Sounds"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

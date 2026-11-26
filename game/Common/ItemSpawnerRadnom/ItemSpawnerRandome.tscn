@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ddottssqf260g"]
+
+[ext_resource type="Script" uid="uid://drg56efalbhww" path="res://Common/ItemSpawnerRadnom/item_spawner_randome.gd" id="1_y713r"]
+
+[node name="ItemSpawnerRandom" type="Node3D" unique_id=812432768 groups=["ItemSpawnerRandom"]]
+script = ExtResource("1_y713r")

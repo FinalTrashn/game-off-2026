@@ -31,3 +31,12 @@ func _on_kill_fuingus_pressed() -> void:
 
 func _on_disable_sanity_pressed() -> void:
 	player.insanity_changed.emit(true)
+
+
+func _on_open_secret_ball_pressed() -> void:
+	$"../../../../Rooms/Ball Room/hiddenroom"._openme()
+
+
+func _on_button_pressed_give() -> void:
+	%InventoryManager.hold_item_prim($VBoxContainer/g/give.text)
+	$"../../Ui/Items".update_items()

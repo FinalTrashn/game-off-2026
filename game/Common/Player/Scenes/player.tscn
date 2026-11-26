@@ -737,6 +737,23 @@ text = "Kill fungus"
 layout_mode = 2
 text = "Disable Insanity"
 
+[node name="OpenSecretBall" type="Button" parent="CanvasLayer/Overlays/Debug/VBoxContainer" unique_id=1979310539]
+layout_mode = 2
+text = "OpenSecretBall
+"
+
+[node name="g" type="HBoxContainer" parent="CanvasLayer/Overlays/Debug/VBoxContainer" unique_id=626959318]
+layout_mode = 2
+
+[node name="give" type="LineEdit" parent="CanvasLayer/Overlays/Debug/VBoxContainer/g" unique_id=1258509095]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "give"
+
+[node name="Button" type="Button" parent="CanvasLayer/Overlays/Debug/VBoxContainer/g" unique_id=1738367188]
+layout_mode = 2
+text = "G"
+
 [node name="WallCollider" type="ShapeCast3D" parent="." unique_id=837483549]
 transform = Transform3D(1.73, 0, 0, 0, 0.165, 0, 0, 0, 6.235, 0.09130931, 0, 0)
 shape = SubResource("BoxShape3D_fl6ly")
@@ -747,3 +764,5 @@ collision_mask = 2
 [connection signal="toggled" from="CanvasLayer/Overlays/Debug/VBoxContainer/Fast" to="CanvasLayer/Overlays/Debug" method="_on_fast_toggled"]
 [connection signal="pressed" from="CanvasLayer/Overlays/Debug/VBoxContainer/killFuingus" to="CanvasLayer/Overlays/Debug" method="_on_kill_fuingus_pressed"]
 [connection signal="pressed" from="CanvasLayer/Overlays/Debug/VBoxContainer/DisableSanity" to="CanvasLayer/Overlays/Debug" method="_on_disable_sanity_pressed"]
+[connection signal="pressed" from="CanvasLayer/Overlays/Debug/VBoxContainer/OpenSecretBall" to="CanvasLayer/Overlays/Debug" method="_on_open_secret_ball_pressed"]
+[connection signal="pressed" from="CanvasLayer/Overlays/Debug/VBoxContainer/g/Button" to="CanvasLayer/Overlays/Debug" method="_on_button_pressed_give"]

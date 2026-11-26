@@ -21,13 +21,13 @@ size = Vector3(0.07090759, 7.8237305, 3.6716309)
 [node name="Pantry" type="Node3D" unique_id=848268648]
 
 [node name="AmbientLightTop" type="AreaLight3D" parent="." unique_id=319551526]
-transform = Transform3D(1, 0, 0, 0, -0.30458832, 0.95248413, 0, -0.95248413, -0.30458832, 4.7997904, 4.842346, 1.860204)
+transform = Transform3D(1, 0, 0, 0, -0.30458832, 0.95248413, 0, -0.95248413, -0.30458832, 26.025558, 4.842346, 1.860204)
 layers = 3
 light_energy = 1.6
 light_cull_mask = 4294966275
 shadow_enabled = true
 shadow_caster_mask = 4294966275
-area_size = Vector2(50.348717, 0.43663782)
+area_size = Vector2(3.4936523, 0.41581106)
 
 [node name="ForegroundLayer" type="Node3D" parent="." unique_id=313849714]
 

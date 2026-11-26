@@ -19,30 +19,36 @@
 [ext_resource type="PackedScene" uid="uid://c1qlle7xh384a" path="res://Scenes/InGame/Rooms/GF_Lab/Lab.tscn" id="10_1aapj"]
 [ext_resource type="PackedScene" uid="uid://345eshkt5dbw" path="res://Scenes/InGame/Rooms/GF_Kitchen/Kitchen.tscn" id="11_5ac6x"]
 [ext_resource type="PackedScene" uid="uid://bc7phsvxt5jho" path="res://Scenes/InGame/Rooms/1F_MasterBedroom/MasterBedroom.tscn" id="11_fkcb3"]
-[ext_resource type="Script" uid="uid://egnhoi5uuf01" path="res://Scenes/InGame/Main/pile_of_wood.gd" id="11_rd06x"]
-[ext_resource type="Texture2D" uid="uid://5v456snr4kt6" path="res://Common/buttonPromptInteract.png" id="12_h7gso"]
-[ext_resource type="AudioStream" uid="uid://boof2i1t5ukt3" path="res://Common/Sounds/835881__matustrm__failed.ogg" id="12_hp4ic"]
 [ext_resource type="PackedScene" uid="uid://co11gsrcf71g4" path="res://Scenes/InGame/Rooms/GF_Pantry/Pantry.tscn" id="12_s0738"]
+[ext_resource type="PackedScene" uid="uid://bmmiqvxp5ief7" path="res://Common/ItemInteractable/ItemInteractable.tscn" id="14_62y87"]
 [ext_resource type="AudioStream" uid="uid://dst6t7xlxf6w4" path="res://Common/Sounds/703420__hadescolossus__chopping-logs-with-an-axe.ogg" id="14_nj4lg"]
 [ext_resource type="PackedScene" uid="uid://c1t01g1smawnb" path="res://Scenes/InGame/Rooms/GF_Surgury/Surgury.tscn" id="14_vvmuv"]
 [ext_resource type="Script" uid="uid://pinrfc45r5d2" path="res://Scenes/InGame/Main/Controller/sanity_controller.gd" id="16_8kos1"]
+[ext_resource type="AudioStream" uid="uid://db6a1e4cryry2" path="res://Common/Sounds/585257__lesaucisson__swoosh-1.ogg" id="16_8swjn"]
 [ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="16_mg11r"]
 [ext_resource type="Script" uid="uid://lt52d1syn01x" path="res://Scenes/InGame/Main/room_controller.gd" id="16_ng53i"]
 [ext_resource type="PackedScene" uid="uid://b7q1ykxytxr4b" path="res://Scenes/InGame/Rooms/GF_Cortyard/Cortyard.tscn" id="18_ng53i"]
 [ext_resource type="PackedScene" uid="uid://pu46my4wldo5" path="res://Scenes/InGame/Rooms/1F_MainHall/1F_MainHall.tscn" id="23_iu00n"]
 [ext_resource type="PackedScene" uid="uid://dddmh8540lkhw" path="res://Scenes/InGame/Rooms/1F_Dresser/Dresser.tscn" id="24_vea1n"]
 [ext_resource type="PackedScene" uid="uid://df3fbyj0eaqky" path="res://Scenes/InGame/Rooms/1F_MasterBath/MasterBath.tscn" id="25_ituyg"]
+[ext_resource type="PackedScene" uid="uid://ddottssqf260g" path="res://Common/ItemSpawnerRadnom/ItemSpawnerRandome.tscn" id="27_jrpwp"]
 [ext_resource type="PackedScene" uid="uid://8mu6j04rlda7" path="res://Scenes/InGame/Rooms/1F_GuestBedroom/GuestBedroom.tscn" id="27_kmroj"]
 [ext_resource type="PackedScene" uid="uid://c6et2nlbjgatp" path="res://Scenes/InGame/Rooms/1F_GuestBathroom/GuestBathroom.tscn" id="28_ggvdr"]
 [ext_resource type="PackedScene" uid="uid://uar8b8j6qr2" path="res://Scenes/InGame/Rooms/1F_MusicRoom/MusicRoom.tscn" id="29_wjnoh"]
+[ext_resource type="Script" uid="uid://2cnjd8sp38lv" path="res://Scenes/InGame/Main/hiddenroom.gd" id="30_hjtbq"]
 [ext_resource type="PackedScene" uid="uid://dak6imhj0qbxm" path="res://Scenes/InGame/Rooms/1F_BallRoom/BallRoom.tscn" id="30_vm5d8"]
 [ext_resource type="PackedScene" uid="uid://ilj8jmgxmq58" path="res://Scenes/InGame/Rooms/CL_MainRoom/MainRoom.tscn" id="31_ggccx"]
 [ext_resource type="PackedScene" uid="uid://bewgfcr2qf1fu" path="res://Scenes/InGame/Rooms/1F_Library/Library.tscn" id="31_phtcn"]
+[ext_resource type="Script" uid="uid://o6pfrpo3hqht" path="res://Scenes/InGame/Rooms/1F_BallRoom/ball_room.gd" id="31_yrjik"]
 [ext_resource type="PackedScene" uid="uid://ds5vodqk008he" path="res://Scenes/InGame/Rooms/CL_Wine/Wine.tscn" id="32_4l75k"]
+[ext_resource type="AudioStream" uid="uid://devutpy54dat4" path="res://Common/Sounds/578491__postproddog__heavy-stone-door-opens-2.ogg" id="32_62y87"]
 [ext_resource type="PackedScene" uid="uid://diaju6ff6yrro" path="res://Scenes/InGame/Rooms/CL_Bioler/Boiler.tscn" id="32_l2y4i"]
 [ext_resource type="PackedScene" uid="uid://do4nw4t1ge41p" path="res://Scenes/InGame/Rooms/CL_Coal/Coal.tscn" id="33_1wg2q"]
+[ext_resource type="PackedScene" uid="uid://cg68jynbc4pkj" path="res://Common/Pedastol/pedastol.tscn" id="33_iycym"]
 [ext_resource type="PackedScene" uid="uid://ca0vl7aultlc0" path="res://Scenes/InGame/Rooms/CL_Backrooms/Backrooms.tscn" id="35_hjtbq"]
 [ext_resource type="PackedScene" uid="uid://bm7to0ayewfbw" path="res://Scenes/InGame/Rooms/CL_Storage/Storage Room.tscn" id="37_8swjn"]
+[ext_resource type="PackedScene" uid="uid://nuomxlpkxtlg" path="res://Scenes/InGame/Rooms/END_Hall/EndHall.tscn" id="40_nfoxi"]
+[ext_resource type="Script" uid="uid://bn4m2fdxbiewe" path="res://Scenes/InGame/Main/random_item_spawner.gd" id="49_j6idr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
 sky_top_color = Color(0.0050497325, 0.0125051215, 0.077750765, 1)
@@ -89,65 +95,134 @@ _surfaces = [{
 "vertex_data": PackedByteArray(0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 64, 64, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 64, 64, 0, 0, 0, 0)
 }]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uaa7l"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_62y87"]
 size = Vector3(1, 2.8842773, 2.7295532)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_uaa7l"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nfoxi"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_uaa7l"]
-radius = 2.0648189
+[sub_resource type="BoxShape3D" id="BoxShape3D_ej4cl"]
+size = Vector3(2.4105167, 3.375, 1.5150146)
 
-[sub_resource type="Animation" id="Animation_hp4ic"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4l75k"]
+size = Vector3(0.07090759, 7.8237305, 4.157959)
+
+[sub_resource type="Animation" id="Animation_8swjn"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ButtonPrompt:position")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.628952, 1.7543498, 0)]
+"update": 1,
+"values": [true]
 }
-
-[sub_resource type="Animation" id="Animation_nj4lg"]
-resource_name = "shake"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ButtonPrompt:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.3969048, 0.4969048, 0.5969048),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.628952, 1.7543498, 0), Vector3(0.50009155, 1.7543498, 0), Vector3(0.628952, 1.7543498, 0), Vector3(0.50009155, 1.7543498, 0), Vector3(0.628952, 1.7543498, 0), Vector3(0.50009155, 1.7543498, 0), Vector3(0.628952, 1.7543498, 0)]
-}
-tracks/1/type = "audio"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/835881MatustrmFailed")
+tracks/1/path = NodePath("CollisionShape3D3:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("12_hp4ic")
-}],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
-tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.44580078, 3.4046779, -1.2736368)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("578491PostproddogHeavyStoneDoorOpens2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/3/use_blend = true
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qtnim"]
-_data = {
-&"RESET": SubResource("Animation_hp4ic"),
-&"shake": SubResource("Animation_nj4lg")
+[sub_resource type="Animation" id="Animation_hjtbq"]
+resource_name = "do"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 13.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D3:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(6.9666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 13.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.44580078, 3.4046779, -1.2736368), Vector3(-0.44580078, 3.4046779, -5.3095717)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("578491PostproddogHeavyStoneDoorOpens2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.48000005,
+"start_offset": 0.0,
+"stream": ExtResource("32_62y87")
+}],
+"times": PackedFloat32Array(0.03333336)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8swjn"]
+_data = {
+&"RESET": SubResource("Animation_8swjn"),
+&"do": SubResource("Animation_hjtbq")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62y87"]
+albedo_texture = ExtResource("16_mg11r")
+
+[sub_resource type="QuadMesh" id="QuadMesh_uaa7l"]
+material = SubResource("StandardMaterial3D_62y87")
+size = Vector2(4.51, 6.985)
 
 [sub_resource type="Curve3D" id="Curve3D_7mt2c"]
 _data = {
@@ -212,10 +287,20 @@ shadow_caster_mask = 4294966275
 area_size = Vector2(247.79356, 0.43663782)
 
 [node name="Items" type="Node3D" parent="." unique_id=469260023]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -0.5)
 
+[node name="Leaver" parent="Items" unique_id=623837714 instance=ExtResource("8_4gcju")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 295.05182, 0.20924234, 0.49999997)
+
+[node name="Library Key" parent="Items" unique_id=340849504 instance=ExtResource("8_4gcju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.439, 0, 0)
+
 [node name="Fire Axt" parent="Items" unique_id=1067764632 instance=ExtResource("8_4gcju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.87862, 0.026367188, 0.16718197)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 55.939613, 0.026367184, 0.16718197)
+
+[node name="Main Entrance Key" parent="Items" unique_id=1262019678 instance=ExtResource("8_4gcju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -339.469, 0, 0)
 
 [node name="SpecialRooms" type="Node3D" parent="." unique_id=1124294359]
 
@@ -254,7 +339,7 @@ exit = NodePath("../../Waiting Room/Dining Entrance")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.77108, 0, 0)
 
 [node name="Down Stairs" parent="Rooms/Waiting Room" unique_id=1054853913 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.632088, 1.1911931, -2.824713)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.947044, 1.1911931, -2.824713)
 exit = NodePath("../../CLMainRoom/Up Stairs")
 is_stairs = true
 
@@ -279,45 +364,38 @@ exit = NodePath("../../Lab/Waiting Room Entrance")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.325943, 1.4487033, -2.9609592)
 exit = NodePath("../../Dinging/Waiting Room Entrance")
 
-[node name="PileOfWood" type="StaticBody3D" parent="Rooms/Waiting Room" unique_id=2119388630]
+[node name="PileOfWood" parent="Rooms/Waiting Room" unique_id=486290073 instance=ExtResource("14_62y87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.68505, 0, -2.0415173)
-collision_mask = 0
-script = ExtResource("11_rd06x")
+item_needed = "Fire Axt"
+use_sound = ExtResource("14_nj4lg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=276703896]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=1516011751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9421387, -0.12246704)
-shape = SubResource("BoxShape3D_uaa7l")
+shape = SubResource("BoxShape3D_62y87")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=973547896]
-mesh = SubResource("CapsuleMesh_uaa7l")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=1835124299]
+mesh = SubResource("CapsuleMesh_nfoxi")
 
-[node name="ButtonPrompt" type="Sprite3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=1655479440]
-transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0.628952, 1.7543498, 0)
-texture = ExtResource("12_h7gso")
+[node name="BigCobweb" parent="Rooms/Waiting Room" unique_id=1033953847 instance=ExtResource("14_62y87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.537895, 0, -2.2057347)
+item_needed = "Knive"
+use_sound = ExtResource("16_8swjn")
 
-[node name="Area3D" type="Area3D" parent="Rooms/Waiting Room/PileOfWood" unique_id=466856731]
-collision_layer = 0
-collision_mask = 4
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Waiting Room/BigCobweb" unique_id=2104846597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31684113, 1.1875, 0.25750732)
+shape = SubResource("BoxShape3D_ej4cl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Waiting Room/PileOfWood/Area3D" unique_id=2025147062]
-shape = SubResource("SphereShape3D_uaa7l")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Waiting Room/PileOfWood" unique_id=1026416263]
-libraries/ = SubResource("AnimationLibrary_qtnim")
-
-[node name="703420HadescolossusChoppingLogsWithAnAxe" type="AudioStreamPlayer" parent="Rooms/Waiting Room/PileOfWood/AnimationPlayer" unique_id=1273258314]
-stream = ExtResource("14_nj4lg")
-bus = &"Sounds"
-
-[node name="835881MatustrmFailed" type="AudioStreamPlayer" parent="Rooms/Waiting Room/PileOfWood/AnimationPlayer" unique_id=2054269556]
-bus = &"Sounds"
+[node name="Sprite3D" type="Sprite3D" parent="Rooms/Waiting Room/BigCobweb" unique_id=414601527]
+transform = Transform3D(2.617071, 1.041193, -0.49590367, -0.3379504, 2.7713807, 0.43746942, 1.9272017, -0.92791873, 0.75013345, 0.4069214, 1.3650464, -0.10636544)
+shaded = true
+texture = ExtResource("16_mg11r")
 
 [node name="Entrence Room" parent="Rooms" unique_id=494643628 instance=ExtResource("6_70f0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.574226, 0, 0)
 
 [node name="MainEntrance" parent="Rooms/Entrence Room" unique_id=1130818194 node_paths=PackedStringArray("exit") instance=ExtResource("4_unmd2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.8476143, 0.89401054, 0.5270748)
-exit = NodePath("../../../SpecialRooms/Cortyard/MainEntrance")
+exit = NodePath("../../?/Entrance")
 
 [node name="Entrance" parent="Rooms/Entrence Room" unique_id=1683013020 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.757, 1.129, -0.9)
@@ -325,6 +403,9 @@ exit = NodePath("../../Waiting Room/EntryRoom Entrance")
 
 [node name="Kitchen" parent="Rooms" unique_id=539365797 instance=ExtResource("11_5ac6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.7175, 0, 0)
+
+[node name="ItemSpawnerRandom" parent="Rooms/Kitchen" unique_id=812432768 instance=ExtResource("27_jrpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0539246, 0.7154653, -1.2025602)
 
 [node name="Dining Entrance" parent="Rooms/Kitchen" unique_id=344677237 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.02388, 1.1938503, -2.6903372)
@@ -336,6 +417,9 @@ exit = NodePath("../../Pantry/Kitchen Entrance")
 
 [node name="CR" parent="Rooms" unique_id=425210454 instance=ExtResource("6_70f0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3395195, 0, 0)
+
+[node name="ItemSpawnerRandom" parent="Rooms/CR" unique_id=2060917036 instance=ExtResource("27_jrpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.323109, 1.129, -0.13319564)
 
 [node name="Entrance Waiting Room" parent="Rooms/CR" unique_id=1590336971 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8223705, 1.129, -0.13319564)
@@ -357,6 +441,9 @@ exit = NodePath("../../Kitchen/Pant Entrance")
 
 [node name="Lab" parent="Rooms" unique_id=1209847780 instance=ExtResource("10_1aapj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.15051, 0, 0)
+
+[node name="ItemSpawnerRandom" parent="Rooms/Lab" unique_id=1549897336 instance=ExtResource("27_jrpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.680679, 0.11914253, -2.0431142)
 
 [node name="Waiting Room Entrance" parent="Rooms/Lab" unique_id=334820837 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.381027, 1.2466365, -0.57767004)
@@ -408,6 +495,9 @@ exit = NodePath("../../1 Floor Main Hall/Dresser Entrance")
 [node name="Master Bedroom" parent="Rooms" unique_id=1179039185 instance=ExtResource("11_fkcb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 242.9016, 0, 0)
 
+[node name="ItemSpawnerRandom" parent="Rooms/Master Bedroom" unique_id=1787007968 instance=ExtResource("27_jrpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3188934, 0.007598877, -0.817894)
+
 [node name="1FMH Entrance" parent="Rooms/Master Bedroom" unique_id=2122127609 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.687881, 1.1105239, -0.8506116)
 exit = NodePath("../../1 Floor Main Hall/MBe Entrance")
@@ -415,12 +505,18 @@ exit = NodePath("../../1 Floor Main Hall/MBe Entrance")
 [node name="Master Bathroom" parent="Rooms" unique_id=817039326 instance=ExtResource("25_ituyg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.57562, 0, 0)
 
+[node name="ItemSpawnerRandom" parent="Rooms/Master Bathroom" unique_id=959119748 instance=ExtResource("27_jrpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.775421, 0, 0)
+
 [node name="1FMH Entrance" parent="Rooms/Master Bathroom" unique_id=869544371 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4530487, 1.0046661, -0.78719604)
 exit = NodePath("../../1 Floor Main Hall/MBa Entrance")
 
 [node name="Guest Bedroom" parent="Rooms" unique_id=1021096972 instance=ExtResource("27_kmroj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -320.15955, 0, 0)
+
+[node name="ItemSpawnerRandom" parent="Rooms/Guest Bedroom" unique_id=486506031 instance=ExtResource("27_jrpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6571655, 0.8507986, 0)
 
 [node name="GBaEntrance" parent="Rooms/Guest Bedroom" unique_id=1189035240 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.016846, 0.96184087, -1.0775517)
@@ -433,9 +529,15 @@ exit = NodePath("../../1 Floor Main Hall/GBe Entrance")
 [node name="Guest Bathroom" parent="Rooms" unique_id=1420294968 instance=ExtResource("28_ggvdr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.12653, 0, 0)
 
+[node name="ItemSpawnerRandom" parent="Rooms/Guest Bathroom" unique_id=1988124576 instance=ExtResource("27_jrpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.363678, 0, 0)
+
 [node name="GBeEntrance" parent="Rooms/Guest Bathroom" unique_id=754196185 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023376465, 1.1063983, -0.8139129)
 exit = NodePath("../../Guest Bedroom/GBaEntrance")
+
+[node name="ItemSpawnerRandom2" parent="Rooms/Guest Bathroom" unique_id=1933326494 instance=ExtResource("27_jrpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0344238, 0.168509, 0)
 
 [node name="Music Room" parent="Rooms" unique_id=1078204619 instance=ExtResource("29_wjnoh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 298.91574, 0, 0)
@@ -446,9 +548,7 @@ exit = NodePath("../../1 Floor Main Hall/Music Entrance")
 
 [node name="Ball Room" parent="Rooms" unique_id=200863175 instance=ExtResource("30_vm5d8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -353.83597, 0, 0)
-
-[node name="Library Key" parent="Rooms/Ball Room" unique_id=340849504 instance=ExtResource("8_4gcju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1034546, 0.1191411, 0.2895546)
+script = ExtResource("31_yrjik")
 
 [node name="Library Entrance" parent="Rooms/Ball Room" unique_id=326138549 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.542267, 1.0216475, -2.4949522)
@@ -458,6 +558,37 @@ item_required = "Library Key"
 [node name="1FMH Entrance" parent="Rooms/Ball Room" unique_id=1047133612 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.61676, 1.0633671, -2.6418014)
 exit = NodePath("../../1 Floor Main Hall/Ball Entrance")
+
+[node name="hiddenroom" type="StaticBody3D" parent="Rooms/Ball Room" unique_id=500971198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.525635, 0, 0)
+script = ExtResource("30_hjtbq")
+
+[node name="578491PostproddogHeavyStoneDoorOpens2" type="AudioStreamPlayer3D" parent="Rooms/Ball Room/hiddenroom" unique_id=722939561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9791565, 2.0229046, -0.6939535)
+volume_db = 80.0
+bus = &"Sounds"
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Rooms/Ball Room/hiddenroom" unique_id=1408371042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38961792, 3.4118652, -1.0455347)
+shape = SubResource("BoxShape3D_4l75k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/Ball Room/hiddenroom" unique_id=1244351323]
+libraries/ = SubResource("AnimationLibrary_8swjn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rooms/Ball Room/hiddenroom" unique_id=498375721]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.44580078, 3.4046779, -1.2736368)
+mesh = SubResource("QuadMesh_uaa7l")
+
+[node name="Pedastol" parent="Rooms/Ball Room" unique_id=1787269619 instance=ExtResource("33_iycym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.757629, 0, 0)
+_holding_item = "Thick Wine"
+
+[node name="Pedastol2" parent="Rooms/Ball Room" unique_id=1380914181 instance=ExtResource("33_iycym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8341675, 0, 0)
+_holding_item = "Concave Wine"
+
+[node name="Pedastol3" parent="Rooms/Ball Room" unique_id=1061108039 instance=ExtResource("33_iycym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.701233, 0, 0)
 
 [node name="CLMainRoom" parent="Rooms" unique_id=1876950609 instance=ExtResource("31_ggccx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -394.39792, 0, 0)
@@ -494,6 +625,10 @@ always_locked = true
 
 [node name="Boiler Room" parent="Rooms" unique_id=852579675 instance=ExtResource("32_l2y4i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 346.16373, 0, 0)
+
+[node name="ItemSpawnerRandom" parent="Rooms/Boiler Room" unique_id=1279500993 instance=ExtResource("27_jrpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7134705, 0.45012617, 0)
+blocked_items = Array[String](["Knive"])
 
 [node name="CLMR Entrance" parent="Rooms/Boiler Room" unique_id=1837885771 node_paths=PackedStringArray("exit") instance=ExtResource("5_kyxfq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0881958, 1.121028, -0.700037)
@@ -541,6 +676,13 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.1
 exit = NodePath("../../CLMainRoom/StorageRoom Entrance")
 always_locked = true
 
+[node name="?" parent="Rooms" unique_id=153844958 instance=ExtResource("40_nfoxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 451.81604, 0, 0)
+
+[node name="Entrance" parent="Rooms/?" unique_id=706741199 instance=ExtResource("5_kyxfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.503387, 0.98833394, -0.7109487)
+always_locked = true
+
 [node name="FungusManPath" type="Path3D" parent="." unique_id=757050642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.72407, 0.6626167, -2)
 curve = SubResource("Curve3D_7mt2c")
@@ -565,6 +707,9 @@ script = ExtResource("16_8kos1")
 [node name="RoomController" type="Node" parent="Controller" unique_id=2065030297]
 unique_name_in_owner = true
 script = ExtResource("16_ng53i")
+
+[node name="RandomItemSpawner" type="Node" parent="Controller" unique_id=1598963348]
+script = ExtResource("49_j6idr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2042959778]
 
@@ -592,6 +737,4 @@ grow_vertical = 0
 mouse_filter = 0
 texture = ExtResource("16_mg11r")
 
-[connection signal="body_entered" from="Rooms/Waiting Room/PileOfWood/Area3D" to="Rooms/Waiting Room/PileOfWood" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Rooms/Waiting Room/PileOfWood/Area3D" to="Rooms/Waiting Room/PileOfWood" method="_on_area_3d_body_exited"]
 [connection signal="gui_input" from="CanvasLayer/SanityFill" to="Controller/SanityController" method="_on_sanity_fill_gui_input"]

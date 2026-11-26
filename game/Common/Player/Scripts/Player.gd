@@ -234,6 +234,14 @@ func _process(delta: float) -> void:
 	
 	move_and_slide()
 
+func set_prim_item(nam:String):
+	%InventoryManager.hold_item_prim(nam)
+
+func get_prim_item()->String:
+	return %InventoryManager.primary_item
+
+func del_prim_item():
+	%InventoryManager.del_prim_item()
 
 func _physics_process(delta: float) -> void:
 	# check collision with wall

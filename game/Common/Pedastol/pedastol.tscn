@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cg68jynbc4pkj"]
+
+[ext_resource type="Texture2D" uid="uid://c3r3a31msot16" path="res://icon.svg" id="1_q8l3c"]
+[ext_resource type="Script" uid="uid://bvamnj0f32ryv" path="res://Common/Pedastol/pedastol.gd" id="1_ukl1a"]
+[ext_resource type="Texture2D" uid="uid://5v456snr4kt6" path="res://Common/buttonPromptInteract.png" id="3_tbdc7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uaa7l"]
+radius = 1.8803741
+
+[node name="Pedastol" type="Area3D" unique_id=1510881576]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_ukl1a")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=81230432]
+transform = Transform3D(1, 0, 0, 0, 1.5628432, 0, 0, 0, 1, 0, 0.91903186, 0)
+shaded = true
+texture = ExtResource("1_q8l3c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=265945344]
+shape = SubResource("SphereShape3D_uaa7l")
+
+[node name="ButtonPrompt" type="Sprite3D" parent="." unique_id=1651453194]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 1.437511, 2.6266847, -0.38370144)
+texture = ExtResource("3_tbdc7")
+
+[node name="Item" type="Sprite3D" parent="." unique_id=152754083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4162447, 0)
+shaded = true
+texture = ExtResource("1_q8l3c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
