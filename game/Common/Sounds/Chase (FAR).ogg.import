@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpthpyye1pnum"
+path="res://.godot/imported/Chase (FAR).ogg-a21b487ee4213ffc57a6247a1aec8aa8.oggvorbisstr"
+
+[deps]
+
+source_file="res://Common/Sounds/Chase (FAR).ogg"
+dest_files=["res://.godot/imported/Chase (FAR).ogg-a21b487ee4213ffc57a6247a1aec8aa8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

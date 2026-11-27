@@ -48,6 +48,9 @@
 [ext_resource type="PackedScene" uid="uid://ca0vl7aultlc0" path="res://Scenes/InGame/Rooms/CL_Backrooms/Backrooms.tscn" id="35_hjtbq"]
 [ext_resource type="PackedScene" uid="uid://bm7to0ayewfbw" path="res://Scenes/InGame/Rooms/CL_Storage/Storage Room.tscn" id="37_8swjn"]
 [ext_resource type="PackedScene" uid="uid://nuomxlpkxtlg" path="res://Scenes/InGame/Rooms/END_Hall/EndHall.tscn" id="40_nfoxi"]
+[ext_resource type="AudioStream" uid="uid://bpthpyye1pnum" path="res://Common/Sounds/Chase (FAR).ogg" id="45_as8dp"]
+[ext_resource type="AudioStream" uid="uid://crpdi541bfukx" path="res://Common/Sounds/Chase (NEAR).ogg" id="46_aaeh5"]
+[ext_resource type="AudioStream" uid="uid://d0w3b27cyi8o1" path="res://Common/Sounds/Chase (CLOSE).ogg" id="47_sovg4"]
 [ext_resource type="Script" uid="uid://bn4m2fdxbiewe" path="res://Scenes/InGame/Main/random_item_spawner.gd" id="49_j6idr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f0n"]
@@ -689,6 +692,24 @@ curve = SubResource("Curve3D_7mt2c")
 
 [node name="FungunsManFollow" parent="FungusManPath" unique_id=1735489169 instance=ExtResource("7_82pi1")]
 transform = Transform3D(1, 0, 0, 0, 0.99999505, 0, 0, 0, 0.99999505, 0, 1.523, 0)
+
+[node name="Far" type="AudioStreamPlayer" parent="FungusManPath" unique_id=285771330]
+stream = ExtResource("45_as8dp")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="Near" type="AudioStreamPlayer" parent="FungusManPath" unique_id=1957769052]
+stream = ExtResource("46_aaeh5")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="Close" type="AudioStreamPlayer" parent="FungusManPath" unique_id=1402111770]
+stream = ExtResource("47_sovg4")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [node name="Controller" type="Node" parent="." unique_id=1408514781]
 

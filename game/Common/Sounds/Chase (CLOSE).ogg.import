@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0w3b27cyi8o1"
+path="res://.godot/imported/Chase (CLOSE).ogg-6b1f0be5ab7a8de1dc762f1dd5a4e89c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Common/Sounds/Chase (CLOSE).ogg"
+dest_files=["res://.godot/imported/Chase (CLOSE).ogg-6b1f0be5ab7a8de1dc762f1dd5a4e89c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
